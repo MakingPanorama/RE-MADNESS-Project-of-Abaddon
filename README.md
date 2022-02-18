@@ -5,6 +5,7 @@ A public source of RE-MADNESS Project of Abaddon
 
 ### You may not use it for commercial or negative purposes!
 ### The materials may be used for educational purposes and not for the purpose of plagiarism or for the purpose of changing the source of the material and publishing it to the ### public.
+### DO NOT AUTHORIZE OR CHANGE THE AUTHOR'S NAME
 
 # © DDSuper All rights reserved.
 
@@ -12,5 +13,6 @@ A public source of RE-MADNESS Project of Abaddon
 
 ### Проект не может быть использован в коммерческих или негативных целях!
 ### Материалы проекта могу быть использованы только в научных целях, но ни в коем случае плагиат или изменение исходного материала с последующей публикацей на публику.
+### НЕ ПРИСВАИВАТЬ АВТОРСТВО ИЛИ МЕНЯТЬ ИМЯ АВТОРА
 
 # © DDSuper Все права защищены.
