@@ -3,47 +3,49 @@
 {
 	"Version"		"1"
 
-	//=================================================================================================================
-	// Templar Assassin: Refraction Holdout
-	//=================================================================================================================
-	"templar_assassin_refraction_holdout"
-	{
-		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
-		"AbilityUnitDamageType"			"DAMAGE_TYPE_PHYSICAL"	
+	"magic_slayer_manabreak"
+    {
+	   // General
+	   "BaseClass"				                     "ability_lua"
+	   "ScriptFile"									 "abilities/heroes/mana_slayer/magic_slayer_manabreak.lua"
+	   "AbilityTextureName"			                 "custom/Mana Breaker"
+	   "AbilityBehavior"			                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+       "AbilityUnitTargetTeam"			             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+	   "AbilityUnitTargetType"			             "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+	   "AbilityUnitTargetFlags"		                 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+	   "AbilityUnitDamageType"		                 "DAMAGE_TYPE_PHYSICAL"
+	   "SpellImmunityType"			                 "SPELL_IMMUNITY_ENEMIES_YES"
+       "MaxLevel"                                    "7"
+       "RequiredLevel"                               "1"
+       "LevelsBetweenUpgrades"                       "3"
+       "SpellDispellableType"		                 "SPELL_DISPELLABLE_NO"
 
-		// Casting
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCastPoint"				"0.0 0.0 0.0 0.0"
+       // Precache
 
-		// Time		
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityCooldown"				"17.0 17.0 17.0 17.0"
+        "precache"
+        {
+		  "particle"	"particles/custom/mana_break.vpcf"
+		  "soundfile"	"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
+        }
 
-		// Cost
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilityManaCost"				"100"
-		
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"damage_absorb"				"200 300 400 500"
-			}
-			"02"
-			{
-				"var_type"					"FIELD_INTEGER"
-				"bonus_damage"				"20 40 60 80"
-			}
-			"04"
-			{
-				"var_type"					"FIELD_FLOAT"
-				"duration"					"17.0 17.0 17.0 17.0"
-			}
-		}
-	}
+	   // Special
+	   "AbilitySpecial"
+	   {
+          "01"
+          {
+            "var_type"				"FIELD_INTEGER"
+			"base_burnt"			"12 18 24 30 36 42 48"
+          }
+          "02"
+          {
+            "var_type"				"FIELD_INTEGER"
+			"radius"	            "270"
+          }
+		  "03"
+          {
+            "var_type"				"FIELD_FLOAT"
+			"max_manaburn_percent"			"0.34 0.68 1.02 1.36 1.7 2.38 2.72"
+          }
+	   }
+    }
 }

@@ -3,13 +3,58 @@
 // the specified key-value combinations.  Use override_hero <hero_to_override> for this.
 "DOTAHeroes"
 {
-	//=================================================================================================================
-	// HERO: Templar Assassin
-	//=================================================================================================================
-	"npc_dota_hero_templar_assassin_template"
+	"AM"                           //Mana Slayer
 	{
-		"override_hero"				"npc_dota_hero_templar_assassin"			// Hero to override
-		"Ability1"					"templar_assassin_refraction_holdout"		// Ability 1
-		"VisionNighttimeRange"		"1800"										// Range of vision at night time.
+		"override_hero"				"npc_dota_hero_antimage"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"1"
+        "Level"                     "1"
+		"AttackRate"				"1.1"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"45"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Carry,Disabler,Nuker"
+		"Rolelevels"	            "3,1,1"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "18"
+		"AttributeStrengthGain"			 "1.9"
+		"AttributeBaseIntelligence"		 "13"
+		"AttributeIntelligenceGain"		 "2.1"
+		"AttributeBaseAgility"			 "23"
+		"AttributeAgilityGain"			 "2.6"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.2"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "15"
+
+		"StatusHealth"				"520"
+		"StatusMana"				"125"
+		"ModelScale"				"0.9"
+		"StatusHealthRegen"			"1.9"
+		"StatusManaRegen"			"0.7"
+
+        "Ability1"                  "magic_slayer_seal"
+        "Ability2"                  "magic_slayer_mana_expeller"
+        "Ability3"                  "magic_slayer_manabreak"
+        "Ability4"                  "magic_slayer_mana_hater"
+        "Ability5"					"generic_hidden"	
+        "Ability6"                  "magic_slayer_soul_sacrifice"
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
 	}
 }
