@@ -193,7 +193,9 @@ function OnWaveEntityKilled( tData )
     end
 
     if victim:IsWaveUnit() then
-        unitRemains = unitRemains - 1
+        if unitRemains > 1 then
+            unitRemains = unitRemains - 1
+        end
         DropSystem:DropItem( victim )
     end
 
@@ -332,4 +334,21 @@ end
 
 function SetBossNPC( hEntity )
     Boss = hEntity
+end
+
+function WaveManager:IsRoundFinished()
+    return roundEnded
+end
+
+function WaveManager:IsRoundTimerFinished()
+    return roundTimerIsFinished
+end
+
+
+-- Debug functions
+-- Timer as I think will break
+function WaveManager:SkipWave()
+    roundTimerIsFinished = true
+    roundEnded = true
+    unitRemains = 0
 end

@@ -246,6 +246,16 @@ function Timers:RemoveTimers(killAll)
   Timers.timers = timers
 end
 
+function Timers:PopupTimer( iTime )
+    timeStart = GameRules:GetDOTATime(false, false)
+    timeEnd = GameRules:GetDOTATime(false, false) + iTime
+
+    CustomNetTables:SetTableValue('player_table', 'timer', {
+      startTime = timeStart,
+      endTime = timeEnd
+    })
+end
+
 if not Timers.timers then Timers:start() end
 
 GameRules.Timers = Timers
