@@ -3,7 +3,7 @@
 {
 	"Version"	"1"
 	
-	    "Ancient Guardian"
+	    "npc_dota_ancient_guardian"
 	{
 		"BaseClass"					"npc_dota_creature"	
 		"Model"						"models/creeps/lane_creeps/creep_radiant_hulk/creep_radiant_ancient_hulk.vmdl"	
@@ -12,14 +12,9 @@
 		"MinimapIconSize"			"275"
 	    "IsAncient"                 "1"
 		
-		"Ability1"					"heal_mid"			
-		"Ability2"					"modifier_defense"			
-		"Ability3"					"NPC_Magical_Immune"			
-		"Ability4"					"NPC_Attack_NO_MISS"			
-		"Ability5"					"Counter_Attack_Armor"			
-		"Ability6"					"heal_target_amount"			
-		"Ability7"					"ancient_check_hp"			
-		"Ability8"					"ancient_please_help_me"			
+		"Ability1"					"heal_mid"						
+		"Ability2"					"npc_magic_immune"			
+		"Ability3"					"npc_no_attack_miss"							
 	
 		"ArmorPhysical"				"0"			
 		"MagicalResistance"			"0"			
@@ -86,7 +81,7 @@
 	         }
 	}
 
-	"Guardian Tower"                      
+	"npc_dota_guardian_tower"                      
 	{										
 		"BaseClass"					"npc_dota_creature"
 	        "Model"						"maps/cavern_assets/models/crystals/crystal05.vmdl"	
@@ -146,5 +141,150 @@
 		"Ability2"								"split_attacks"
 		"Ability3"								"interval_bonus_damage"	   
 	    "vscripts"                  "ai/defense_tower.lua"
+	}
+
+	    "npc_dota_mud_seeker"           
+	{						
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl"
+		"ModelScale" 				"0.9"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "0"
+	        "MagicalResistance"			"0"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"			"1"		
+		"AttackDamageMax"			"10"			
+		"AttackRate"				"1.65"		
+		"AttackAnimationPoint"		"0.25"		
+		"AttackAcquisitionRange"	"750"		
+		"AttackRange"				"170"
+		"ProjectileModel"			""			
+		"ProjectileSpeed"			"0"		
+	        
+	        "BountyXP"					"2"		
+		"BountyGoldMin"				"1"		
+		"BountyGoldMax"				"1"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "65"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"360"		
+	        "MovementTurnRate"          "0.3" 
+	        
+	        "StatusHealth"				"150"		
+		"StatusHealthRegen"			"0"		
+		"StatusMana"				"100"		
+		"StatusManaRegen"			"0"
+		"vscripts"					"npc_ai/mud_seeker.lua"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					""
+		"Ability2"					""
+	        	
+		
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "25"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "0"
+	            "ManaGain"                  "0"
+	            "MagicResistGain"           "2"
+	            "MoveSpeedGain"             "2"
+	            "BountyGain"                "1"
+	            "XPGain"                    "9"
+	        }      
+	}
+
+	"npc_dota_wild_devourer"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl"
+		"ModelScale" 				"1.15"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "1"
+	        "MagicalResistance"			"20"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"			"20"		
+		"AttackDamageMax"			"30"			
+		"AttackRate"				"1.4"		
+		"AttackAnimationPoint"		"0.2"		
+		"AttackAcquisitionRange"	"750"		
+		"AttackRange"				"170"
+		"ProjectileModel"			""			
+		"ProjectileSpeed"			"0"		
+	        
+	        "BountyXP"					"10"		
+		"BountyGoldMin"				"3"		
+		"BountyGoldMax"				"3"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "80"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"		
+	        "MovementTurnRate"          "0.4" 
+	        
+	        "StatusHealth"				"280"		
+		"StatusHealthRegen"			"0"		
+		"StatusMana"				"280"		
+		"StatusManaRegen"			"0"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					"ursa_herd"
+	        "Ability2"					""
+	        "Ability3"                  ""
+	        
+	        "vscripts"                  "npc_ai/wild_devourer"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "45"
+	            "DamageGain"                "3"
+	            "ArmorGain"                 "2"
+	            "ManaGain"                  "50"
+	            "MagicResistGain"           "4"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
+	        }      
 	}
 }

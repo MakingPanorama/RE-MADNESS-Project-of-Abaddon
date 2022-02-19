@@ -12,7 +12,7 @@ end
 
 function modifier_magic_slayer_manabreak_passive:GetModifierProcAttack_Feedback( tData )
     local attacker = tData.attacker
-    local victim = tData.victim
+    local victim = tData.target
 
     local base_manaburn = self:GetAbility():GetSpecialValueFor('base_burnt')
     local max_manaburn_percent = self:GetAbility():GetSpecialValueFor('max_manaburn_percent')
@@ -29,7 +29,7 @@ function modifier_magic_slayer_manabreak_passive:GetModifierProcAttack_Feedback(
 
     for _, unit in pairs( FindUnitsInRadius(attacker:GetTeamNumber(), victim:GetAbsOrigin(), nil, 270, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MANA_ONLY, 0, false) ) do
         ApplyDamage({
-            victim = victim,
+            victim = unit,
             attacker = attacker,
             ability = self:GetAbility(),
             damage = (base_manaburn + unit:GetMaxMana() % max_manaburn_percent) / 2,

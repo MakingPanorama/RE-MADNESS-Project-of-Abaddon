@@ -1,0 +1,10 @@
+"lang"
+{
+	"Language"		"Russian"
+	"Tokens"
+	{		
+		"addon_game_name"			"Re-MADNESS"
+
+        "madness_description_timeleft"  "Осталось время к следующей волны %s"
+	}
+}

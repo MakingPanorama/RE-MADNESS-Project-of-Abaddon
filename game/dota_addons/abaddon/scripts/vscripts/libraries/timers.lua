@@ -256,6 +256,15 @@ function Timers:PopupTimer( iTime )
     })
 end
 
+function Timers:SetTimeLeft( iNewTime )
+  timeStart = GameRules:GetDOTATime(false, false)
+  timeEnd = GameRules:GetDOTATime(false, false) + iNewTime
+  CustomNetTables:SetTableValue('player_table', 'timer', {
+    startTime = timeStart,
+    endTime = timeEnd
+  })
+end 
+
 if not Timers.timers then Timers:start() end
 
 GameRules.Timers = Timers

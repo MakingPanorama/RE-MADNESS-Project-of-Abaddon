@@ -2,10 +2,20 @@ if WaveManager == nil then
     WaveManager = {}
 end
 
+WaveManager.State = -1
+
+_G.MADNESS_WAVE_STATE_DISABLED = -1
+_G.MADNESS_WAVE_STATE_PRE_GAME = 0
+_G.MADNESS_WAVE_STATE_PRE_ROUND_TIME = 1
+_G.MADNESS_WAVE_STATE_ROUND_IN_PROGRESS = 2
+_G.MADNESS_WAVE_STATE_POST_GAME = 3
+
+
+
 SpawnTable = {
     {
         unit_type_count=       1,
-        units_name=            { "Mud Seeker" },
+        units_name=            { "npc_dota_mud_seeker" },
         display_name = "Mud Seekers",
         wave_count=            8,
         interval=              8,
@@ -14,7 +24,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Wild Devourer" },
+        units_name=            { "npc_dota_wild_devourer" },
         display_name = "Wild Devourers",
         wave_count=            8,
         interval=              8,
@@ -158,6 +168,8 @@ SpawnTable = {
     }
 }
 
+-- Initalization
+
 defenseLoc = nil
 currentRound = 0
 roundTimerIsFinished = true
@@ -166,12 +178,16 @@ roundEnded = false
 unitRemains = 0
 Boss = nil
 
+
 function WaveManager:Init()
     defenseLoc = Entities:FindByName( nil, 'defense_loc'):GetAbsOrigin()
 
-    SetBossNPC('npc_dota_hero_ancient_guardian')
+    WaveManager.State = MADNESS_WAVE_STATE_PRE_GAME
+
+    SetBossNPC('npc_dota_ancient_guardian')
     ListenToGameEvent('entity_killed', OnWaveEntityKilled)
 
+    
     if IsInToolsMode() then
         print('Debug info: ')
         print('Current Round: ', currentRound)
@@ -201,6 +217,7 @@ function OnWaveEntityKilled( tData )
 
     if unitRemains < 1 then
         roundEnded = true
+        roundTimerIsFinished = true
     else
         roundEnded = false
     end
@@ -209,6 +226,8 @@ end
 function WaveThink()
     if roundTimerIsFinished and roundEnded then
         roundEnded = false
+        WaveManage.State = MADNESS_STATE_PRE_ROUND_TIME
+
         if currentRound ~= 0 then
             local reward = {
                 base = current_round * 100,
@@ -216,7 +235,7 @@ function WaveThink()
             }
             WaveManager:Reward( reward )
         end
-        WaveManager:StartNextRound()
+        Timers:PopupTimer( 30 )
     end
 end
 
@@ -237,6 +256,8 @@ function WaveManager:StartNextRound()
         local wave_count = spawnInfo["wave_count"]
         local current_wave_count = 0
         local countdown = interval
+
+        
 
         Timers:CreateTimer(function()
             if not current_round_timer_finished and current_wave_count < wave_count then
@@ -344,11 +365,13 @@ function WaveManager:IsRoundTimerFinished()
     return roundTimerIsFinished
 end
 
-
 -- Debug functions
--- Timer as I think will break
 function WaveManager:SkipWave()
     roundTimerIsFinished = true
     roundEnded = true
     unitRemains = 0
+end
+
+function WaveManager:StateGet()
+    return WaveManager.State
 end
