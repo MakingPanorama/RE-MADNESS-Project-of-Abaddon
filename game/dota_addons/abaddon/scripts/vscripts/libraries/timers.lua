@@ -8,7 +8,7 @@ TIMERS_VERSION = "1.05"
       return 1.0
     end
   )
-
+  
   -- The same timer as above with a shorthand call 
   Timers(function()
     print ("Hello. I'm running immediately and then every second thereafter.")
@@ -245,25 +245,6 @@ function Timers:RemoveTimers(killAll)
 
   Timers.timers = timers
 end
-
-function Timers:PopupTimer( iTime )
-    timeStart = GameRules:GetDOTATime(false, false)
-    timeEnd = GameRules:GetDOTATime(false, false) + iTime
-
-    CustomNetTables:SetTableValue('player_table', 'timer', {
-      startTime = timeStart,
-      endTime = timeEnd
-    })
-end
-
-function Timers:SetTimeLeft( iNewTime )
-  timeStart = GameRules:GetDOTATime(false, false)
-  timeEnd = GameRules:GetDOTATime(false, false) + iNewTime
-  CustomNetTables:SetTableValue('player_table', 'timer', {
-    startTime = timeStart,
-    endTime = timeEnd
-  })
-end 
 
 if not Timers.timers then Timers:start() end
 

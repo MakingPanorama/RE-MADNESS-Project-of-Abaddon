@@ -10,7 +10,7 @@ require('utilities/wave_manager')
 require('utilities/dropsystem')
 
 if Abaddon == nil then
-	Abaddon = class({})
+	_G.Abaddon = class({})
 end
 
 function Precache( context )
@@ -31,8 +31,10 @@ end
 
 function Abaddon:InitGameMode()
 	print( "Re-madnessed." )
-	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 
+	-- Global Think
+	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
+	
 	-- Events
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(Abaddon, 'OnGameRulesStateChange'), self)
 
@@ -77,23 +79,23 @@ end
 
 -- Calls while GameRules State changes
 function Abaddon:OnGameRulesStateChange()
-    if GameRules:State_Get() == DOTA_GAMERULES_STATE_SCENARIO_SETUP then
+    if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
         local defenseLocation = Entities:FindByName( nil, "defense_loc"):GetAbsOrigin()
-        AddFOWViewer(DOTA_TEAM_BADGUYS, base_location, 30000, 10800, true) 
+        AddFOWViewer(DOTA_TEAM_BADGUYS, defenseLocation, 30000, 10800, true) 
         
-        local bossLocation = Entities:FindByName( nil, "boss_loc"):GetAbsOrigin()
-        AddFOWViewer(DOTA_TEAM_GOODGUYS, nature_1, 1200, 10800, true)
+        --local bossLocation = Entities:FindByName( nil, "boss_loc"):GetAbsOrigin()
+        --AddFOWViewer(DOTA_TEAM_GOODGUYS, nature_1, 1200, 10800, true)
 
         -- Begin the wave's manager
         WaveManager:Init()
     end
 end
 
--- Calls when client clicked on vote button
+-- Calls when client clicked on skip button
 function Abaddon:OnVoteClick( tData )
 	Timers:SetTimeLeft( CustomNetTables:GetTableValue('player_table', 'timer') - ( 30 / PlayerResource:GetNumConnectedHumanPlayers() ) )
 	CustomNetTables:SetTableValue('player_tabale', 'timer', { 
-		startTime = GameRules:GetDOTATime(false, false)
+		startTime = GameRules:GetDOTATime(false, false),
 		endTime = CustomNetTables:GetTableValue('player_table', 'timer') - ( 30 / PlayerResource:GetNumConnectedHumanPlayers() )
 	})
 end
