@@ -175,7 +175,7 @@ SpawnTable = {
 _G.defenseLoc = nil
 _G.currentRound = 0
 _G.roundTimerIsFinished = true
-_G.roundEnded = false
+_G.roundEnded = true
 
 _G.currentWaveCount = 0
 _G.unitRemains = 0
