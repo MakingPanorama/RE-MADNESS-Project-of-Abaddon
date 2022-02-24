@@ -1,5 +1,3 @@
--- You can get full version only if you ask about that to author
-
 if WaveManager == nil then
     WaveManager = {}
 end
