@@ -175,7 +175,7 @@ SpawnTable = {
 _G.defenseLoc = nil
 _G.currentRound = 0
 _G.roundTimerIsFinished = true
-_G.roundEnded = false
+_G.roundEnded = true
 
 _G.currentWaveCount = 0
 _G.unitRemains = 0
@@ -211,28 +211,20 @@ function WaveManager:OnWaveEntityKilled( tData )
         print('Boss died')
     end
 
-    if victim:IsWaveUnit() then
+    if victim.IsWaveUnit == true then
         if unitRemains > 1 then
             unitRemains = unitRemains - 1
         else -- To avoid unitRemains less than 0
             unitRemains = 0 
         end
-        DropSystem:DropItem( victim )
 
-        print('Victim is a wave unit')
-    end
-
-    if unitRemains < 1 then
-        local wave_count = spawnInfo["wave_count"]
-
-        -- We're need to make sure it's last wave otherwise a new round will begin, which shouldn't have happened.
-        if currentWaveCount == wave_count then
+        if roundTimerIsFinished and unitRemains < 1 then
             roundEnded = true
-            roundTimerIsFinished = true
-
-            print('Round ended')
         end
+        DropSystem:DropItem( victim )
     end
+ 
+    print('Unit remains: ', unitRemains)
 end
 
 -- Do think every .3s to check state of wave
@@ -244,14 +236,15 @@ function Abaddon:WaveThink()
         currentWaveCount = 0
         unitRemains = 0
 
+        -- Start timer to start next round
         WaveManager.State = MADNESS_STATE_PRE_ROUND_TIME
         print('Wave state changed to MADNESS_WAVE_STATE_PRE_ROUND_TIME')
-        self:PopupTimer( 30 )
+        PopupTimer( 180 )
 
         if currentRound ~= 0 then
             local reward = {
-                base = current_round * 100,
-                threshold = current_round * 500
+                base = currentRound * 100,
+                threshold = currentRound * 500
             }
             WaveManager:Reward( reward )
         end
@@ -260,7 +253,7 @@ function Abaddon:WaveThink()
     return 1
 end
 
-function WaveManager:PopupTimer( iTime )
+function PopupTimer( iTime )
     timeStart = GameRules:GetDOTATime(false, false)
     timeEnd = GameRules:GetDOTATime(false, false) + iTime
 
@@ -272,11 +265,9 @@ function WaveManager:PopupTimer( iTime )
     })
 end
 
-function WaveManager:SetTimeLeft( iNewTime )
-  timeStart = GameRules:GetDOTATime(false, false)
+function SetTimeLeft( iNewTime )
   timeEnd = GameRules:GetDOTATime(false, false) + iNewTime
   CustomNetTables:SetTableValue('player_table', 'timer', {
-    startTime = timeStart,
     endTime = timeEnd
   })
 end 
@@ -284,7 +275,7 @@ end
 -- Start next round
 function WaveManager:StartNextRound()
     if currentRound ~= 0 then
-        AncientBase:CreatureLevelUp(1)
+        Boss:CreatureLevelUp(1)
     end
 
     roundTimerIsFinished = false
@@ -304,10 +295,10 @@ function WaveManager:StartNextRound()
         print('Wave state changed to MADNESS_WAVE_STATE_ROUND_IN_PROGRESS')
 
         Timers:CreateTimer(function()
-            if not current_round_timer_finished and currentWaveCount < wave_count then
+            if not roundTimerIsFinished and currentWaveCount < wave_count then
                 if countdown == 0 then
                    currentWaveCount = currentWaveCount + 1
-                   self:SpawnWave(spawnInfo, currentWaveCount)
+                   self:SpawnUnits(spawnInfo, currentWaveCount)
                 
                 end
                 if countdown == -1 then
@@ -316,7 +307,7 @@ function WaveManager:StartNextRound()
                 countdown = countdown - 1
                 return 1
             else
-                current_round_timer_finished = true
+                roundTimerIsFinished = true
                 return
             end
         end)
@@ -333,23 +324,41 @@ function WaveManager:StartNextRound()
 end
 
 -- Spawn Units
-function WaveManager:SpawnUnits( tSpawnInfo, currentWaveCount)
-    local unit_type_count = Spawn_Info["unit_type_count"]
-    local player_count = PlayerResource:GetTeamPlayerCount()
+function WaveManager:SpawnUnits( tSpawnInfo, currentWaveCount )
+    local unit_type_count = tSpawnInfo["unit_type_count"]
+    local player_count = PlayerResource:GetNumConnectedHumanPlayers() + 1
     local creep_level = currentWaveCount
     local ability_level = creep_level
+
+    if IsInToolsMode() then
+        print('Unit type count', unit_type_count)
+        print('Player Count', player_count)
+        print('Creep level', creep_level)
+        print('Ability Level', ability_level)
+    end
+
     for i = 1, unit_type_count do
-        local min = Spawn_Info["each_min"]
-        local max = Spawn_Info["each_max"]
+        local min = tSpawnInfo["each_min"]
+        local max = tSpawnInfo["each_max"]
         local count_each_wave_road = RandomInt(min[i], max[i])   
-        local unit_name = Spawn_Info["units_name"]
+        local unit_name = tSpawnInfo["units_name"]
         unit_name = unit_name[i]
+
+        print('Min max values: ', min, max)
+        print('Count each wave road: ', count_each_wave_road)
+        print('Unit Name: ', unit_name)
+
         for j=1, player_count do
-            local SpawnPoint = Vector(RandomInt(-350, 350), RandomInt(-350, 350)) + Entities:FindAllByName('spawn_location_'..j)
+            local SpawnPoint = Vector(RandomInt(-150, 250), RandomInt(-150, 250)) + Entities:FindByName(nil, 'spawn_location_'..j):GetAbsOrigin()
             for k=1, count_each_wave_road do
                 local SpawnUnit = CreateUnitByName(unit_name, SpawnPoint, true, nil, nil, DOTA_TEAM_BADGUYS)
                 SpawnUnit.IsWaveUnit = true
-                SpawnUnit:CreatureLevelUp(creep_level-1)         --Level Up 
+                SpawnUnit:CreatureLevelUp(creep_level-1)         --Level Up
+                print('Unit Handle: ', SpawnUnit)
+                print('Unit Name: ', SpawnUnit:GetUnitName())
+                print('Unit location:', SpawnUnit:GetAbsOrigin())
+                MinimapEvent(DOTA_TEAM_GOODGUYS, nil, SpawnPoint.x, SpawnPoint.y, DOTA_MINIMAP_EVENT_HINT_LOCATION, 10)
+
                 for r=0, SpawnUnit:GetAbilityCount()-1 do
                     local ability = SpawnUnit:GetAbilityByIndex(r)
                     if ability ~= nil then
@@ -359,12 +368,15 @@ function WaveManager:SpawnUnits( tSpawnInfo, currentWaveCount)
                 ExecuteOrderFromTable({
                     UnitIndex = SpawnUnit:entindex(),
                     OrderType = DOTA_UNIT_ORDER_ATTACK_MOVE,
-                    Position  = base_location,
+                    Position  = defenseLoc,
                     Queue     = true 
                 })
+
+                print('Spawned')
             end 
         end
-        remains = remains + (count_each_wave_road * player_count)
+        unitRemains = unitRemains + (count_each_wave_road * player_count)
+        print('Changed', unitRemains)
     end
 
     if IsInToolsMode() then
@@ -382,8 +394,8 @@ function WaveManager:Reward( tReward )
     for i=0, DOTA_MAX_PLAYER_TEAMS do   
         if PlayerResource:IsValidPlayer(i) then
             local gained = PlayerResource:GetTotalEarnedGold(i)
-            local support = math.max(0, reward.threshold - gained)
-            local total = reward.base + support
+            local support = math.max(0, tReward.threshold - gained)
+            local total = tReward.base + support
             Timers:CreateTimer(1.5, function()
                 PlayerResource:ModifyGold(i, total, true, 0)
             end)
@@ -393,18 +405,16 @@ end
 
 -- Additional functions
 
--- Is it wave unit?
-function CDOTA_BaseNPC:IsWaveUnit()
-    if self.IsWaveUnit then
-        return true
-    else
-        return false
-    end
-end
-
 -- Get State of Wave
 function WaveManager:StateGet()
     return WaveManager.State
+end
+
+-- Change num of points
+function WaveManager:SetNumOfPoints( iPoints )
+    CustomNetTables:SetTableValue('game_info', 'points', {
+        points = iPoints
+    })
 end
 
 -- Set new boss npc

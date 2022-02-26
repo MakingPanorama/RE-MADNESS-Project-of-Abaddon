@@ -2,8 +2,8 @@ if DropSystem == nil then
     DropSystem = {}
 end
 
-DropList = LoadKeyValues('npc/kv/drop_list.kv')
-ItemProperties = LoadKeyValues('npc/npc_items_custom.txt')
+_G.DropList = LoadKeyValues('scripts/npc/kv/drop_list.kv')
+_G.ItemProperties = LoadKeyValues('scripts/npc/npc_items_custom.txt')
 
 function DropSystem:DropItem( victim )
     if DropList then

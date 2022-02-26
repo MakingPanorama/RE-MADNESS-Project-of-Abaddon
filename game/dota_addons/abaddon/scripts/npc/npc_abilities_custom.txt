@@ -1,51 +1,87 @@
 // Dota Heroes File
+
+#base "ancient/ancient_upgrades.txt"
+
 "DOTAAbilities"
 {
 	"Version"		"1"
 
 	"magic_slayer_manabreak"
     {
-	   // General
-	   "BaseClass"				                     "ability_lua"
-	   "ScriptFile"									 "abilities/heroes/mana_slayer/magic_slayer_manabreak.lua"
-	   "AbilityTextureName"			                 "custom/Mana Breaker"
-	   "AbilityBehavior"			                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-       "AbilityUnitTargetTeam"			             "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	   "AbilityUnitTargetType"			             "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	   "AbilityUnitTargetFlags"		                 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	   "AbilityUnitDamageType"		                 "DAMAGE_TYPE_PHYSICAL"
-	   "SpellImmunityType"			                 "SPELL_IMMUNITY_ENEMIES_YES"
-       "MaxLevel"                                    "7"
-       "RequiredLevel"                               "1"
-       "LevelsBetweenUpgrades"                       "3"
-       "SpellDispellableType"		                 "SPELL_DISPELLABLE_NO"
+	    // General
+	    "BaseClass"				                     "ability_lua"
+        "ScriptFile"									 "abilities/heroes/mana_slayer/magic_slayer_manabreak.lua"
+        "AbilityTextureName"			                 "spellicons/magic_slayer/manabreak"
+        "AbilityBehavior"			                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+        "AbilityUnitTargetTeam"			             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			             "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+        "AbilityUnitTargetFlags"		                 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+        "AbilityUnitDamageType"		                 "DAMAGE_TYPE_PHYSICAL"
+        "SpellImmunityType"			                 "SPELL_IMMUNITY_ENEMIES_YES"
+        "MaxLevel"                                    "7"
+        "RequiredLevel"                               "1"
+        "LevelsBetweenUpgrades"                       "3"
+        "SpellDispellableType"		                 "SPELL_DISPELLABLE_NO"
 
-       // Precache
-
+        // Precache
         "precache"
         {
 		  "particle"	"particles/custom/mana_break.vpcf"
 		  "soundfile"	"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
         }
 
-	   // Special
-	   "AbilitySpecial"
-	   {
-          "01"
-          {
+        // Special
+        "AbilitySpecial"
+        {
+            "01"
+            {
             "var_type"				"FIELD_INTEGER"
-			"base_burnt"			"12 18 24 30 36 42 48"
-          }
-          "02"
-          {
+                "base_burnt"			"12 18 24 30 36 42 48"
+            }
+            "02"
+            {
             "var_type"				"FIELD_INTEGER"
-			"radius"	            "270"
-          }
-		  "03"
-          {
+                "radius"	            "270"
+            }
+            "03"
+            {
             "var_type"				"FIELD_FLOAT"
-			"max_manaburn_percent"			"0.34 0.68 1.02 1.36 1.7 2.38 2.72"
-          }
-	   }
+                "max_manaburn_percent"			"0.34 0.68 1.02 1.36 1.7 2.38 2.72"
+            }
+	    }
+    }
+
+    "mud_seeker_throw_rock"
+    {
+        "BaseClass"		"ability_lua"
+        "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+        "AbilityUnitTargetTeam"			"DOTA_UNIT_TARGET_TEAM_ENEMY"
+        "AbilityUnitTargetType"			"DOTA_UNIT_TARGET_HERO"
+        "AbilityUnitDamageType"			"DAMAGE_TYPE_MAGICAL"
+
+        "ScriptFile"  "abilities/npc/mud_seeker/mud_seeker_throw_rock.lua"
+        "AbilityTextureName"		"mud_seeker"
+        "MaxLevel"		"7"
+
+        "AbilityCastRange"		"450"
+        "AbilityCastPoint"		"0.3"
+        "AbilityCastAnimation"			"ACT_DOTA_CAST_ABILITY_1"
+
+        "AbilityCooldown"		"12.0"
+        "AbilityManaCost"		"20"
+    
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"			"FIELD_INTEGER"
+                "damage"			"10 20 30 35 40 45 50"
+            }
+            "02"
+            {
+                "var_type"			"FIELD_FLOAT"
+                "stun_duration"		"0.1 0.1 0.1 0.1 0.1 0.1 0.1"
+            }
+        }
     }
 }

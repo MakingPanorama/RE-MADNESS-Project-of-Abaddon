@@ -1,0 +1,62 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/ancient/upgrades.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/ancient/upgrades.js" />
+    </scripts>
+    <snippets>
+        <snippet name="upgradeSlotSnippet">
+            <Panel class="upgradeSlot">
+                <Button id="upgradeButton" onactivate="OnButtonClickUpgrade()">
+                    <Label id="titleAbility" text="#DOTA_Tooltip_ability_name" />
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/example_upgrade.png" />
+                </Button>
+            </Panel>
+        </snippet>
+    </snippets>
+    <Panel class="upgradeRoot" hittest="false">
+        <Panel class="upgradePanel" id='upgrade'>
+            <Label id="nameMenu" text="Upgrades" />
+            <!-- <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeArmor()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_armor.png" />
+                    <Label id="titleAbility" text="Tower Bonus Armor" />
+                </Button>
+            </Panel>
+
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeAttackDamage()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_attack_damage.png" />
+                    <Label id="titleAbility" text="Tower Bonus Attack Damage" />
+                </Button>
+            </Panel>
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeBonusHP()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_hp.png" />
+                    <Label id="titleAbility" text="Tower Bonus HP" />
+                </Button>
+            </Panel>
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeHPRegen()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/global_bonus_hp_regen.png" />
+                    <Label id="titleAbility" text="Global Bonus HP Regen" />
+                </Button>
+            </Panel>
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeGlobalBonusAttackDamage()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/global_bonus_attack_damage.png" />
+                    <Label id="titleAbility" text="Global Bonus Attack Damage" />
+                </Button>
+            </Panel>
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" id="CloseMenu" onactivate="OnButtonClickMenuClose()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/action_stop_png.png" />
+                    <Label id="titleAbility" text="Close" />
+                </Button>
+            </Panel>
+
+            -->
+        </Panel>
+    </Panel>
+</root>

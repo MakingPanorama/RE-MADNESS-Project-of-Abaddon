@@ -6,5 +6,11 @@
 		"addon_game_name"			"Re-MADNESS"
 
         "madness_description_timeleft"  "Осталось время к следующей волны %s"
+
+		"magic_slayer_manabreak"	"Manabreak"
+		"magic_slayer_manabreak_description"	"Сжигает ману в радиусе %act_radius% нанося и сжигая %base_burnt% + %max_manaburn_percent%% маны"
+
+		"mud_seeker_throw_rock"	"Throw rock"
+		"mud_seeker_throw_rock_description"	"Бросает камень нанося %damage% и оглушая на %stun_duration%"
 	}
 }

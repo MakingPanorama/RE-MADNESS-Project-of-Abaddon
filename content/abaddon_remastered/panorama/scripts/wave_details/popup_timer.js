@@ -13,15 +13,15 @@ let duration
 function Tick() {
     schedule = $.Schedule(0., Tick);
     let currentTime = Game.GetDOTATime(false, false);
-    /* I'm not using that 'cuz it doesn't work for me :(
-        let progressBarValue = ( ( endTime - currentTime ) / duration ) * 100
-        $("#FillBar").value = progressBarValue
-    */
+    
+    let progressBarValue = ( ( endTime - currentTime ) /  duration  )
+    $("#FillBar").value = progressBarValue;
+
     let time = endTime - currentTime
 	let minuts = Math.floor( time/60 )
 	let seconds = Math.floor( time - minuts*60 )	
 	let sTime = ( (minuts < 10) && "0" + minuts || minuts ) + ":" + ( (seconds < 10) && "0" + seconds || seconds )
-	$("#description").text = 'Next wave will begin in: ' + sTime
+	$("#description").text = sTime
 
 	if (currentTime >= endTime)
 		StopTimer()
@@ -36,8 +36,7 @@ function StartTimer( data ) {
     endTime = data.endTime
     duration = endTime - startTime
     
-    $('#container').RemoveClass('Hidden');
-
+    $('#countdown').RemoveClass('FadeIn')
     if ( schedule == null ) {
         Tick();
     }
@@ -49,8 +48,9 @@ function StopTimer() {
         $.CancelScheduled( schedule );
     }
     
-    $('#container').AddClass('Hidden')
+    $('#countdown').AddClass('FadeIn')
     GameEvents.SendCustomGameEventToServer('timer_stopped', {})
+    $('#description').text = '0:00';
     schedule = null;
 }
 
@@ -71,6 +71,8 @@ function OnTimerChanged( table, key, data ) {
 // Debug function
 function CreateDebugTimer( iEndTime ) {
     endTime = Game.GetDOTATime(false, false) + iEndTime
+
+    $('#countdown').RemoveClass('Hidden')
     Tick();
 }
 
@@ -85,4 +87,6 @@ function CreateDebugTimer( iEndTime ) {
 	if (typeof(data) == "object") {
 		StartTimer(data)
 	}
+
+    $.Msg("Timer has begun")
 })();
