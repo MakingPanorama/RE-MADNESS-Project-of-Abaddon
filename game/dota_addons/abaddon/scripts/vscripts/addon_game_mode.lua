@@ -24,6 +24,11 @@ function Precache( context )
 			PrecacheResource( "particle", "*.vpcf", context )
 			PrecacheResource( "particle_folder", "particles/folder", context )
 	]]
+
+    PrecacheResource( "model", "models/creeps/lane_creeps/creep_radiant_hulk/creep_radiant_ancient_hulk.vmdl", context )
+    PrecacheResource( "model", "maps/cavern_assets/models/crystals/crystal05.vmdl", context )
+    PrecacheResource( "model", "models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl", context )
+    PrecacheResource( "model", "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl", context )
 end
 
 -- Create the game mode when we activate
@@ -44,6 +49,12 @@ function Abaddon:InitGameMode()
 	-- Custom Game Events
 	CustomGameEventManager:RegisterListener('VoteClick', Dynamic_Wrap(Abaddon, 'OnVoteClick'))
 	CustomGameEventManager:RegisterListener('timer_stopped', Dynamic_Wrap(Abaddon, 'OnTimeEnd'))
+
+    -- Set table value
+    CustomNetTables:SetTableValue('game_info', 'points', { point = 0 })
+    if IsInToolsMode() then
+        CustomNetTables:SetTableValue('game_info', 'points', { point = 9999 })
+    end
 
 	-- Custom Game Settings
 	GameRules:SetHeroSelectionTime( 600.0 )             -- How long should we let people select their hero?
@@ -208,14 +219,6 @@ function Abaddon:OnGameRulesStateChange()
         -- Init Upgrade Panel
         local upgrades = LoadKeyValues('scripts/npc/ancient/ancient_upgrades.txt')
         local abilities = {}
-        for i=0, #upgrades do
-            table.insert( abilities, {
-                abilityName = upgrades[i]["AbilityName"],
-                needPoints = upgrades[i]["NeedPoints"]
-            })
-
-            print(abilities.abilityName, abilities.needPoints)
-        end
 
         CustomGameEventManager:Send_ServerToAllClients('UpdatePanel', {
             upgrades = abilities
@@ -248,7 +251,6 @@ function Abaddon:OnTimeEnd( tData )
 		WaveManager:StartNextRound()
 	end
 end
-
 
 -- Get Cast Range Bonus FIX
 CDOTA_Ability_Lua.GetCastRangeBonus = function(self, hTarget)

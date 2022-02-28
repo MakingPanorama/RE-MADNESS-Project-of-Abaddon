@@ -7,10 +7,46 @@
 
         "madness_description_timeleft"  "Осталось время к следующей волны %s"
 
-		"magic_slayer_manabreak"	"Manabreak"
-		"magic_slayer_manabreak_description"	"Сжигает ману в радиусе %act_radius% нанося и сжигая %base_burnt% + %max_manaburn_percent%% маны"
+		// TODO: Abilities
+		// Mana Slayer
 
-		"mud_seeker_throw_rock"	"Throw rock"
-		"mud_seeker_throw_rock_description"	"Бросает камень нанося %damage% и оглушая на %stun_duration%"
+		// Mana Break
+		"DOTA_Tooltip_ability_mana_slayer_manabreak"	"Manabreak"
+		"DOTA_Tooltip_ability_mana_slayer_manabreak_description"	"Сжигает ману в радиусе %act_radius% нанося и сжигая %base_burnt% + %max_manaburn_percent%% маны"
+		// Mana Expeller
+		"DOTA_Tooltip_ability_mana_slayer_mana_expeller"	"Mana Expell"
+		"DOTA_Tooltip_ability_mana_slayer_mana_expeller_description"	"Разменивает свою ману в проценте %mana_percent%, розьяряя его. Получаю бонусы"
+		"DOTA_Tooltip_ability_mana_slayer_mana_expeller_bonus_attack_speed"	"ДОП. СКОРОСТЬ АТАКИ: "
+		"DOTA_Tooltip_ability_mana_slayer_mana_expeller_regen_bonus"	"ДОП. ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ: "
+		"DOTA_Tooltip_ability_mana_slayer_mana_expeller_bonus_damage"	"ДОП. УРОН ОТ АТАК: "
+		"DOTA_Tooltip_ability_mana_slayer_mana_expeller_duration"	"ДЛИТЕЛЬНОСЬ: "
+
+		// TODO: NPC
+		// Mud Seeker
+
+		// Throw Rock
+		"DOTA_Tooltip_ability_mud_seeker_throw_rock"	"Throw rock"
+		"DOTA_Tooltip_ability_mud_seeker_throw_rock_description"	"Бросает камень нанося %damage% и оглушая на %stun_duration%"
+
+		// TODO: Upgrades
+		// Bonus Physical & Magical Armor
+		"DOTA_Tooltip_ability_ancient_bonus_armor"	"Дополнительная броня"
+		"DOTA_Tooltip_ability_ancient_bonus_armor_bonus_physical_armor"	"ДОП. ФИЗ. БРОНЯ:"
+		"DOTA_Tooltip_ability_ancient_bonus_armor_bonus_magical_armor"	"СОПРОТИВЛЕНИЕ К МАГИИ: "
+		// Bonus Attack Damage
+		"DOTA_Tooltip_ability_ancient_bonus_attack_damage"	"Дополнительная урон"
+		"DOTA_Tooltip_ability_ancient_bonus_attack_damage_bonus_attack_damage"	"ДОП. УРОН ОТ АТАК:"
+		// Bonus HP
+		"DOTA_Tooltip_ability_ancient_bonus_hp"	"Дополнительное здоровье"
+		"DOTA_Tooltip_ability_ancient_bonus_hp_bonus_health"	"ДОП. ЗДОРОВЬЕ: "
+		// Global Bonus HP Regen
+		"DOTA_Tooltip_ability_ancient_global_bonus_hp_regen"	"Восстановление здоровья всем союзным юнитам"
+		"DOTA_Tooltip_ability_ancient_global_bonus_hp_regen_bonus_health_regen"	"ВОССТАНОВЛЕНИЕ ЗДОРОВЬЯ: "
+		// Global Bonus Attack Damage
+		"DOTA_Tooltip_ability_ancient_global_bonus_attack_damage"	"Дополнительный урон всем союзным юнитам"
+		"DOTA_Tooltip_ability_ancient_global_bonus_attack_damage_bonus_attack_damage"	"ДОП. УРОН ОТ АТАК: "
+		// Global Bonus Physical Armor
+		"DOTA_Tooltip_ability_ancient_global_bonus_physical_armor"	"Броня всем союзным юнитам"
+		"DOTA_Tooltip_ability_ancient_global_bonus_physical_armor_bonus_physical_armor"	"ДОП. ФИЗ. БРОНЯ:"
 	}
 }

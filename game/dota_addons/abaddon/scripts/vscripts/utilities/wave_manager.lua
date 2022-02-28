@@ -36,7 +36,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "ULTRA GOLEM" },
+        units_name=            { "npc_dota_ultra_golem" },
         display_name = "[Boss] Mega Golem",
         wave_count=            1,
         interval=              10,
@@ -45,7 +45,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Jungle Hunter" },
+        units_name=            { "npc_dota_jungle_hunter" },
         display_name = "Jungle Hunters",
         wave_count=            8,
         interval=              8,
@@ -197,6 +197,9 @@ function WaveManager:Init()
         print('Boss Name: ', Boss:GetUnitName())
     end
 
+    -- Register Listener
+    CustomGameEventManager:RegisterListener('Upgrade', Dynamic_Wrap(WaveManager, 'OnClickUpgrade'))
+
     -- Start think about "what's going on now"
     GameRules:GetGameModeEntity():SetThink( 'WaveThink', Abaddon, 0.3 )
 end
@@ -235,6 +238,13 @@ function Abaddon:WaveThink()
         roundEnded = false
         currentWaveCount = 0
         unitRemains = 0
+        
+        -- Adjust points
+        local points = CustomNetTables:GetTableValue('game_info', 'points')["point"]
+        CustomNetTables:SetTableValue('game_info', 'points', {
+            point = points + 1,
+        })
+        print(points)
 
         -- Start timer to start next round
         WaveManager.State = MADNESS_STATE_PRE_ROUND_TIME
@@ -386,6 +396,64 @@ function WaveManager:SpawnUnits( tSpawnInfo, currentWaveCount )
         print('Round Ended: ', roundEnded)
         print('Unit Remains: ', unitRemains)
         print('Boss Name: ', Boss:GetUnitName())
+    end
+end
+
+-- Click
+function WaveManager:OnClickUpgrade( data )
+    local abilityName = data.abilityName
+    local keyValues = LoadKeyValues('scripts/npc/ancient/ancient_upgrades.txt')
+    local pointsAbility = keyValues[abilityName]["NeedPoints"]
+    local needPointsToLearn = {}
+    for needPoints in string.gmatch(pointsAbility, "[^%s]+") do
+        table.insert(needPointsToLearn, needPoints) -- Put it in table
+    end
+    
+
+    local points = CustomNetTables:GetTableValue('game_info', 'points')["point"]
+    if Boss:HasAbility(abilityName) then
+        local ability = Boss:FindAbilityByName(abilityName)
+        if tonumber(needPointsToLearn[ability:GetLevel()]) and points >= tonumber(needPointsToLearn[ability:GetLevel()]) and ability:GetLevel() ~= ability:GetMaxLevel() then
+            ability:SetLevel( ability:GetLevel() + 1 )
+            CustomNetTables:SetTableValue('game_info', 'points', {
+                point = points - tonumber(needPointsToLearn[ability:GetLevel()])
+            })
+
+            -- Feedback to Panorama UI
+            CustomGameEventManager:Send_ServerToAllClients('UpdatePanel', {
+                abilityName = data.abilityName,
+                abilityLevel = ability:GetLevel(),
+                abilityMaxLevel = ability:GetMaxLevel(),
+
+                needPointsToNext = tonumber(needPointsToLearn[ability:GetLevel() + 1]),
+                points = points,
+                bUpgradeFailed = false
+            })
+            print('Upgraded')
+        end
+    else
+        if points >= tonumber(needPointsToLearn[1]) then
+            -- Create ability and set level
+            local ability = Boss:AddAbility(abilityName)
+            ability:SetLevel( ability:GetLevel() + 1 )
+
+            -- Adjust points
+            CustomNetTables:SetTableValue('game_info', 'points', {
+                point = points - tonumber(needPointsToLearn[ability:GetLevel()]),
+            })
+
+            -- Feedback to Panorama UI
+            CustomGameEventManager:Send_ServerToAllClients('UpdatePanel', {
+                abilityName = data.abilityName,
+                abilityLevel = ability:GetLevel(),
+                abilityMaxLevel = ability:GetMaxLevel(),
+
+                needPointsToNext = tonumber(needPointsToLearn[ability:GetLevel() + 1]),
+                bUpgradeFailed = false,
+            })
+
+            print('Learned')
+        end
     end
 end
 

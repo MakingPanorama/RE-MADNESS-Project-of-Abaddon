@@ -4,12 +4,12 @@
     "ancient_bonus_attack_damage" {
         "BaseClass"		"ability_lua"
         "AbilityBehavior"   "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"    "abilities/npc/ancient/upgrades/no_attack_miss.lua"
+        "ScriptFile"    "abilities/npc/ancient/upgrades/ancient_bonus_attack_damage.lua"
         "AbilityTextureName"		"upgrades/bonus_attack_damage"
         "MaxLevel"		"7"
         "LevelsBetweenUpgrades"		"8"
         "AbilityName"   "ancient_bonus_attack_damage"
-        "NeedPoints"    "1 1 1 1 1 2 2"
+        "NeedPoints"    "2 2 2 3 3 4 4"
 
         "AbilitySpecial"
         {
@@ -24,12 +24,12 @@
     "ancient_bonus_armor" {
         "BaseClass"		"ability_lua"
         "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"    "abilities/npc/ancient/upgrades/shallow_grave.lua"
+        "ScriptFile"    "abilities/npc/ancient/upgrades/bonus_armor.lua"
         "AbilityTextureName"		"upgrades/bonus_armor"
-        "MaxLevel"		"8"
+        "MaxLevel"		"7"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_bonus_armor"
-        "NeedPoints"    "1 1 1 1 1 2 2"
+        "NeedPoints"    "1 1 2 2 3 3 4"
         "AbilitySpecial"
         {
             "01"
@@ -49,11 +49,11 @@
         "BaseClass"		"ability_lua"
         "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ScriptFile"    "abilities/npc/ancient/upgrades/bonus_hp.lua"
-        "AbilityTextureName"		"dazzle_shallow_grave"
+        "AbilityTextureName"		"upgrades/ancient_bonus_hp"
         "MaxLevel"		"7"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_bonus_hp"
-        "NeedPoints"    "1 1 1 1 1 2 2"
+        "NeedPoints"    "1 1 2 2 3 3 4"
 
         "AbilitySpecial"
         {
@@ -73,7 +73,7 @@
         "MaxLevel"		"7"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_global_bonus_hp_regen"
-        "NeedPoints"    "1 1 1 1 1 1 3"
+        "NeedPoints"    "2 2 2 2 2 3 4"
 
         "AbilitySpecial"
         {
@@ -89,7 +89,7 @@
         "BaseClass"		"ability_lua"
         "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "ScriptFile"    "abilities/npc/ancient/upgrades/heal.lua"
-        "AbilityTextureName"		"dazzle_shallow_wave"
+        "AbilityTextureName"		"dazzle_shadow_wave"
         "MaxLevel"		"1"
         "AbilityName"   "ancient_heal_ability"
         "LevelsBetweenUpgrades"		"3"
@@ -103,6 +103,11 @@
                 "var_type"			"FIELD_INTEGER"
                 "health_heal_percent"			"15" // Max health heal
             }
+            "02"
+            {
+                "var_type"  "FIELD_INTEGER"
+                "radius"    "650"
+            }
         }
     }
 
@@ -115,7 +120,7 @@
         "MaxLevel"		"4"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_global_bonus_attack_speed"
-        "NeedPoints"    "2 2 2 3"
+        "NeedPoints"    "3 3 3 4"
 
         "AbilitySpecial"
         {
@@ -130,13 +135,13 @@
     {
         "BaseClass"		"ability_lua"
         "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"    "abilities/npc/ancient/upgrades/shallow_grave.lua"
+        "ScriptFile"    "abilities/npc/ancient/upgrades/bonus_attack_damage.lua"
         "AbilityTextureName"		"upgrades/global_bonus_attack_damage"
         "MaxLevel"		"4"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_global_bonus_attack_damage"
 
-        "NeedPoints"    "2 2 2 3"
+        "NeedPoints"    "3 3 4 4"
 
         "AbilitySpecial"
         {
@@ -151,13 +156,13 @@
     {
         "BaseClass"		"ability_lua"
         "AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-        "ScriptFile"    "abilities/npc/ancient/upgrades/shallow_grave.lua"
+        "ScriptFile"    "abilities/npc/ancient/upgrades/bonus_physical_armor.lua"
         "AbilityTextureName"		"upgrades/bonus_armor"
         "MaxLevel"		"4"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_global_bonus_physical_armor"
 
-        "NeedPoints"    "2 2 2 2"
+        "NeedPoints"    "3 3 3 4"
 
         "AbilitySpecial"
         {

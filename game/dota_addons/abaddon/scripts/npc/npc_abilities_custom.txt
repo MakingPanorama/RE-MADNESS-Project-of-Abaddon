@@ -6,12 +6,15 @@
 {
 	"Version"		"1"
 
-	"magic_slayer_manabreak"
+    // TODO: Hero abilities
+
+    // Mana Slayer
+	"mana_slayer_manabreak"
     {
 	    // General
 	    "BaseClass"				                     "ability_lua"
-        "ScriptFile"									 "abilities/heroes/mana_slayer/magic_slayer_manabreak.lua"
-        "AbilityTextureName"			                 "spellicons/magic_slayer/manabreak"
+        "ScriptFile"									 "abilities/heroes/mana_slayer/manabreak/mana_slayer_manabreak.lua"
+        "AbilityTextureName"			                 "manabreaker"
         "AbilityBehavior"			                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
         "AbilityUnitTargetTeam"			             "DOTA_UNIT_TARGET_TEAM_ENEMY"
         "AbilityUnitTargetType"			             "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
@@ -50,7 +53,59 @@
             }
 	    }
     }
+    "mana_slayer_mana_expeller"
+    {
+        // General
+	    "BaseClass"              "ability_lua"
+        "ScriptFile"			 "abilities/heroes/mana_slayer/mana_expeller/mana_slayer_mana_expeller.lua"
+        "AbilityBehavior"        "DOTA_ABILITY_BEHAVIOR_NO_TARGET | DOTA_ABILITY_BEHAVIOR_IMMEDIATE"
+        "AbilityTextureName"	 "mana_expeller"
+        "AbilityType"            "DOTA_ABILITY_TYPE_BASIC"
+        "MaxLevel"               "7"
+        "RequiredLevel"          "3"
+        "LevelsBetweenUpgrades"  "3"
+        "AbilityCastPoint"       "0"
+        "AbilityCastRange"       "0"
+        "AbilityCooldown"        "55 53 51 49 47 45 43"
+        "SpellDispellableType"   "SPELL_DISPELLABLE_NO"
 
+        "precache"
+        {
+            "soundfile"         "soundevents/game_sounds_heroes/game_sounds_huskar.vsndevts"
+            "particle"		    "particles\dev\curlnoise_test.vpcf"
+        }
+
+        "AbilitySpecial"
+        {
+            "01"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_attack_speed"           "30 50 70 90 110 130 150"
+            }
+            "02"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "regen_bonus"           "10 15 20 25 50 60 70"
+            }
+            "03"
+            {
+                "var_type"              "FIELD_INTEGER"
+                "bonus_damage"              "30 60 90 120 150 190"
+            }
+            "04"
+            {
+                "var_type"              "FIELD_FLOAT"
+                "duration"              "2 3 4 5 6 6 6"
+            }
+            "05"
+            {
+            	"var_type"				"FIELD_INTEGER"
+            	"mana_percent"			"80 75 70 60 55 50 45"
+            }
+        }
+    }
+
+    // TODO: Unit abilities
     "mud_seeker_throw_rock"
     {
         "BaseClass"		"ability_lua"
@@ -84,4 +139,6 @@
             }
         }
     }
+    
+    // TODO: Boss Abilities
 }

@@ -21,13 +21,7 @@ function AIThink()
 end
 
 function Tether( hAlly )
-    ExecuteOrderFromTable({
-        UnitIndex = thisEntity:entindex(),
-        OrderType = DOTA_UNIT_ORDER_CAST_TARGET,
-        TargetIndex = hAlly,
-        AbilityIndex = thisEntity.Tether:entindex(),
-        Queue = false
-    })
+    thisEntity:CastAbilityOnTarget(hAlly, thisEntity.Tether, thisEntity:GetPlayerOwnerID())
 
     return 0.5
 end

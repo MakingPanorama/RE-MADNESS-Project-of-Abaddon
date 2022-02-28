@@ -1,6 +1,8 @@
 <root>
     <styles>
         <include src="file://{resources}/styles/custom_game/ancient/upgrades.css" />
+        <include src="file://{resources}/styles/custom_game/wave_details/popup_timer.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/ancient/upgrades.js" />
@@ -8,23 +10,15 @@
     <snippets>
         <snippet name="upgradeSlotSnippet">
             <Panel class="upgradeSlot">
-                <Button id="upgradeButton" onactivate="OnButtonClickUpgrade()">
-                    <Label id="titleAbility" text="#DOTA_Tooltip_ability_name" />
-                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/example_upgrade.png" />
-                </Button>
+                <TextButton class="DefaultValveButtonClass" id="buttonSlot" text="#DOTA_Tooltip_ability_name" />
             </Panel>
         </snippet>
     </snippets>
     <Panel class="upgradeRoot" hittest="false">
         <Panel class="upgradePanel" id='upgrade'>
             <Label id="nameMenu" text="Upgrades" />
-            <!-- <Panel class="upgradeSlot">
-                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeArmor()">
-                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_armor.png" />
-                    <Label id="titleAbility" text="Tower Bonus Armor" />
-                </Button>
-            </Panel>
-
+            <Label id="nameMenu" text="Points: " />
+            <!--
             <Panel class="upgradeSlot">
                 <Button class="upgradeButton" onactivate="OnButtonClickUpgradeAttackDamage()">
                     <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_attack_damage.png" />
@@ -55,7 +49,6 @@
                     <Label id="titleAbility" text="Close" />
                 </Button>
             </Panel>
-
             -->
         </Panel>
     </Panel>
