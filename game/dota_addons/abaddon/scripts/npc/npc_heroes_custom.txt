@@ -1,3 +1,4 @@
+
 // Dota Heroes File
 // NOTE: This is not for creating new heroes, this is for taking a currently existing hero as a template and overriding
 // the specified key-value combinations.  Use override_hero <hero_to_override> for this.
@@ -7,11 +8,12 @@
 	{
 		"override_hero"				"npc_dota_hero_antimage"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"ArmorPhysical"				"1"
+		"ArmorPhysical"				"-3"
         "Level"                     "1"
 		"AttackRate"				"1.1"
-		"AttackDamageMin"			"30"
-		"AttackDamageMax"			"45"
+		"AttackAnimationPoint"		"0.13000"
+		"AttackDamageMin"			"10"
+		"AttackDamageMax"			"15"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"130"
 
@@ -20,12 +22,12 @@
         "Complexity"	            "2"
 
 		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
-		"AttributeBaseStrength"			 "18"
+		"AttributeBaseStrength"			 "19"
 		"AttributeStrengthGain"			 "1.9"
-		"AttributeBaseIntelligence"		 "13"
+		"AttributeBaseIntelligence"		 "12"
 		"AttributeIntelligenceGain"		 "2.1"
-		"AttributeBaseAgility"			 "23"
-		"AttributeAgilityGain"			 "2.6"
+		"AttributeBaseAgility"			 "30"
+		"AttributeAgilityGain"			 "2.4"
 
 		"MovementSpeed"				     "300"
 		"MovementTurnRate"			     "1.2"
@@ -33,20 +35,20 @@
 		"VisionNighttimeRange"			 "600"
 		"VisionDaytimeRange"			 "800"
 
-		"MagicalResistance"			     "15"
+		"MagicalResistance"			     "0"
 
-		"StatusHealth"				"520"
-		"StatusMana"				"125"
-		"ModelScale"				"0.9"
-		"StatusHealthRegen"			"1.9"
-		"StatusManaRegen"			"0.7"
+		"StatusHealth"				"400"
+		"StatusMana"				"150"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"2.0"
+		"StatusManaRegen"			"0.8"
 
-        "Ability1"                  "mana_slayer_manabreak"
-        "Ability2"                  "mana_slayer_mana_expeller"
-        "Ability3"                  "mana_slayer_seal"
-        "Ability4"                  "mana_slayer_mana_hater"
+        "Ability1"                  "magic_seal"
+        "Ability2"                  "mana_expeller"
+        "Ability3"                  "New_ManaBreak"
+        "Ability4"                  "Mana_Hater"
         "Ability5"					"generic_hidden"	
-        "Ability6"                  "mana_slayer_soul_sacrifice"
+        "Ability6"                  "Soul_Sacrifice"
         "Ability7"                  ""
         "Ability10"     ""
         "Ability11"     ""
@@ -57,4 +59,1215 @@
         "Ability16"     ""
         "Ability17"     ""
 	}
+
+
+	    "dr"          //drow ranger
+    {
+        "override_hero"				"npc_dota_hero_drow_ranger"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+        "ArmorPhysical"				"-3"
+        "Level"                     "1"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.170000"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"50"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"800"
+		 "ProjectileModel"		    "particles/econ/items/clinkz/clinkz_maraxiform/clinkz_maraxiform_searing_arrow.vpcf"
+		"ProjectileSpeed"		    "1500"
+
+        "Role"			            "Carry,Disabler,Durable"
+		"Rolelevels"	            "2,2,3"
+        "Complexity"	            "2"
+
+        "AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "25"
+		"AttributeStrengthGain"			 "3.4"
+		"AttributeBaseIntelligence"		 "15"
+		"AttributeIntelligenceGain"		 "1.4"
+		"AttributeBaseAgility"			 "20"
+		"AttributeAgilityGain"			 "5.3"
+
+        "MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.0"
+
+        "VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+        "MagicalResistance"			     "0"
+
+        "StatusHealth"				     "600"
+		"StatusMana"				     "95"
+		"ModelScale"				     "0.85"
+		"StatusHealthRegen"			     "2.4"
+		"StatusManaRegen"			     "0.5"
+
+        "Ability1"                       "houmura_gun"
+        "Ability2"                       "ward_Guard_spv"
+        "Ability3"                       ""
+        "Ability4"                       "ebf_troll_warlord_multistrike"
+        "Ability5"                       ""
+        "Ability6"                       "demon_lord_shadow_wave"
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+    }
+
+
+    "JUGG"          //Sword Elite
+    {
+        "override_hero"				"npc_dota_hero_juggernaut"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+        "ArmorPhysical"				"1"
+        "Level"                     "1"
+		"AttackRate"				"1.38"
+		"AttackAnimationPoint"		"0.010000"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"50"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Carry,Durable"
+		"Rolelevels"	            "1,2"
+        "Complexity"	            "2"
+
+        "AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "25"
+		"AttributeStrengthGain"			 "3.4"
+		"AttributeBaseIntelligence"		 "15"
+		"AttributeIntelligenceGain"		 "1.4"
+		"AttributeBaseAgility"			 "20"
+		"AttributeAgilityGain"			 "5.3"
+
+        "MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.0"
+
+        "VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+        "MagicalResistance"			     "0"
+
+        "StatusHealth"				     "600"
+		"StatusMana"				     "95"
+		"ModelScale"				     "0.85"
+		"StatusHealthRegen"			     "2.4"
+		"StatusManaRegen"			     "0.5"
+
+        "Ability1"                       "elite_images_your_moms"
+        "Ability2"                       "fensui"
+        "Ability3"                       "creep_ability_fast"
+        "Ability4"                       "Blade_Array"
+        "Ability5"                       ""
+        "Ability6"                       "Death_Under_Sword"
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+    }
+
+	 "shaire"          //Sword Elite
+    {
+        "override_hero"				"npc_dota_hero_ember_spirit"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+        "ArmorPhysical"				"1"
+        "Level"                     "1"
+		"AttackRate"				"1.38"
+		"AttackAnimationPoint"		"0.270000"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"50"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Carry,Durable"
+		"Rolelevels"	            "1,2"
+        "Complexity"	            "2"
+
+        "AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "25"
+		"AttributeStrengthGain"			 "3.4"
+		"AttributeBaseIntelligence"		 "15"
+		"AttributeIntelligenceGain"		 "1.4"
+		"AttributeBaseAgility"			 "20"
+		"AttributeAgilityGain"			 "5.3"
+
+        "MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.0"
+
+        "VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+        "MagicalResistance"			     "0"
+
+        "StatusHealth"				     "600"
+		"StatusMana"				     "95"
+		"ModelScale"				     "0.85"
+		"StatusHealthRegen"			     "2.4"
+		"StatusManaRegen"			     "0.5"
+
+        "Ability1"                       "imba_pangolier_swashbuckle"
+        "Ability2"                       "ember_spirit_1"
+        "Ability3"                       ""
+        "Ability4"                       "imba_silencer_glaives_of_wisdom"
+        "Ability5"                       ""
+        "Ability6"                       ""
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+    }
+
+    "PA"                            //Shadow Killer
+	{
+		"override_hero"				"npc_dota_hero_phantom_assassin"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-3"
+        "Level"                     "1"
+		"AttackRate"				"1.48"
+		"AttackAnimationPoint"		"0.3000"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"40"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Carry,Nuker,Disabler"
+		"Rolelevels"	            "2,2,1"
+        "Complexity"	            "1"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "19"
+		"AttributeStrengthGain"			 "1.8"
+		"AttributeBaseIntelligence"		 "25"
+		"AttributeIntelligenceGain"		 "2.85"
+		"AttributeBaseAgility"			 "32"
+		"AttributeAgilityGain"			 "6.25"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"340"
+		"StatusMana"				"200"
+		"ModelScale"				"0.7"
+		"StatusHealthRegen"			"1.2"
+		"StatusManaRegen"			"1.9"
+
+        "Ability1"                  "Fatal_Dagger"
+        "Ability2"                  "Weapon_Seal"
+        "Ability3"                  "Hunter_Sneak"
+        "Ability4"                  "Grace_For_Relief"
+        "Ability5"                  "Hazy_Cloak"
+        "Ability6"                  "orb_ability_example"
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+    "TA"                            //Templar Warrior
+	{
+		"override_hero"				"npc_dota_hero_templar_assassin"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ArmorPhysical"				"-4"
+        "Level"                     "1"
+		"AttackRate"				"1.35"
+		"AttackAnimationPoint"		"0.2400"
+		"AttackDamageMin"			"40"
+		"AttackDamageMax"			"65"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"400"
+        "ProjectileModel"		    "particles/units/heroes/hero_templar_assassin/templar_assassin_meld_attack.vpcf"
+		"ProjectileSpeed"		    "1500"
+
+        "Role"			            "Carry,Disabler,Durable"
+		"Rolelevels"	            "2,2,3"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "21"
+		"AttributeStrengthGain"			 "2.5"
+		"AttributeBaseIntelligence"		 "23"
+		"AttributeIntelligenceGain"		 "1.6"
+		"AttributeBaseAgility"			 "26"
+		"AttributeAgilityGain"			 "6.75"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.35"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				     "485"
+		"StatusMana"				     "100"
+		"ModelScale"				     "0.85"
+		"StatusHealthRegen"			     "1.6"
+		"StatusManaRegen"			     "1.0"
+
+        "Ability1"                       "Templar_Benediction"
+        "Ability2"                       "Guilty_Punishment"
+        "Ability3"                       "Templar_Ward"
+        "Ability4"                       "Psychic_Wave"
+        "Ability5"                       "Psionic_Gift"
+        "Ability6"                       "Templar_Blood"
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+	    "drk"                            //dragon knight
+	{
+		"override_hero"				"npc_dota_hero_dragon_knight"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-1"
+        "Level"                     "1"
+		"AttackRate"				"1.45"
+		"AttackAnimationPoint"		"0.600"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"45"
+		"AttackAcquisitionRange"	"350"
+		"AttackRange"				"200"
+		"ProjectileSpeed"			"900"
+
+        "Role"			            "tank,tank,tank"
+		"Rolelevels"	            "3,3,3"
+        "Complexity"	            "3"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			 "34"
+		"AttributeStrengthGain"			 "3.2"
+		"AttributeBaseIntelligence"		 "22"
+		"AttributeIntelligenceGain"		 "1.85"
+		"AttributeBaseAgility"			 "17"
+		"AttributeAgilityGain"			 "2.4"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "0.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "15"
+
+		"StatusHealth"				"785"
+		"StatusMana"				"100"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"3.2"
+		"StatusManaRegen"			"0.7"
+
+        "Ability1"                  "GOD_of_war"
+        "Ability2"                  "berserkers_call_pass"
+        "Ability3"                  "ump_health"
+        "Ability4"                  ""
+        "Ability5"                  ""
+        "Ability6"                  "rebel_magic_armor"
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+		    "sniper"                            //dragon knight
+	{
+		"override_hero"				"npc_dota_hero_sniper"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ArmorPhysical"				"-1"
+        "Level"                     "1"
+		"AttackDamageMin"			"70"
+		"AttackDamageMax"			"100"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"800"
+		"ProjectileSpeed"			"3000"
+
+        "Role"			            "Disabler,Durable"
+		"Rolelevels"	            "3,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "34"
+		"AttributeStrengthGain"			 "7.2"
+		"AttributeIntelligenceGain"		 "1.85"
+		"AttributeBaseAgility"			 "17"
+		"AttributeBaseAgility"			 "17"
+		"AttributeAgilityGain"			 "2.4"
+		"AttackRate"					 "0.9"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "0.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"785"
+				"StatusMana"				"100"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"3.2"
+		"StatusManaRegen"			"0.7"
+
+        "Ability1"                  "karder_headshot"
+        "Ability2"                  "gun_toggle"
+        "Ability3"                  "karder_minigun"
+        "Ability4"					"generic_hidden"
+        "Ability5"					"generic_hidden"
+        "Ability6"					"generic_hidden"
+        "Ability7"					"generic_hidden"
+        "Ability8"					"generic_hidden"
+        "Ability9"					"generic_hidden"
+	}
+	"Bear"
+	{
+		"override_hero"	"npc_dota_hero_ursa"
+		"AttackDamageMin"	"63"
+		"AttackDamageMax"	"73"
+		"ArmorPhysical"		"8"
+		"StatusHealth"		"1300"
+		"StatusMana"		"450"
+
+
+		"Ability1"	"bear_jump"
+		"Ability2"	"custom_overpower"
+		"Ability3"	"custom_swipe"
+		"Ability4"	"custom_enrage"
+		"Ability5"	"generic_hidden"
+		"Ability6"	"generic_hidden"
+		"Ability7"	"generic_hidden"
+	}
+
+	"spawner"                            //Ocean Guardian
+	{
+		"override_hero"				"npc_dota_hero_phantom_lancer"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-1"
+        "Level"                     "1"
+		"AttackRate"				"2.0"
+		"AttackAnimationPoint"		"0.060"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"45"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Disabler,Durable"
+		"Rolelevels"	            "3,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "34"
+		"AttributeStrengthGain"			 "7.2"
+		"AttributeBaseIntelligence"		 "22"
+		"AttributeIntelligenceGain"		 "1.85"
+		"AttributeBaseAgility"			 "17"
+		"AttributeAgilityGain"			 "2.4"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "0.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"785"
+		"StatusMana"				"100"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"3.2"
+		"StatusManaRegen"			"0.7"
+
+        "Ability1"                  ""
+        "Ability2"                  "skeleton_king_mortal_strike_datadriven"
+        "Ability3"                  "fawerong_lucky_shot"
+        "Ability4"                  ""
+        "Ability5"                  ""
+        "Ability6"                  ""
+        "Ability7"                  "lobster_damage_reduction"
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+		"KARATEL"                            //Ocean Guardian
+	{
+		"override_hero"				"npc_dota_hero_life_stealer"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-1"
+        "Level"                     "1"
+		"AttackRate"				"1.9"
+		"AttackAnimationPoint"		"0.060"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"45"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"250"
+		"ProjectileModel"		    "particles/base_attacks/ranged_tower_bad.vpcf"
+        "ProjectileSpeed"		    "1200"
+
+        "Role"			            "Disabler,Durable"
+		"Rolelevels"	            "3,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "34"
+		"AttributeStrengthGain"			 "7.2"
+		"AttributeBaseIntelligence"		 "22"
+		"AttributeIntelligenceGain"		 "1.85"
+		"AttributeBaseAgility"			 "17"
+		"AttributeAgilityGain"			 "2.4"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "0.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"785"
+		"StatusMana"				"100"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"3.2"
+		"StatusManaRegen"			"0.7"
+
+        "Ability1"                  "bloodseeker_blood_bath2"
+        "Ability2"                  "demon"
+        "Ability3"                  "demon_lord_demon_power"
+        "Ability4"                  ""
+        "Ability5"                  ""
+        "Ability6"                  ""
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+
+
+
+
+
+
+    "Slardar"                            //Ocean Guardian
+	{
+		"override_hero"				"npc_dota_hero_slardar"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-1"
+        "Level"                     "1"
+		"AttackRate"				"1.7"
+		"AttackAnimationPoint"		"0.600"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"45"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Disabler,Durable"
+		"Rolelevels"	            "3,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			 "34"
+		"AttributeStrengthGain"			 "3.2"
+		"AttributeBaseIntelligence"		 "22"
+		"AttributeIntelligenceGain"		 "1.85"
+		"AttributeBaseAgility"			 "17"
+		"AttributeAgilityGain"			 "2.4"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "0.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"785"
+		"StatusMana"				"100"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"3.2"
+		"StatusManaRegen"			"0.7"
+
+        "Ability1"                  "deep_water"
+        "Ability2"                  "Rage_Spirit"
+        "Ability3"                  "Armor_Loots"
+        "Ability4"                  "Ocean_Arrays"
+        "Ability5"                  "Heavy_Basher"
+        "Ability6"                  "Ocean_Heart"
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+    "Chaos"                         //Acheron Knight
+	{
+		"override_hero"				"npc_dota_hero_chaos_knight"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-4"
+        "Level"                     "1"
+		"AttackRate"				"1.6"
+		"AttackAnimationPoint"		"0.500"
+		"AttackDamageMin"			"5"
+		"AttackDamageMax"			"85"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Carry,Nuker,Disabler"
+		"Rolelevels"	            "2,1,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			 "29"
+		"AttributeStrengthGain"			 "3.4"
+		"AttributeBaseIntelligence"		 "21"
+		"AttributeIntelligenceGain"		 "2.1"
+		"AttributeBaseAgility"			 "22"
+		"AttributeAgilityGain"			 "3.0"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.3"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"615"
+		"StatusMana"				"100"
+		"ModelScale"				"1.1"
+		"StatusHealthRegen"			"2.4"
+		"StatusManaRegen"			"1.0"
+
+
+
+        "Ability1"                  "acheron_blade"
+        "Ability2"                  "Acheron_Assault"
+        "Ability3"                  "Chaos_Wave"
+        "Ability4"                  "chaos_arrows_rain"
+        "Ability5"                  "Death_Strike"
+        "Ability6"                  "Spirit_Plunder"
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+    "Sven"                          //Cleaver Rogue
+	{
+		"override_hero"				"npc_dota_hero_sven"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-3"
+        "Level"                     "1"
+		"AttackRate"				"1.65"
+		"AttackAnimationPoint"		"0.550"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"35"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Carry,Nuker,Disabler"
+		"Rolelevels"	            "2,3,1"
+        "Complexity"	            "1"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			 "26"
+		"AttributeStrengthGain"			 "6.0"
+		"AttributeBaseIntelligence"		 "23"
+		"AttributeIntelligenceGain"		 "2.75"
+		"AttributeBaseAgility"			 "20"
+		"AttributeAgilityGain"			 "2.2"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.15"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"520"
+		"StatusMana"				"100"
+		"ModelScale"				"0.75"
+		"StatusHealthRegen"			"2.1"
+		"StatusManaRegen"			"1.5"
+
+        "Ability1"                  "Cleaver_Shockwave"
+        "Ability2"                  "Cleaver_Array"
+        "Ability3"                  "Blood_Coercion"
+        "Ability4"                  "cleaver_for_gods"
+        "Ability5"                  "Cleaver_For_Demon"
+        "Ability6"                  "war_holdout"
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+    "Omni"                          //Heaven Juger
+	{
+		"override_hero"				"npc_dota_hero_omniknight"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"5"
+        "Level"                     "1"
+		"AttackRate"				"2.0"
+		"AttackAnimationPoint"		"0.45"
+		"AttackDamageMin"			"85"
+		"AttackDamageMax"			"120"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Support,Disabler,Durable"
+		"Rolelevels"	            "3,2,3"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			 "36"
+		"AttributeStrengthGain"			 "6.6"
+		"AttributeBaseIntelligence"		 "30"
+		"AttributeIntelligenceGain"		 "3.6"
+		"AttributeBaseAgility"			 "20"
+		"AttributeAgilityGain"			 "2.0"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "0.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"600"
+		"StatusMana"				"300"
+		"ModelScale"				"0.7"
+		"StatusHealthRegen"			"5.5"
+		"StatusManaRegen"			"2.4"
+
+        "Ability1"                  "Heaven_Benediction"
+        "Ability2"                  "Heaven_Protection"
+        "Ability3"                  "Omni_Buff"
+        "Ability4"                  "Guilty_Purification"
+        "Ability5"                  "Domestication"
+        "Ability6"                  "Supreme_Honor"
+        "Ability7"                  "phantom_assassin_phantom_strikeer"
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+    "Lina"                            //Flame Bringer
+	{
+		"override_hero"				"npc_dota_hero_lina"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ArmorPhysical"				"-4"
+        "Level"                     "1"
+		"AttackRate"				"1.4"
+		"AttackAnimationPoint"		"0.275"
+		"AttackDamageMin"			"20"
+		"AttackDamageMax"			"25"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"725"
+        "ProjectileModel"		    "particles/econ/items/clinkz/clinkz_maraxiform/clinkz_maraxiform_searing_arrow.vpcf"
+        "ProjectileSpeed"		    "2000"
+
+        "Role"			            "Carry,Disabler,Nuker"
+		"Rolelevels"	            "2,3,3"
+        "Complexity"	            "3"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			 "20"
+		"AttributeStrengthGain"			 "2.75"
+		"AttributeBaseIntelligence"		 "41"
+		"AttributeIntelligenceGain"		 "5.25"
+		"AttributeBaseAgility"			 "22"
+		"AttributeAgilityGain"			 "3.45"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.15"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				     "390"
+		"StatusMana"				     "145"
+		"ModelScale"				     "0.8"
+		"StatusHealthRegen"			     "1.4"
+		"StatusManaRegen"			     "3.0"
+
+        "Ability1"                       "Flame_Strike"
+        "Ability2"                       "Flame_Array"
+        "Ability3"                       "Falling_Down"
+        "Ability4"                       "From_Hell"
+        "Ability5"                       "Flame_Spirit"
+        "Ability6"                       "Gate_of_Hell"
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+    "CM"                            //Ice Charmer
+	{
+		"override_hero"				"npc_dota_hero_crystal_maiden"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ArmorPhysical"				"0"
+        "Level"                     "1"
+		"AttackRate"				"1.6"
+		"AttackAnimationPoint"		"0.45"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"40"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"600"
+        "ProjectileModel"		    "particles/units/heroes/hero_drow/drow_frost_arrow.vpcf"
+        "ProjectileSpeed"		    "1200"
+
+        "Role"			            "Support,Disabler,Nuker"
+		"Rolelevels"	            "2,2,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			 "17"
+		"AttributeStrengthGain"			 "2.2"
+		"AttributeBaseIntelligence"		 "34"
+		"AttributeIntelligenceGain"		 "5.75"
+		"AttributeBaseAgility"			 "30"
+		"AttributeAgilityGain"			 "4.4"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.0"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				     "460"
+		"StatusMana"				     "180"
+		"ModelScale"				     "0.75"
+		"StatusHealthRegen"			     "1.7"
+		"StatusManaRegen"			     "3.4"
+
+        "Ability1"                       "Ice_Nova"
+        "Ability2"                       "Ice_Breath"
+        "Ability3"                       "Mana_Trade"
+        "Ability4"                       "Ice_Ball"
+        "Ability5"                       "Ice_Aegis"
+        "Ability6"                       "Frost_Fire"
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+    "QOP"                            //Nightmare
+	{
+		"override_hero"				"npc_dota_hero_queenofpain"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ArmorPhysical"				"-4"
+        "Level"                     "1"
+		"AttackRate"				"1.45"
+		"AttackAnimationPoint"		"0.1"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"65"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"675"
+        "ProjectileSpeed"		    "4000"
+
+        "Role"			            "Carry,Disabler,Durable,Nuker"
+		"Rolelevels"	            "2,1,3,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			 "24"
+		"AttributeStrengthGain"			 "2.6"
+		"AttributeBaseIntelligence"		 "31"
+		"AttributeIntelligenceGain"		 "7.2"
+		"AttributeBaseAgility"			 "25"
+		"AttributeAgilityGain"			 "3.3"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				     "545"
+		"StatusMana"				     "90"
+		"ModelScale"				     "0.85"
+		"StatusHealthRegen"			     "2.45"
+		"StatusManaRegen"			     "2.4"
+
+        "Ability1"                       "Torture_for_Pleasure"
+        "Ability2"                       "Sadism_Spirit"
+        "Ability3"                       ""
+        "Ability4"                       "Death_Tornado"
+        "Ability5"                       "Deep_Pain"
+        "Ability6"                       "Nightmare_Demon"
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+	"hus"                            //huscar
+	{
+		"override_hero"				"npc_dota_hero_doom_bringer"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+		"ArmorPhysical"				"-4"
+        "Level"                     "1"
+		"AttackAnimationPoint"		"0.1"
+		"AttackDamageMin"			"25"
+		"AttackDamageMax"			"65"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"175"
+        "ProjectileSpeed"		    "1200"
+
+        "Role"			            "Carry,Nuker"
+		"Rolelevels"	            "1,2"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			 "36.2"
+		"AttributeStrengthGain"			 "4.3"
+		"AttributeBaseIntelligence"		 "24"
+		"AttributeIntelligenceGain"		 "3.3"
+		"AttributeBaseAgility"			 "24"
+		"AttributeAgilityGain"			 "3.3"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.9"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				     "545"
+		"StatusMana"				     "90"
+		"ModelScale"				     "0.85"
+		"StatusHealthRegen"			     "2.45"
+		"StatusManaRegen"			     "2.4"
+
+        "Ability1"                       "dovakin_power_of_the_light"
+        "Ability2"                       "plusiki2"
+        "Ability3"                       "dovakin_lifesteal"
+        "Ability4"                       ""
+        "Ability5"                       ""
+        "Ability6"                       "luanshe"
+	}
+
+	"tank"                           //Mana Slayer
+	{
+		"override_hero"				"npc_dota_hero_wisp"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ArmorPhysical"				"10"
+        "Level"                     "1"
+		"AttackRate"				"1.0"
+		"AttackAnimationPoint"		"0.13000"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"55"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"800"
+
+        "Role"			            "Carry,Disabler,Nuker"
+		"Rolelevels"	            "3,1,1"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "20"
+		"AttributeStrengthGain"			 "2"
+		"AttributeBaseIntelligence"		 "20"
+		"AttributeIntelligenceGain"		 "2"
+		"AttributeBaseAgility"			 "20"
+		"AttributeAgilityGain"			 "2"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.2"
+
+		"VisionNighttimeRange"			 "1000"
+		"VisionDaytimeRange"			 "1000"
+
+		"MagicalResistance"			     "25"
+
+		"StatusHealth"				"1000"
+		"StatusMana"				"100"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"2.0"
+		"StatusManaRegen"			"2.0"
+
+        "Ability1"                  "treants_hero_asassin_geminate_attack"
+        "Ability2"                  "creature_spawner"
+        "Ability3"                  "ZOMBIE_spawn"
+        "Ability4"                  "creep_as"
+        "Ability5"                  ""
+        "Ability6"                  ""
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+		"Saveas"                           //Saveas
+	{
+		"override_hero"				"npc_dota_hero_terrorblade"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"Model"						"models/heroes/terrorblade/demon.vmdl"
+		"ProjectileModel"		    "particles/units/heroes/hero_abaddon/abaddon_death_coil.vpcf"
+        "ProjectileSpeed"		    "1000"
+		"ArmorPhysical"				"3"
+        "Level"                     "1"
+		"AttackRate"				"1.5"
+		"AttackAnimationPoint"		"0.13000"
+		"AttackDamageMin"			"50"
+		"AttackDamageMax"			"55"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"800"
+
+        "Role"			            "Carry,Carry,Carry"
+		"Rolelevels"	            "3,3,3"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_AGILITY"
+		"AttributeBaseStrength"			 "17.5"
+		"AttributeStrengthGain"			 "1.25"
+		"AttributeBaseIntelligence"		 "12.5"
+		"AttributeIntelligenceGain"		 "1.75"
+		"AttributeBaseAgility"			 "20"
+		"AttributeAgilityGain"			 "3.5"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.2"
+
+		"VisionNighttimeRange"			 "1000"
+		"VisionDaytimeRange"			 "1000"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				"1000"
+		"StatusMana"				"100"
+		"ModelScale"				"0.8"
+		"StatusHealthRegen"			"2.0"
+		"StatusManaRegen"			"2.0"
+
+        "Ability1"                  "Saveas_berserkers_blood"
+        "Ability2"                  "gohert"
+        "Ability3"                  "Saveas_hunter_in_the_night"
+        "Ability4"                  "kratos_final_strike"
+        "Ability5"                  "Corrosive_Haze_icon"
+        "Ability6"                  ""
+        "Ability7"                  ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+
+
+
+
+
+
+    "Zeus"                            //Thor
+	{
+		"override_hero"				"npc_dota_hero_zuus"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ArmorPhysical"				"-4"
+        "Level"                     "1"
+		"AttackRate"				"1.65"
+		"AttackAnimationPoint"		"0.5"
+		"AttackDamageMin"			"35"
+		"AttackDamageMax"			"50"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"375"
+        "ProjectileModel"		    "particles/units/heroes/hero_razor/razor_base_attack.vpcf"
+        "ProjectileSpeed"		    "700"
+
+        "Role"			            "Durable,Nuker"
+		"Rolelevels"	            "2,3"
+        "Complexity"	            "2"
+
+		"AttributePrimary"			     "DOTA_ATTRIBUTE_INTELLECT"
+		"AttributeBaseStrength"			 "26"
+		"AttributeStrengthGain"			 "2.8"
+		"AttributeBaseIntelligence"		 "40"
+		"AttributeIntelligenceGain"		 "6.25"
+		"AttributeBaseAgility"			 "19"
+		"AttributeAgilityGain"			 "2.1"
+
+		"MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.35"
+
+		"VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+		"MagicalResistance"			     "0"
+
+		"StatusHealth"				     "445"
+		"StatusMana"				     "185"
+		"ModelScale"				     "0.8"
+		"StatusHealthRegen"			     "2.2"
+		"StatusManaRegen"			     "3.3"
+
+        "Ability1"                       "Parallel_Current"
+        "Ability2"                       "Concentrated_Voltage"
+        "Ability3"                       "Annular_Lightning"
+        "Ability4"                       "Static_Barrier"
+        "Ability5"                       "August_of_Donar"
+        "Ability6"                       "Protection_Racket"
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+	}
+
+
+	"tolstiak"          //Sword Elite
+    {
+        "override_hero"				"npc_dota_hero_pudge"
+		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
+        "ArmorPhysical"				"1"
+        "Level"                     "1"
+		"AttackRate"				"1.38"
+		"AttackAnimationPoint"		"0.010000"
+		"AttackDamageMin"			"30"
+		"AttackDamageMax"			"50"
+		"AttackAcquisitionRange"	"800"
+		"AttackRange"				"130"
+
+        "Role"			            "Carry,Durable"
+		"Rolelevels"	            "1,2"
+        "Complexity"	            "2"
+
+        "AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
+		"AttributeBaseStrength"			 "25"
+		"AttributeStrengthGain"			 "5.3"
+		"AttributeBaseIntelligence"		 "15"
+		"AttributeIntelligenceGain"		 "1.4"
+		"AttributeBaseAgility"			 "15"
+		"AttributeAgilityGain"			 "3.4"
+
+        "MovementSpeed"				     "300"
+		"MovementTurnRate"			     "1.0"
+
+        "VisionNighttimeRange"			 "600"
+		"VisionDaytimeRange"			 "800"
+
+        "MagicalResistance"			     "0"
+
+        "StatusHealth"				     "600"
+		"StatusMana"				     "95"
+		"ModelScale"				     "0.85"
+		"StatusHealthRegen"			     "2.4"
+		"StatusManaRegen"			     "0.5"
+               
+        "Ability1"                       "acid_spray_pass"
+        "Ability2"                       "furySwipes_base_attack"
+        "Ability3"                       ""
+        "Ability4"                       ""
+        "Ability5"                       ""
+        "Ability6"                       ""
+        "Ability7"                       ""
+        "Ability10"     ""
+        "Ability11"     ""
+        "Ability12"     ""
+        "Ability13"     ""
+        "Ability14"     ""
+        "Ability15"     ""
+        "Ability16"     ""
+        "Ability17"     ""
+    }
 }

@@ -8,6 +8,7 @@ require('libraries/timers')
 
 -- Utilities
 require('utilities/wave_manager')
+require('utilities/spawn_camp')
 require('utilities/dropsystem')
 require('utilities/string')
 require('utilities/ai')
@@ -45,6 +46,7 @@ function Abaddon:InitGameMode()
 	
 	-- Events
 	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(Abaddon, 'OnGameRulesStateChange'), self)
+    ListenToGameEvent('player_chat', Dynamic_Wrap(Abaddon, 'OnPlayerChatMessage'), self)
 
 	-- Custom Game Events
 	CustomGameEventManager:RegisterListener('VoteClick', Dynamic_Wrap(Abaddon, 'OnVoteClick'))
@@ -81,6 +83,7 @@ function Abaddon:InitGameMode()
     GameRules:SetRuneSpawnTime(45)
 
 	local GameMode = GameRules:GetGameModeEntity()
+    GameMode:SetGiveFreeTPOnDeath( false )
 
 	-- XP Table
 	XP_PER_LEVEL_TABLE = {
@@ -228,8 +231,11 @@ function Abaddon:OnGameRulesStateChange()
         --local bossLocation = Entities:FindByName( nil, "boss_loc"):GetAbsOrigin()
         --AddFOWViewer(DOTA_TEAM_GOODGUYS, nature_1, 1200, 10800, true)
 
-        -- Begin the wave's manager
+        -- Init the wave's manager
         WaveManager:Init()
+
+        -- Init the spawn camp system
+        NeutralCamp:Init()
     end
 end
 
@@ -250,6 +256,41 @@ function Abaddon:OnTimeEnd( tData )
 		WaveManager.State = MADNESS_WAVE_STATE_ROUND_IN_PROGRESS
 		WaveManager:StartNextRound()
 	end
+end
+
+-- Calls when player sends message in chat
+function Abaddon:OnPlayerChatMessage( event )
+    local teamonly = event.teamonly
+    local userid = event.userid
+    local player_id = event.playerid
+    local prefix = "-"
+    local text = event.text
+    
+    if GameRules:IsCheatMode() then
+        print('yes')
+        if text:find(prefix) then
+            local cutText = text:sub( 2 )
+
+            if cutText == "disablewaves" then
+                WaveManager:FreezeWaveManager()
+                print('Freeze')
+            elseif cutText == "enablewaves" then
+                WaveManager:UnfreezeWaveManager()
+                print('Unfreeze')
+            elseif cutText == "skipwave" then
+                WaveManager:SkipWave()
+                print('Skip wave')
+            elseif cutText:find("setwave") then
+                local arg = string.split( cutText, " " )
+                if arg[2] then
+                    WaveManager:SetWave( arg[2] ) -- { "setwave", "2" }
+                end
+                print( 'setwave' )
+            end
+
+            print('Prefix')
+        end
+    end
 end
 
 -- Get Cast Range Bonus FIX

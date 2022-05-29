@@ -13,8 +13,10 @@ _G.MADNESS_WAVE_STATE_WAITING_FOR_NEXT_ROUND = 3
 _G.MADNESS_WAVE_STATE_ROUND_IN_PROGRESS = 4
 _G.MADNESS_WAVE_STATE_POST_GAME = 5
 
+_G.MADNESS_WAVE_STATE_FREEZED = 123
 
--- Spawn list
+
+-- I'm too lazy... don't worry I'll do it later
 SpawnTable = {
     {
         unit_type_count=       1,
@@ -54,7 +56,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Ogre Beast" },
+        units_name=            { "npc_dota_ogre_beast" },
         display_name = "Ogre Beasts",
         wave_count=            12,
         interval=              8,
@@ -63,8 +65,8 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "windrunner" },
-        display_name = "[Boss]Windrunner",
+        units_name=            { "npc_dota_windrunner" },
+        display_name = "[Boss] Windrunner",
         wave_count=            1,
         interval=              10,
         each_min=              { 1 },
@@ -72,8 +74,8 @@ SpawnTable = {
     },
     {
         unit_type_count=       2,
-        units_name=            { "Centaur Master", "Centaur_Suicide" },
-        display_name = "Centaur Master and Centraur Suicide",
+        units_name=            { "npc_dota_centaur_master" },
+        display_name = "Centaur Master",
         wave_count=            12,
         interval=              8,
         each_min=              { 2, 5 },
@@ -81,7 +83,7 @@ SpawnTable = {
     },  
     {
         unit_type_count=       2,
-        units_name=            { "War Beast", "Leader_War_Beast" },
+        units_name=            { "npc_dota_war_beast", "npc_dota_leader_war_beast" },
         display_name = "Leader War Beast and War Beast",
         wave_count=            12,
         interval=              8,
@@ -90,7 +92,7 @@ SpawnTable = {
     },
 {
         unit_type_count=       1,
-        units_name=            { "boss_lich" },
+        units_name=            { "npc_dota_boss_lich" },
         display_name = "[Boss] Lich",
         wave_count=            1,
         interval=              10,
@@ -99,7 +101,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Evil Bat" },
+        units_name=            { "npc_dota_evil_bat" },
         display_name = "Evil Bats",
         wave_count=            12,
         interval=              8,
@@ -108,7 +110,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Magical Killer" },
+        units_name=            { "npc_dota_magic_killer" },
         display_name = "Magic killers",
         wave_count=            12,
         interval=              8,
@@ -117,7 +119,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "blooder" },
+        units_name=            { "npc_dota_blooder" },
         display_name = "Blooders",
         wave_count=            12,
         interval=              8,
@@ -126,7 +128,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Axe Lord" },
+        units_name=            { "npc_dota_axe_lord" },
         display_name = "[Boss] Axe Lord",
         wave_count=            1,
         interval=              10,
@@ -135,7 +137,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Wraith Caster"},
+        units_name=            { "npc_dota_wraith_caster"},
         display_name = "Wraith Casters",
         wave_count=            12,
         interval=              8,
@@ -144,7 +146,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Skeleton Warrior"},
+        units_name=            { "npc_dota_skeleton_warriors"},
         display_name = "Skeleton Warriors",
         wave_count=            12,
         interval=              8,
@@ -153,7 +155,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            { "Professional Sniper"},
+        units_name=            { "npc_dota_sniper_proffesional"},
         display_name = "Snipers",
         wave_count=            12,
         interval=              8,
@@ -162,7 +164,7 @@ SpawnTable = {
     },
     {
         unit_type_count=       1,
-        units_name=            {"MADNESSMaster"},
+        units_name=            {"npc_dota_madness_master"},
         display_name = "[Final Boss] Madness Master",
         wave_count=            1,
         interval=              10,
@@ -181,21 +183,18 @@ _G.currentWaveCount = 0
 _G.unitRemains = 0
 _G.Boss = nil
 
+-- KV Files
+_G.DropList = LoadKeyValues('scripts/kv/drop_list.kv')
+_G.ItemProperties = LoadKeyValues('scripts/npc/npc_items_custom.txt')
+
+
 function WaveManager:Init()
     defenseLoc = Entities:FindByName( nil, 'defense_loc'):GetAbsOrigin()
     WaveManager.State = MADNESS_WAVE_STATE_PRE_GAME
-    print('Wave state changed to MADNESS_WAVE_STATE_PRE_GAME')
+    print('[WAVE MANAGER] State has changed to MADNESS_WAVE_STATE_PRE_GAME')
 
     SetBossNPC('npc_dota_ancient_guardian')
     ListenToGameEvent('entity_killed', Dynamic_Wrap(WaveManager, 'OnWaveEntityKilled'), self)
-    if IsInToolsMode() then
-        print('Debug info: ')
-        print('Current Round: ', currentRound)
-        print('Round Timer Is Finished: ', roundTimerIsFinished)
-        print('Round Ended: ', roundEnded)
-        print('Unit Remains: ', unitRemains)
-        print('Boss Name: ', Boss:GetUnitName())
-    end
 
     -- Register Listener
     CustomGameEventManager:RegisterListener('Upgrade', Dynamic_Wrap(WaveManager, 'OnClickUpgrade'))
@@ -224,15 +223,13 @@ function WaveManager:OnWaveEntityKilled( tData )
         if roundTimerIsFinished and unitRemains < 1 then
             roundEnded = true
         end
-        DropSystem:DropItem( victim )
+        DropSystem:DropItem( victim, DropList, attacker )
     end
- 
-    print('Unit remains: ', unitRemains)
 end
 
 -- Do think every .3s to check state of wave
 function Abaddon:WaveThink()
-    if roundTimerIsFinished and roundEnded then
+    if roundTimerIsFinished and roundEnded and WaveManager.State ~= MADNESS_WAVE_STATE_FREEZED then
         
         -- Reset some settings
         roundEnded = false
@@ -244,11 +241,10 @@ function Abaddon:WaveThink()
         CustomNetTables:SetTableValue('game_info', 'points', {
             point = points + 1,
         })
-        print(points)
-
+        
         -- Start timer to start next round
         WaveManager.State = MADNESS_STATE_PRE_ROUND_TIME
-        print('Wave state changed to MADNESS_WAVE_STATE_PRE_ROUND_TIME')
+        print('[WAVE MANAGER] State has changed to MADNESS_WAVE_STATE_PRE_ROUND_TIME')
         PopupTimer( 180 )
 
         if currentRound ~= 0 then
@@ -268,6 +264,7 @@ function PopupTimer( iTime )
     timeEnd = GameRules:GetDOTATime(false, false) + iTime
 
     WaveManager.State = MADNESS_WAVE_STATE_WAITING_FOR_NEXT_ROUND
+    print('[WAVE MANAGER] State has changed to MADNESS_WAVE_STATE_WAITING_FOR_NEXT_ROUND')
 
     CustomNetTables:SetTableValue('player_table', 'timer', {
       startTime = timeStart,
@@ -286,6 +283,8 @@ end
 function WaveManager:StartNextRound()
     if currentRound ~= 0 then
         Boss:CreatureLevelUp(1)
+    elseif WaveManager.State == MADNESS_WAVE_STATE_FREEZED then
+        return
     end
 
     roundTimerIsFinished = false
@@ -390,12 +389,11 @@ function WaveManager:SpawnUnits( tSpawnInfo, currentWaveCount )
     end
 
     if IsInToolsMode() then
-        print('Debug info: ')
-        print('Current Round: ', currentRound)
-        print('Round Timer Is Finished: ', roundTimerIsFinished)
-        print('Round Ended: ', roundEnded)
-        print('Unit Remains: ', unitRemains)
-        print('Boss Name: ', Boss:GetUnitName())
+        print('[DEBUGGER] Current Round: ', currentRound)
+        print('[DEBUGGER] Round Timer Is Finished: ', roundTimerIsFinished)
+        print('[DEBUGGER] Round Ended: ', roundEnded)
+        print('[DEBUGGER] Unit Remains: ', unitRemains)
+        print('[DEBUGGER] Boss Name: ', Boss:GetUnitName())
     end
 end
 
@@ -415,6 +413,8 @@ function WaveManager:OnClickUpgrade( data )
         local ability = Boss:FindAbilityByName(abilityName)
         if tonumber(needPointsToLearn[ability:GetLevel()]) and points >= tonumber(needPointsToLearn[ability:GetLevel()]) and ability:GetLevel() ~= ability:GetMaxLevel() then
             ability:SetLevel( ability:GetLevel() + 1 )
+
+            -- Adjust num of points
             CustomNetTables:SetTableValue('game_info', 'points', {
                 point = points - tonumber(needPointsToLearn[ability:GetLevel()])
             })
@@ -437,7 +437,7 @@ function WaveManager:OnClickUpgrade( data )
             local ability = Boss:AddAbility(abilityName)
             ability:SetLevel( ability:GetLevel() + 1 )
 
-            -- Adjust points
+            -- Adjust num of points
             CustomNetTables:SetTableValue('game_info', 'points', {
                 point = points - tonumber(needPointsToLearn[ability:GetLevel()]),
             })
@@ -509,9 +509,61 @@ end
 -- Debug functions
 
 -- Skips wave
--- P.S: Not tested
 function WaveManager:SkipWave()
     roundTimerIsFinished = true
     roundEnded = true
     unitRemains = 0
+
+    self:KillAllWaveUnits()
+end
+
+-- Freezes the wave cycle
+function WaveManager:FreezeWaveManager()
+    WaveManager.State = MADNESS_WAVE_STATE_FREEZED
+    
+    local units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, defenseLoc, nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+    for _, unit in pairs( units ) do
+        if unit.IsWaveUnit and not unit:IsRealHero() then
+            unit:AddNewModifier(unit, nil, "modifier_stunned", {})
+        end
+    end
+
+    print('[DEBUGGER] Wave manager freezed')
+end
+
+-- Unfreezes the wave cycle
+function WaveManager:UnfreezeWaveManager()
+    local units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, defenseLoc, nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_BOTH, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+    for _, unit in pairs( units ) do
+        if unit.IsWaveUnit and not unit:IsRealHero() then
+            unit:RemoveModifierByName('modifier_stunned')
+        end
+    end
+
+    if unitRemains > 1 then
+        WaveManager.State = MADNESS_WAVE_STATE_ROUND_IN_PROGRESS
+    elseif self:IsRoundFinished() and self:IsRoundTimerFinished() then
+        WaveManager.State = MADNESS_WAVE_STATE_PRE_ROUND_TIME
+    end
+
+    print('[DEBUGGER] Wave manager freezed')
+end
+
+-- Set round to num
+function WaveManager:SetWave( iRound )
+    currentRound = iRound
+    roundEnded = true
+    roundTimerIsFinished = true
+    unitRemains = 0
+
+    self:KillAllWaveUnits()
+end
+
+function WaveManager:KillAllWaveUnits()
+    local units = FindUnitsInRadius(DOTA_TEAM_GOODGUYS, Vector(0,0,0), nil, FIND_UNITS_EVERYWHERE, DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_NONE, 0, false)
+    for _, unit in pairs( units ) do
+        if unit.IsWaveUnit then
+            unit:ForceKill( false )
+        end
+    end
 end

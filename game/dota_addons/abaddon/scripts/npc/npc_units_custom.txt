@@ -166,7 +166,7 @@
 		"AttackDamageMax"			"10"			
 		"AttackRate"				"1.65"		
 		"AttackAnimationPoint"		"0.25"		
-		"AttackAcquisitionRange"	"750"		
+		"AttackAcquisitionRange"	"0"		
 		"AttackRange"				"170"
 		"ProjectileModel"			""			
 		"ProjectileSpeed"			"0"		
@@ -202,7 +202,7 @@
 	    {   
 	            
 	        "HPGain"                    "25"
-	        "DamageGain"                "4"
+	        "DamageGain"                "1"
 	        "ArmorGain"                 "0"
 	        "ManaGain"                  "0"
 	        "MagicResistGain"           "2"
@@ -514,6 +514,463 @@
 	                "Wearable4" { "ItemDef" "7847" }
 	                "Wearable5" { "ItemDef" "7848" }
 	            }
+	        }      
+	}
+
+	"npc_dota_windrunner"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/heroes/windrunner/windrunner.vmdl"
+		"ModelScale" 				"2.0"
+		"SoundSet"					"Hero_Windrunner"
+		"Level"						"6"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "0"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "1"
+	        "ConsideredHero"            "1"
+	        "IsNeutralUnitType"         "0"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "45"
+	        "MagicalResistance"			"40"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+	        "AttackDamageMin"			"200"		
+		"AttackDamageMax"			"300"			
+		"AttackRate"				"0.4"		
+		"AttackAnimationPoint"		"0.2"		
+		"AttackAcquisitionRange"	"750"		
+		"AttackRange"				"700"
+		"ProjectileModel"			"particles/units/heroes/hero_windrunner/windrunner_base_attack.vpcf"				// Particle system model for projectile.
+		"ProjectileSpeed"			"1250"
+	        
+	        "BountyXP"					"10"		
+		"BountyGoldMin"				"3"		
+		"BountyGoldMax"				"3"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "80"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"		
+	        "MovementTurnRate"          "0.4" 
+	        
+	        "StatusHealth"				"4300"		
+		"StatusHealthRegen"			"25"		
+		"StatusMana"				"900"		
+		"StatusManaRegen"			"10"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+			"Ability1"					"windrunner_powershot"
+			"Ability2"					"windrunner_windrun"
+	        
+	        "vscripts"                  "npc_ai/windrunner"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "5"
+	            "ManaGain"                  "50"
+	            "MagicResistGain"           "4"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
+
+	            "AttachWearables"
+	            {
+	            	"Wearable1"		{ "ItemDef" "7978"	}
+	            	"Wearable2"		{ "ItemDef" "4601" }
+	            	"Wearable3"		{ "ItemDef" "4603" }
+	            }
+	        }      
+	}
+
+	"npc_dota_centaur_master"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/heroes/centaur/centaur.vmdl"
+		"ModelScale" 				"1.1"
+		"SoundSet"					"Hero_Centaur"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "15"
+	        "MagicalResistance"			"25"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"			"75"		
+		"AttackDamageMax"			"75"			
+		"AttackRate"				"1.1"		
+		"AttackAnimationPoint"		"0.3"		
+		"AttackAcquisitionRange"	"800"		
+		"AttackRange"				"200"
+		"ProjectileModel"			""			
+		"ProjectileSpeed"			"0"		
+	        
+	        "BountyXP"					"38"		
+		"BountyGoldMin"				"9"		
+		"BountyGoldMax"				"9"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "100"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"270"		
+	        "MovementTurnRate"          "0.5" 
+	        
+	        "StatusHealth"				"1200"		
+		"StatusHealthRegen"			"0"		
+		"StatusMana"				"1200"		
+		"StatusManaRegen"			"0"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					"centaur_khan_war_stomp"
+	        "Ability2"                  "centaur_master_effect"
+	        
+	        "vscripts"                  "npc_ai/centaur_master"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "5"
+	            "ManaGain"                  "0"
+	            "MagicResistGain"           "4"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
+	            
+	            "AttachWearables"
+	            {
+	                "Wearable1" { "ItemDef" "8478" }
+	                "Wearable2" { "ItemDef" "8479" }
+	                "Wearable3" { "ItemDef" "8481" }
+	                "Wearable4" { "ItemDef" "8483" }
+	                "Wearable5" { "ItemDef" "8485" }
+	                "Wearable6" { "ItemDef" "8491" }
+	                "Wearable7" { "ItemDef" "8493" }
+	            }
+	        }      
+	}
+
+	"npc_dota_war_beast"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/heroes/lycan/lycan_wolf.vmdl"
+		"ModelScale" 				"0.9"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "20"
+	        "MagicalResistance"			"10"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"			"100"		
+		"AttackDamageMax"			"100"			
+		"AttackRate"				"0.85"		
+		"AttackAnimationPoint"		"0.15"		
+		"AttackAcquisitionRange"	"800"		
+		"AttackRange"				"170"
+		"ProjectileModel"			""			
+		"ProjectileSpeed"			"0"		
+	        
+	        "BountyXP"					"54"		
+		"BountyGoldMin"				"11"		
+		"BountyGoldMax"				"11"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "70"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"		
+		"MovementSpeed"				"330"		
+	        "MovementTurnRate"          "0.5" 
+	        
+	        "StatusHealth"				"900"		
+		"StatusHealthRegen"			"0"		
+		"StatusMana"				"900"		
+		"StatusManaRegen"			"0"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					""
+	        "Ability2"					""
+	        
+	        "vscripts"                  "npc_ai/war_beast"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "5"
+	            "ManaGain"                  "50"
+	            "MagicResistGain"           "0"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
+	        }      
+	}
+
+	"Leader_War_Beast"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/heroes/lycan/lycan_wolf.vmdl"
+		"ModelScale" 				"1.3"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "50"
+	        "MagicalResistance"			"10"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"			"100"		
+		"AttackDamageMax"			"200"			
+		"AttackRate"				"0.85"		
+		"AttackAnimationPoint"		"0.15"		
+		"AttackAcquisitionRange"	"800"		
+		"AttackRange"				"170"
+		"ProjectileModel"			""			
+		"ProjectileSpeed"			"0"		
+	        
+	        "BountyXP"					"54"		
+		"BountyGoldMin"				"11"		
+		"BountyGoldMax"				"11"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "70"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"		
+		"MovementSpeed"				"330"		
+	        "MovementTurnRate"          "0.5" 
+	        
+	        "StatusHealth"				"1500"		
+		"StatusHealthRegen"			"0"		
+		"StatusMana"				"1000"		
+		"StatusManaRegen"			"0"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					"buff_wolves"
+	        "Ability2"					""
+	        
+	        "vscripts"                  "npc_ai/leader_war_beast"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "3"
+	            "ArmorGain"                 "1"
+	            "ManaGain"                  "0"
+	            "MagicResistGain"           "0"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "2"
+	            "XPGain"                    "9"
+	        }      
+	}
+
+		"npc_dota_boss_lich"
+	{										
+		"Model"						"models/heroes/lich/lich.vmdl"	// Model.
+		"BaseClass"					"npc_dota_creature"
+		"SoundSet"					"Hero_Lich"
+		"Level"						"1"
+		
+	        "IsSummoned"                "1"
+	        "CanBeDominated"            "0"
+	        "IsAncient"                 "0"
+	        "IsNeutralUnitType"         "0"
+	        "AutoAttacksByDefault"      "1"
+	        "ConsideredHero"			"1"
+	        "ArmorPhysical"             "60"
+	        "MagicalResistance"			"30"		
+	        
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+		"ProjectileModel"			"particles/units/heroes/hero_lich/lich_chain_frost.vpcf" // Particle system model for projectile.
+		"ProjectileSpeed"			"900"		// Speed of projectile.
+	        
+	        "AttackDamageMin"			"300"		
+		"AttackDamageMax"			"300"			
+		"AttackRate"				"1.0"		
+		"AttackAnimationPoint"		"0.01"		
+		"AttackAcquisitionRange"	"700"		
+		"AttackRange"				"700"	
+	        
+	        "BountyXP"					"0"		
+		"BountyGoldMin"				"25"		
+		"BountyGoldMax"				"25"
+	        
+	        "ModelScale" 				"1.5"
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"345"		
+	        "MovementTurnRate"          "0" 
+	        
+	        "StatusHealth"				"10000"		
+		"StatusHealthRegen"			"100"		
+		"StatusMana"				"1000"		
+		"StatusManaRegen"			"500"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"800"		
+		"VisionNighttimeRange"		"600"	
+	    
+	    "Ability1"					"lich_frost_nova"    
+		"Ability2"					"hanshuanglingyu"
+		"Ability3"					"lich_frost_shield"
+	        
+	        "vscripts"                  "npc_ai/boss_lich"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "5"
+	            "ManaGain"                  "50"
+	            "MagicResistGain"           "4"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
+
+	            "AttachWearables"
+	        	{
+	        		"Wearable1"   { "ItemDef"  "331" }
+	        		"Wearable2"	  { "ItemDef"  "7576" }
+	        		"Wearable3"	  { "ItemDef"  "333" }
+	        		"Wearable4"   { "ItemDef"  "334" }
+	        		"Wearable5"	  { "ItemDef"  "506" }
+	        		"Wearable5"	  { "ItemDef"  "571" }
+	        	}               
+	        }
+	}
+
+	"npc_dota_evil_bat"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/items/dragon_knight/dragon_immortal_1/dragon_immortal_1.vmdl"
+		"ModelScale" 				"1.35"
+		"SoundSet"					"Hero_DragonKnight"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "0"
+	        "MagicalResistance"			"0"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_RANGED_ATTACK"
+	        "AttackDamageMin"			"75"		
+		"AttackDamageMax"			"75"			
+		"AttackRate"				"2"		
+		"AttackAnimationPoint"		"0.6"		
+		"AttackAcquisitionRange"	"500"		
+		"AttackRange"				"500"
+		"ProjectileModel"			"particles/neutral_fx/black_dragon_attack.vpcf"			
+		"ProjectileSpeed"			"900"		
+	        
+	        "BountyXP"					"72"		
+		"BountyGoldMin"				"13"		
+		"BountyGoldMax"				"13"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "115"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"300"		
+	        "MovementTurnRate"          "1" 
+	        
+	        "StatusHealth"				"1250"		
+		"StatusHealthRegen"			"0"		
+		"StatusMana"				"1250"		
+		"StatusManaRegen"			"0"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					"dragon_knight_breathe_fire"
+	        "Ability2"					"ghost_frost_attack"
+	        
+	        "vscripts"                  "npc_ai/evil_bat"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "5"
+	            "ManaGain"                  "0"
+	            "MagicResistGain"           "4"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
 	        }      
 	}
 }
