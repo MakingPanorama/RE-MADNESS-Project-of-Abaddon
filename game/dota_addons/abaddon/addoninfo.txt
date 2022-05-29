@@ -1,18 +1,18 @@
 "AddonInfo"
 {
     "TeamCount"		"2"
-	maps			"project abaddon map_demo2"
+	maps			"reabaddon"
 	"IsPlayable"	"1"
 
-	"test_hero_defense"
-	{
-		"MaxPlayers"                    "4"
-	}
 	"project"
 	{
 		"MaxPlayers"					"4"
 	}
 	"abaddon"
+	{
+		"MaxPlayers"					"4"
+	}
+	"reabaddon"
 	{
 		"MaxPlayers"					"4"
 	}
