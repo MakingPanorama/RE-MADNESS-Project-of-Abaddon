@@ -357,7 +357,7 @@ function WaveManager:SpawnUnits( tSpawnInfo, currentWaveCount )
         print('Count each wave road: ', count_each_wave_road)
         print('Unit Name: ', unit_name)
 
-        for j=1, player_count do
+        for j=0, player_count do
             local SpawnPoint = Vector(RandomInt(-150, 250), RandomInt(-150, 250)) + Entities:FindByName(nil, 'spawn_location_'..j):GetAbsOrigin()
             for k=1, count_each_wave_road do
                 local SpawnUnit = CreateUnitByName(unit_name, SpawnPoint, true, nil, nil, DOTA_TEAM_BADGUYS)

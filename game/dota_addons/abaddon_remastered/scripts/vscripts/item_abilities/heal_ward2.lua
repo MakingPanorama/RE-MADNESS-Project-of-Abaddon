@@ -5,7 +5,7 @@ function create (keys)
     local pos = ability:GetCursorPosition()
     local duration = ability:GetLevelSpecialValueFor("duration", ability:GetLevel() - 1)
     local radius = ability:GetLevelSpecialValueFor("radius", ability:GetLevel() - 1)
-    local ward = CreateUnitByName("npc_dota_warlock_golem_7", pos, true, caster, nil, caster:GetTeam())
+    local ward = CreateUnitByName("Team_barrier_Ward", pos, true, caster, nil, caster:GetTeam())
 end
 
 

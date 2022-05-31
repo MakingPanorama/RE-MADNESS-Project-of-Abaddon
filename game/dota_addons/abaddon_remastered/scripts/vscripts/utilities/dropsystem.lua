@@ -14,7 +14,7 @@ function DropSystem:DropItem( victim, dropList, attacker  )
 
                 local landLoc = attacker:GetAbsOrigin() + RandomVector(RandomFloat(-180, 180))
                 local dropInWorld = CreateItemOnPositionSync(vicPos, dropItem)
-                item:LaunchLoot(GetCastItemOnPickup( itemName ), 400, 0.7, landLoc)
+                dropItem:LaunchLoot(GetCastItemOnPickup( itemName ), 400, 0.7, landLoc)
                 DoClear( dropItem )
             end
         end

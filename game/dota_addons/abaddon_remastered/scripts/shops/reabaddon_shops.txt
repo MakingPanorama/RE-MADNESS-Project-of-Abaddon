@@ -1,7 +1,7 @@
 "dota_shops"
 {
-	"consumables"
-	{
+    "consumables"
+    {
         "item"          "item_heal_potion_small"
         "item"          "item_heal_potion_medium"
         "item"          "item_heal_potion_large"
@@ -9,20 +9,20 @@
         "item"          "item_mana_potion_medium"
         "item"          "item_mana_potion_large"
         "item"          "item_heal_ward"
+        "item"          "item_magic_poor_mans_shield_lua"
         "item"          "item_magic_immune_potion_small"
         "item"          "item_magic_immune_potion_medium"
         "item"          "item_magic_immune_potion_large"
         "item"          "item_attack_immune_potion_small"
         "item"          "item_attack_immune_potion_medium"
         "item"          "item_attack_immune_potion_large"
-        "item"          "item_heal_ward2" 
+        "item"          "item_iron_costum" 
         "item"          "item_invisibility_potion"
         "item"          "item_refresh_potion"
-		"item"   "item_hyperstone"
-	}
+    }
 
-	"attributes"
-	{
+    "attributes"
+    {
 
         "item"          "item_strength_ball"
         "item"          "item_agility_ball"
@@ -35,15 +35,16 @@
         "item"          "item_strength_book"
         "item"          "item_agility_book"
         "item"          "item_int_book"          
-	}
+    }
 
-	"weapons_armor"
-	{
+    "weapons_armor"
+    {
         
         "item"          "item_ordinary_armor_typeA"
         "item"          "item_ordinary_armor_typeB"
         "item"          "item_ordinary_armor_typeC"
         "item"          "item_ordinary_armor_typeD"
+        "item"          "item_quelling_blade_custom"
         "item"          "item_antimagic_armor"
         "item"          "item_counterattack_armor"
         "item"          "item_ordinary_rapier"
@@ -55,38 +56,40 @@
         "item"          "item_ordinary_scepter"
         "item"          "item_crystal_lancer"
         "item"          "item_warrior_armor"
-	}
-			
-	"misc"
-	{   
+    }
+            
+    "misc"
+    {   
         "item"          "item_ordinary_boots"
         "item"          "item_speed_boots"
         "item"          "item_lifesteal_mask" 
         "item"          "item_savage_glove"
         "item"          "item_miracle_cloak"
         "item"          "item_faithful_shield"
-	}	
-	
-	// Level 1 - Green Recipes
-	"basics"
-	{
-	   
-	}
+        "item"          "item_summon_golem"
+    }   
+    
+    // Level 1 - Green Recipes
+    "basics"
+    {
+       "item"      "item_power_treads"
+       "item"       "item_phase_boots"
+    }
 
-	// Level 2 - Blue Recipes
-	"support"
-	{
+    // Level 2 - Blue Recipes
+    "support"
+    {
 
-	}
-				
-	"magics"			
-	{
+    }
+                
+    "magics"            
+    {
+        "item"  "item_forgotten_scepter"
+    }  
 
-	}
-		
-	// Level 3 - Purple Recipes	
-	"defense"
-	{
+    // Level 3 - Purple Recipes 
+    "defense"
+    {
         "item"          "item_fortitude_armor"
         "item"          "item_agile_armor"
         "item"          "item_wisdom_armor"
@@ -96,11 +99,11 @@
         "item"          "item_outworld_armor"
         "item"          "item_evil_armor"
         "item"          "item_butterfly_armor"
-	}
-			
-	"weapons"
-	{
-		"item"          "item_insane_claw"
+    }
+            
+    "weapons"
+    {
+        "item"          "item_insane_claw"
         "item"          "item_master_blade"   
         "item"          "item_storm_rapier"
         "item"          "item_wind_rapier"
@@ -108,37 +111,32 @@
         "item"          "item_holy_wand"      
         "item"          "item_legendary_sword"
         "item"          "item_sealed_sword"   
-        "item"          "item_forgotten_scepter"    
-        "item"          "item_broken_scepter"    
+        "item"          "item_dark_flow"    
+        "item"          "item_khorn_sword"    
         "item"          "item_dirty_blade"
         "item"          "item_worn_hammer"
-		"item"          "item_bfury_datadriven"
-	}
-		
-	// Level 4 - Orange / Orb / Artifacts				
-	"artifacts"
-	{	
-"item"          "item_blink_datadriven"
-"item"          "item_pass_freze"
-"item"          "item_flying_courier"
-"item"          "item_courier"
-	}
+    }
+        
+    // Level 4 - Orange / Orb / Artifacts               
+    "artifacts"
+    {   
 
-	"sideshop1"
-	{
+    }
 
+    "sideshop1"
+    {
 
-	}
+    }
 
-	"sideshop2"
-	{
+    "sideshop2"
+    {
 
-	}
-	
-	"secretshop"
-	{							
-		
-	}	
+    }
+    
+    "secretshop"
+    {                           
+        
+    }   
     
     "pregame"
     {
