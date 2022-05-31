@@ -1,0 +1,38 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/ancient/upgrades.css" />
+        <include src="file://{resources}/styles/custom_game/wave_details/popup_timer.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/ancient/upgrades.js" />
+    </scripts>
+    <snippets>
+        <snippet name="upgradeSlotSnippet">
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeAttackDamage()">
+                    <Image class="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_attack_damage.png" />
+                </Button>
+            </Panel>
+        </snippet>
+    </snippets>
+    <Panel class="root" hittest="false" >
+        <Panel class="upgradePanel" id="upgrade">
+            <Label class="title" id="title_text" text="Upgrades Shop" />
+            <!--
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeAttackDamage()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_attack_damage.png" />
+                    <Label id="titleAbility" text="Tower Bonus Attack Damage" />
+                </Button>
+            </Panel>
+            <Panel class="upgradeSlot">
+                <Button class="upgradeButton" onactivate="OnButtonClickUpgradeBonusHP()">
+                    <Image id="img" hittest="false" src="file://{images}/custom_game/ancient/upgrades/bonus_hp.png" />
+                    <Label id="titleAbility" text="Tower Bonus HP" />
+                </Button>
+            </Panel>
+            -->
+        </Panel>
+    </Panel>
+</root>

@@ -1,0 +1,19 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/wave_details/popup_timer.css" />
+        <include src="s2r://panorama/styles/dotastyles.vcss_c" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/wave_details/popup_timer.js" />
+        <include src="file://{resources}/scripts/wave_details/wave_skip.js" />
+    </scripts>
+    <Panel class="root" hittest="false">
+        <Panel class="timer" id="countdown">
+        
+                <Label id="description" text="Next wave will arrive in %s" />
+                <ProgressBar id="FillBar" value="0" />
+                <TextButton id="SkipButton" class="DefaultValveButtonClass" text="Skip" onactivate="VoteToSkip()" />
+         
+        </Panel>
+    </Panel>
+</root>

@@ -1,0 +1,19 @@
+"AddonInfo"
+{
+    "TeamCount"		"2"
+	maps			"reabaddon"
+	"IsPlayable"	"1"
+
+	"project"
+	{
+		"MaxPlayers"					"4"
+	}
+	"abaddon"
+	{
+		"MaxPlayers"					"4"
+	}
+	"reabaddon"
+	{
+		"MaxPlayers"					"4"
+	}
+}

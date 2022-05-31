@@ -1,1 +1,0 @@
-LinkLuaModifier("modifier_mirana_leap_bom", "modifiers/modifier_mirana_leap_bom.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
