@@ -34,7 +34,7 @@ end
 
 function DoClear( hItem )
     local droppedItems = Entities:FindAllByClassname( "dota_item_drop" )
-    for key, value in pairs(dropped_items) do
+    for key, value in pairs(droppedItems) do
         if value then
             local itemEntity = value:GetContainedItem()
             if itemEntity:GetOwner() == nil and itemEntity == hItem then

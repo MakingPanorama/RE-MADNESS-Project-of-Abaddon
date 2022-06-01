@@ -973,4 +973,160 @@
 	            "XPGain"                    "9"
 	        }      
 	}
+	"npc_dota_magic_killer"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/creeps/neutral_creeps/n_creep_satyr_a/n_creep_satyr_a.vmdl"
+		"ModelScale" 				"1.1"
+		"SoundSet"					"n_creep_Melee"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	       	
+	        
+	        "ArmorPhysical"             "20"
+	        "MagicalResistance"			"100"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"			"130"		
+		"AttackDamageMax"			"130"			
+		"AttackRate"				"1.25"		
+		"AttackAnimationPoint"		"0.4"		
+		"AttackAcquisitionRange"	"900"		
+		"AttackRange"				"190"
+		"ProjectileModel"			""			
+		"ProjectileSpeed"			"0"		
+	        
+	        "BountyXP"					"90"		
+		"BountyGoldMin"				"15"		
+		"BountyGoldMax"				"15"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "90"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"350"		
+	        "MovementTurnRate"          "2" 
+	        
+	        "StatusHealth"				"1100"		
+		"StatusHealthRegen"			"0"		
+		"StatusMana"				"1100"		
+		"StatusManaRegen"			"0"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					"kret_poisoning"
+	        "Ability2"					""
+	        "Ability3"                  "magical_killer_effect"
+	        
+	        "vscripts"                  "npc_ai/magical_killer"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "5"
+	            "ManaGain"                  "50"
+	            "MagicResistGain"           "4"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
+	        }      
+	}
+
+	"blooder"           
+	{										
+		"BaseClass"					"npc_dota_creature"
+	        "Model"						"models/heroes/phantom_assassin/phantom_assassin.vmdl"
+		"ModelScale" 				"0.75"
+		"SoundSet"					"Hero_Bloodseeker"
+		"Level"						"1"
+		
+	        "IsSummoned"                "0"
+	        "CanBeDominated"            "1"
+	        "HasInventory"              "0"
+	        "IsAncient"                 "0"
+	        "ConsideredHero"            "0"
+	        "IsNeutralUnitType"         "1"
+	        "AutoAttacksByDefault"      "1"
+	        
+	        "ArmorPhysical"             "10"
+	        "MagicalResistance"			"15"	
+	        "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
+	        "AttackDamageMin"			"175"		
+		"AttackDamageMax"			"320"			
+		"AttackRate"				"0.9"		
+		"AttackAnimationPoint"		"0.2"		
+		"AttackAcquisitionRange"	"1000"		
+		"AttackRange"				"200"
+		"ProjectileModel"			""			
+		"ProjectileSpeed"			"0"		
+	        
+	        "BountyXP"					"108"		
+		"BountyGoldMin"				"17"		
+		"BountyGoldMax"				"17"
+	        
+	        
+	        "BoundsHullName"            "DOTA_HULL_SIZE_HERO"   
+	        "RingRadius"                "70"
+	        
+	        
+	        "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
+		"MovementSpeed"				"325"		
+	        "MovementTurnRate"          "1.2" 
+	        
+	        "StatusHealth"				"1400"		
+		"StatusHealthRegen"			"50"		
+		"StatusMana"				"1400"		
+		"StatusManaRegen"			"10"		
+	        
+	        "CombatClassAttack"         "DOTA_COMBAT_CLASS_ATTACK_BASIC"
+	        "CombatClassDefend"         "DOTA_COMBAT_CLASS_DEFEND_BASIC"
+	        
+	        "VisionDaytimeRange"		"1800"		
+		"VisionNighttimeRange"		"1800"	
+	        
+		"Ability1"					"reduction_hero"
+	        "Ability2"					"phantom_assassin_stifling_dagger_datadriven"
+	        "Ability3"                  "NPC_Attack_NO_MISS"
+				"Ability4"                  "Corrosive_Haze_icon"
+												
+	        "vscripts"                  "npc_ai/blood_slayer"
+	        
+	        "Creature"
+	        {   
+	            
+	            "HPGain"                    "50"
+	            "DamageGain"                "4"
+	            "ArmorGain"                 "5"
+	            "ManaGain"                  "0"
+	            "MagicResistGain"           "4"
+	            "MoveSpeedGain"             "5"
+	            "BountyGain"                "0"
+	            "XPGain"                    "9"
+	            
+	            "AttachWearables"
+	            {
+	                "Wearable1" { "ItemDef" "4327" }
+	                "Wearable2" { "ItemDef" "4328" }
+	                "Wearable3" { "ItemDef" "4329" }
+	                "Wearable4" { "ItemDef" "4330" }
+	                "Wearable5" { "ItemDef" "4331" }
+	                "Wearable6" { "ItemDef" "4332" }
+	                "Wearable7" { "ItemDef" "4333" }
+	            }
+	        }      
+	}
 }

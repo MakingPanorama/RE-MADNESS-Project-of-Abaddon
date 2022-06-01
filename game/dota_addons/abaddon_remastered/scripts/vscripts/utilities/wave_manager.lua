@@ -196,6 +196,8 @@ function WaveManager:Init()
     SetBossNPC('npc_dota_ancient_guardian')
     ListenToGameEvent('entity_killed', Dynamic_Wrap(WaveManager, 'OnWaveEntityKilled'), self)
 
+    print( PlayerResource:GetNumConnectedHumanPlayers() )
+
     -- Register Listener
     CustomGameEventManager:RegisterListener('Upgrade', Dynamic_Wrap(WaveManager, 'OnClickUpgrade'))
 
@@ -254,6 +256,8 @@ function Abaddon:WaveThink()
             }
             WaveManager:Reward( reward )
         end
+
+        print( PlayerResource:GetNumConnectedHumanPlayers() )
     end
 
     return 1
@@ -356,8 +360,9 @@ function WaveManager:SpawnUnits( tSpawnInfo, currentWaveCount )
         print('Min max values: ', min, max)
         print('Count each wave road: ', count_each_wave_road)
         print('Unit Name: ', unit_name)
+        print('Player Count:', player_count)
 
-        for j=0, player_count do
+        for j=1, player_count do
             local SpawnPoint = Vector(RandomInt(-150, 250), RandomInt(-150, 250)) + Entities:FindByName(nil, 'spawn_location_'..j):GetAbsOrigin()
             for k=1, count_each_wave_road do
                 local SpawnUnit = CreateUnitByName(unit_name, SpawnPoint, true, nil, nil, DOTA_TEAM_BADGUYS)
@@ -506,7 +511,7 @@ function WaveManager:IsRoundTimerFinished()
     return roundTimerIsFinished
 end
 
--- Debug functions
+-- Command functions
 -- Skips wave
 function WaveManager:SkipWave()
     roundTimerIsFinished = true

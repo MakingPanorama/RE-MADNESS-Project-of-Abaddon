@@ -64,13 +64,8 @@ function NeutralCamp:Init()
 
                 print( key, spawn_point )
             end
-
-            for _, value in pairs( spawn_point ) do
-                for _, unit in pairs( value.units ) do
-                    self:SpawnCamps( RespawnTime, currentSpawnPoint )
-                end
-            end
-
+             
+            self:SpawnCamps( RespawnTime, currentSpawnPoint )
         end
         return RespawnTime
     end)
