@@ -3,6 +3,9 @@ if NeutralCamp == nil then
 end
 
 _G.RespawnTime = 60
+if IsInToolsMode() then
+    RespawnTime = 5
+end
 _G.ThinkInterval = 1
 _G.UnitCurrentLevel = 1
 _G.UnitsInCamps = {
@@ -62,7 +65,7 @@ end
 
 function NeutralCamp:SpawnCamps( iDelay, spawn_point )
     Timers:CreateTimer(iDelay, function()
-        UnitCurrentLevel = UnitCurrentLevel + 1
+        UnitCurrentLevel = UnitCurrentLevel + 3
 
         for key, value in pairs( spawn_point ) do
             unit_name = value.unit_name

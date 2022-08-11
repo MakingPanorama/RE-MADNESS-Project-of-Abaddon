@@ -7,6 +7,10 @@ end
 
 modifier_ancient_bonus_armor = class({})
 
+function modifier_ancient_bonus_armor:IsHidden()
+    return true
+end
+
 function modifier_ancient_bonus_armor:IsAura()
     return true
 end

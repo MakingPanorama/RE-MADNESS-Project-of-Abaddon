@@ -3354,7 +3354,7 @@
                 "Attributes" 		    "MODIFIER_ATTRIBUTE_MULTIPLE"
                 "Properties"
 			    {
-				    "MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK"	         "%bonus_damage"
+				    "MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK"	         "%bonus_damage"
 			    } 
             }
         }

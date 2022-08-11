@@ -41,10 +41,24 @@ function Init() {
     }
 }
 
+const formatCash = n => {
+    if (n < 1e3) return n;
+    if (n >= 1e3 && n < 1e6) return +(n / 1e3).toFixed(1) + "K";
+    if (n >= 1e6 && n < 1e9) return +(n / 1e6).toFixed(1) + "M";
+    if (n >= 1e9 && n < 1e12) return +(n / 1e9).toFixed(1) + "B";
+    if (n >= 1e12) return +(n / 1e12).toFixed(1) + "T";
+  };
+  
+
 /* Game Info table has changed */
 function OnPointsChanged( table, key, data ) {
+    $.Msg( table )
+    $.Msg( key )
+    $.Msg( data )
+
     if ( key == "points" ) {
-        pointsShopButton.FindChildTraverse('titleButton').text = data.point;
+        $.Msg(data)
+        pointsShopButton.FindChildTraverse('titleButton').text = formatCash(data.point);
     }
 }
 
@@ -105,14 +119,34 @@ function InitUI() {
 }
 
 (function() {
-    CustomNetTables.SubscribeNetTableListener("points", OnPointsChanged)
+    CustomNetTables.SubscribeNetTableListener("game_info", OnPointsChanged)
     GameEvents.Subscribe('UpdatePanel', OnUpdatePanel);
 
     /* Init to create upgrades */
     Init();
 
-    $.Msg(!$("#upgradeBar").BHasClass( "slideRightClass" ))
-    //
     /* Init UI */
     InitUI();
 })();
+
+// Util functions
+let SI_SYMBOL = ["", "k", "M", "G", "T", "P", "E"];
+
+function abbreviateNumber(number){
+
+    // what tier? (determines SI symbol)
+    let tier = Math.log10(Math.abs(number)) / 3 | 0;
+
+    // if zero, we don't need a suffix
+    if(tier == 0) return number;
+
+    // get suffix and determine scale
+    let suffix = SI_SYMBOL[tier];
+    let scale = Math.pow(10, tier * 3);
+
+    // scale the number
+    let scaled = number / scale;
+
+    // format number and add suffix
+    return scaled.toFixed(1) + suffix;
+}

@@ -11,7 +11,7 @@ function modifier_ancient_global_bonus_attackspeed:IsAura()
     return true
 end
 
-function modifier_ancient_bonus_attack_damage:IsHidden()
+function modifier_ancient_global_bonus_attackspeed:IsHidden()
     return true
 end
 

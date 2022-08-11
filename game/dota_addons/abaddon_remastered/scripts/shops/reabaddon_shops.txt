@@ -9,7 +9,6 @@
         "item"          "item_mana_potion_medium"
         "item"          "item_mana_potion_large"
         "item"          "item_heal_ward"
-        "item"          "item_magic_poor_mans_shield_lua"
         "item"          "item_magic_immune_potion_small"
         "item"          "item_magic_immune_potion_medium"
         "item"          "item_magic_immune_potion_large"
@@ -66,7 +65,7 @@
         "item"          "item_savage_glove"
         "item"          "item_miracle_cloak"
         "item"          "item_faithful_shield"
-        "item"          "item_summon_golem"
+        "item"          "item_magic_poor_mans_shield_lua"
     }   
     
     // Level 1 - Green Recipes

@@ -7,6 +7,10 @@ end
 
 modifier_ancient_global_hp_regen = class({})
 
+function modifier_ancient_global_hp_regen:IsHidden()
+    return true
+end
+
 function modifier_ancient_global_hp_regen:IsAura()
     return true
 end

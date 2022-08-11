@@ -71,7 +71,8 @@ function modifier_great_shield_passive:IsDebuff() return false end
 function modifier_great_shield_passive:DeclareFunctions()
 	return {
 		MODIFIER_PROPERTY_MAGICAL_CONSTANT_BLOCK,
-		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS
+		MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
+
 	}
 end
 function modifier_great_shield_passive:GetModifierBonusStats_Intellect() return self:GetAbility():GetSpecialValueFor("bonus_intellect")  end
