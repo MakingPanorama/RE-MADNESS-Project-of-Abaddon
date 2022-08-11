@@ -53,7 +53,7 @@ function Abaddon:InitGameMode()
 	CustomGameEventManager:RegisterListener('timer_stopped', Dynamic_Wrap(Events, 'OnTimeEnd'))
 
     -- Set table value
-    CustomNetTables:SetTableValue('game_info', 'points', { point = 0 })
+    CustomNetTables:SetTableValue('game_info', 'points', { point = 1 })
     if IsInToolsMode() then
         CustomNetTables:SetTableValue('game_info', 'points', { point = 9999 })
     end
@@ -66,7 +66,7 @@ function Abaddon:InitGameMode()
     GameRules:SetFirstBloodActive( false )              -- Should we enable first blood for the first kill in this game?
     GameRules:SetCustomGameEndDelay( -1 )               -- How long should we wait after the game winner is set to display the victory banner and End Screen?  Use -1 to keep the default (about 10 seconds)   
     GameRules:SetStartingGold( 170 )                    -- How much starting gold should we give to each player?
-    GameRules:SetCustomGameSetupAutoLaunchDelay( 0 ) -- How long should the default team selection launch timer be?  The default for custom games is 30
+    GameRules:SetCustomGameSetupAutoLaunchDelay( 30 ) -- How long should the default team selection launch timer be?  The default for custom games is 30
     GameRules:SetSameHeroSelectionEnabled( false )      -- Should we let people select the same hero as each other
     GameRules:SetPreGameTime(3.0)                      -- Set the coundown timer before game start (time = 0.00) 
     GameRules:SetCustomGameTeamMaxPlayers( DOTA_TEAM_GOODGUYS, 4 )   -- Maximum players for Team 1

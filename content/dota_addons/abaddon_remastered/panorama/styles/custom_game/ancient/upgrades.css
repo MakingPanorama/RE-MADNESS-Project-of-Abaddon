@@ -83,10 +83,11 @@
     color: rgb(136, 0, 255);
     text-shadow: 0px 1px 0px 2.0 #00000077;
     text-overflow: shrink;
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
     font-family: monospaceNumbersFont;
 
+    margin-right: 24px;
     align: center center;
 }
 
@@ -119,6 +120,15 @@
     margin-bottom: 10px;
    
     z-index: 3;
-    background-image: url("file://{images}/custom_game/ancient/upgrades/ancient_bonus_armor.png");
+    background-image: url("file://{images}/custom_game/ancient/upgrades/ancient_global_bonus_attack_speed.png");
+    
     background-size: 100% 100%;
+}
+
+#levelLabel
+{
+    color: white;
+    text-align: center;
+
+    align: center top;
 }

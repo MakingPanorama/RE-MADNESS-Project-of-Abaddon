@@ -9,6 +9,7 @@ let upgrades = {
     ancient_global_bonus_physical_armor: "ancient_global_bonus_physical_armor",
 };
 
+let CourierControlButton = $.GetContextPanel().GetParent().GetParent().GetParent().GetParent().FindChildTraverse('Hud').FindChildTraverse('HUDElements').FindChildTraverse('lower_hud').FindChildTraverse('shop_launcher_block').FindChildTraverse('quickbuy').FindChildTraverse('ShopCourierControls').FindChildTraverse('courier').FindChildTraverse('CourierControls')
 let pointsShopButton;
 
 function Init() {
@@ -43,7 +44,7 @@ function Init() {
 /* Game Info table has changed */
 function OnPointsChanged( table, key, data ) {
     if ( key == "points" ) {
-        $('#titleButton').text = data.point;
+        pointsShopButton.FindChildTraverse('titleButton').text = data.point;
     }
 }
 
@@ -55,9 +56,10 @@ function OnUpdatePanel( data ) {
     let abilityMaxLevel = data.abilityMaxLevel;
     let needPointsToNext = data.needPointsToNext;
 
-    let panel = $(`#${abilityName}`);
+    let pointShop = pointsShopButton
+    let panel = $(`#${abilityName}`)
     let currentLevel = panel.FindChildTraverse('levelLabel');
-    let points = $("#titleButton")
+    let points = pointShop.FindChildTraverse('titleButton')
     points.text = data.points;
 
     /* Misison Failed. Okay next time */
@@ -68,7 +70,7 @@ function OnUpdatePanel( data ) {
 
     /* Adjust text */
     currentLevel.text = ` ${abilityLevel} / ${abilityMaxLevel} `
-    
+
     if ( needPointsToNext == null || abilityLevel >= abilityMaxLevel ) {
         currentLevel.text = 'Maxed';
         return;
@@ -77,7 +79,6 @@ function OnUpdatePanel( data ) {
 
 function InitUI() {
     let dotaHUD = $.GetContextPanel()
-    let CourierControlButton = $.GetContextPanel().GetParent().GetParent().GetParent().GetParent().FindChildTraverse('Hud').FindChildTraverse('HUDElements').FindChildTraverse('lower_hud').FindChildTraverse('shop_launcher_block').FindChildTraverse('quickbuy').FindChildTraverse('ShopCourierControls').FindChildTraverse('courier').FindChildTraverse('CourierControls')
     CourierControlButton.FindChildTraverse('SelectCourierButton').style.visibility = "collapse";
     CourierControlButton.FindChildTraverse('DeliverItemsButton').style.visibility = "collapse";
     let shopPoints = CourierControlButton.FindChildTraverse('pointsShop')
@@ -86,7 +87,7 @@ function InitUI() {
         $.Msg(shopPoints)
     };
 
-    let button = $.CreatePanel("TextButton", $.GetContextPanel(), "pointsShop")
+    let button = $.CreatePanel("Button", $.GetContextPanel(), "pointsShop")
     button.BLoadLayoutSnippet( "pointButton" );
     button.SetParent( CourierControlButton );
 

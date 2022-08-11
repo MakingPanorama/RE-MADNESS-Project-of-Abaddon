@@ -27,6 +27,76 @@
 		"Mud Seeker"	"Rock"
 		"npc_dota_hero_pudge"											"Tолстяк"
 		
+		"npc_dota_ancient_guardian"	"Ancient Guardian"
+
+
+		// Upgrades
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage"	"Bonus attack damage"
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage_description"	"Всё постройки и босс получаю дополнительный урон"
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage_bonus_attack_damage"	"ДОП.УРОН: "
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_Ability_ancient_bonus_armor"	"Bonus armor"
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_description"	"Всё постройки и эншент получают физическую и магическую броню"
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_bonus_physical_armor"	"%ДОП.ФИЗ.БРОНЯ: "
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_bonus_magical_armor"	"%ДОП.МАГ.БРОНЯ: "
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_Ability_ancient_bonus_hp"	"Bonus HP"
+		"DOTA_Tooltip_Ability_ancient_bonus_hp_description"	"Всё постройки и босс получают дополнительное здоровье"
+		"DOTA_Tooltip_Ability_ancient_bonus_hp_bonus_health"	"ДОП.ЗДОРОВЬЕ: "
+		"DOTA_Tooltip_Ability_ancient_bonus_hp_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_Ability_ancient_heal_ability"	"Heal Ability"
+		"DOTA_Tooltip_Ability_ancient_heal_ability_description"	"Все в радиусе %radius% исцеляются на %health_heal_percent%%%"
+		"DOTA_Tooltip_Ability_ancient_heal_ability_health_heal_percent"	"%ИСЦЕЛЕНИЕ: "
+		"DOTA_Tooltip_Ability_ancient_heal_ability_radius"	"РАДИУС: "
+		"DOTA_Tooltip_Ability_ancient_heal_ability_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_Ability_ancient_global_bonus_hp_regen"	"Global Bonus HP Regen"
+		"DOTA_Tooltip_Ability_ancient_global_bonus_hp_regen_description"	"Всё союзные существа получают дополнительную регенерацию к здоровью"
+		"DOTA_Tooltip_Ability_ancient_global_bonus_hp_regen_bonus_health_regen"	"РЕГЕНЕРАЦИЯ К ЗДОРОВЬЮ: "
+		"DOTA_Tooltip_Ability_ancient_global_bonus_hp_regen_points_to_learn"	"НУЖНО ОЧКОВ: "
+		
+		"DOTA_Tooltip_Ability_ancient_global_bonus_attack_speed"	"Global Bonus Attack Speed"
+		"DOTA_Tooltip_Ability_ancient_global_bonus_attack_speed_description"	"Всё союзные существа получают дополнительную скорость атаки"
+		"DOTA_Tooltip_Ability_ancient_global_bonus_attack_speed_bonus_attack_speed"	"ДОП.СКОРОСТЬ АТАКИ: "
+		"DOTA_Tooltip_Ability_ancient_global_bonus_attack_speed_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_ability_ancient_global_bonus_attack_damage"	"Bonus Attack Damage"
+		"DOTA_Tooltip_ability_ancient_global_bonus_attack_damage_description"	"Все союзные герои получают дополнительный урон от атаки"
+		"DOTA_Tooltip_ability_ancient_global_bonus_attack_damage_bonus_attack_damage"	"ДОП.УРОН ОТ АТАКИ: "
+		"DOTA_Tooltip_ability_ancient_global_bonus_attack_damage_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_ability_ancient_global_bonus_physical_armor"	"Bonus Physical Armor"
+		"DOTA_Tooltip_ability_ancient_global_bonus_physical_armor_description"	"Все союзные герои получают дополнительную броню"
+		"DOTA_Tooltip_ability_ancient_global_bonus_physical_armor_bonus_physical_armor"	"ДОП.БРОНЯ: "
+		"DOTA_Tooltip_ability_ancient_global_bonus_physical_armor_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+
+		// Tips
+		"tip1"	"Прокачивайте способности с умом!"
+		"tip2"	"Помните очки — общий ресурс, выбирайте прокачку с умом!"
+		"tip3"	"На начальном этапе стоит сразу купить Щит Воина и убить нейтральных крипов!"
+		"tip4"	"Нейтральные крипы появляются каждые 60 секунд."
+		"tip5"	"Ancient Guardian — ваш босс защищайте его любой ценой и не забывайте прокачывать его."
+		"tip6"	"Башни — очень полезные напарники."
+		"tip7"	"Будет ещё много обновлений парни :)"
+		"tip8"	"Если найдете баги пожалуйста сообщите нам! <br>P.S: Только не визуальные баги.</br>"
+		"tip9"	"У нас есть дискорд сервер присоединяйтесь!"
+		"tip10"	"Кастомка появилась благодаря denFake2. Изначально кастомка имела жанр TD и принадлежала другому автору."
+
+		// Unit names
+		"npc_dota_mud_seeker"	"Mud Seeker"
+		"npc_dota_wild_devourer"	"Wild Devourer"
+		"npc_dota_mega_golem"	"Mega Golem"
+		"npc_dota_jungle_hunter"	"Jungle Hunter"
+		"npc_dota_ogre_beast"	"Ogre Beast"
+		"npc_dota_windrunner"	"Windrunner"
+		"npc_dota_centaur_master"	"Centaur"
+		"npc_dota_war_beast"	"Wolf"
+		"npc_dota_leader_war_beast"	"Wolf Leader"
+
 		"npc_dota_lone_druid_bear1"										"спектра"
 		"npc_dota_lone_druid_bear2"										"спектра"
 		"npc_dota_lone_druid_bear3"										"спектра"
@@ -41,7 +111,7 @@
 		
 		 "npc_dota_hero_terrorblade"					 "Saveas"
 
-		 "dota_ability_variable_block"		"к блоку урона"
+		 "dota_ability_variable_block"		"+ к блоку урона"
 		 
 		 
 		 
@@ -951,16 +1021,7 @@
 		"DOTA_Tooltip_ability_item_counterattack_armor" 			 							"<font color=\"#FDF5E6\">Protection Armor</font>"
 		"DOTA_Tooltip_ability_item_counterattack_armor_Description"						"<h1><font color=\"#7FFF00\">Базовое оборудование</font></h1><font color=\"#FFFAF0\">This basical armor equipment protects you by reducing ANY KIND OF ущерб taken</font><br><font color=\"#FF4500\">Reduction Percentage</font>: <font color=\"#FFFAF0\">%damage_reduction%%%<br>(only unstackable with same items)</font>"
 		
-		"DOTA_Tooltip_ability_Counter_Attack_Armor" 			 							"<font color=\"#FDF5E6\">Protection Armor</font>"
-		"DOTA_Tooltip_ability_Counter_Attack_Armor_Description"						"с каждым уровнем защита короля увеличивается на ➂℅."
-		
-				"DOTA_Tooltip_ability_Counter_Attack_Armor" 			 							"<font color=\"#FDF5E6\">decrease cooldown</font>"
-		"DOTA_Tooltip_ability_Counter_Attack_Armor_Description"						"с каждым уровнем уменьшается у короля перезарядку на 5%."
-		
-						"DOTA_Tooltip_ability_imba_tower_barrier" 			 							"<font color=\"#FDF5E6\">royal barrier</font>"
-		"DOTA_Tooltip_ability_imba_tower_barrier_Description"						"на 10 раунде и дальше при нахождении на расстоянии от героя до 1000 за героя даёться 100 урона барьера."
-		
-				"DOTA_Tooltip_ability_imba_tower_healing_tower" 			 							"<font color=\"#FDF5E6\">healing hero</font>"
+		"DOTA_Tooltip_ability_imba_tower_healing_tower" 			 							"<font color=\"#FDF5E6\">healing hero</font>"
 		"DOTA_Tooltip_ability_imba_tower_healing_tower_Description"						"если в радиусе %search_radius% король увидит героя и здоровье у героя упадёт до 80% король его подхилит на %heal_amount% ."
 		
 		"DOTA_Tooltip_ability_item_ordinary_rapier" 			 								    "<font color=\"#FDF5E6\">Ordinary Rapier</font>"
@@ -2380,10 +2441,5 @@
 	"DOTA_Tooltip_NPC_duel_reward_Description"														"All lost challenge losers gives Duel Master total ущерб by <font color=\"#FF4500\">%dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE%</font>"
 
 	// Panorama
-	"congratulations"	"Вы отбились от волны!"
-	"reward"	"В качестве награды, вы получете золото"
-
-	"sniper"	"Кардер" 
-	
     }
 }

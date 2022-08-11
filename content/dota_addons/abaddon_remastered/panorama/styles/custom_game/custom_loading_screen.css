@@ -1,0 +1,131 @@
+#customBG
+{
+    width: 100%;
+    height: 100%;
+
+    background-image: url('file://{images}/custom_game/loading_screen/background.jpg');
+    background-size: 100% 100%;
+
+    z-index: -2;
+}
+
+#infoContainer
+{
+    width: 400px;
+    height: 300px;
+
+    align: left center;
+    flow-children: down;
+}
+
+#contactContainer
+{
+    width: 100%;
+    height: 30%;
+
+    flow-children: right;
+}
+
+#discordButton
+{
+    width: 86px;
+    height: 86px;
+
+    margin-top: 12px;
+    margin-left: 12px;
+}
+
+#discordIcon
+{
+    width: 100%;
+    height: 100%;
+
+    transition-property: width, height, pre-transform-rotate2d;
+    transition-timing-function: ease-in-out;
+    transition-duration: .08s;
+}
+
+#discordButton:active Image
+{
+    width: 96%;
+    height: 96%;
+
+
+}
+
+#vkButton
+{
+    width: 86px;
+    height: 86px;
+
+    margin-left: 12px;
+    margin-top: 12px;
+}
+
+#vkIcon
+{
+    width: 100%;
+    height: 100%;
+
+    transition-property: width, height, pre-transform-rotate2d;
+    transition-timing-function: ease-in-out;
+    transition-duration: .08s;
+}
+
+#vkButton:active Image
+{
+    width: 96%;
+    height: 96%;
+}
+
+#tipPanel
+{
+    width: 400px;
+    height: 100px;
+
+    background-color: rgb(58, 58, 58);
+
+    flow-children: right;
+    border-radius: 0px 15px 15px 0px;
+}
+
+#tipLabel
+{
+    color: white;
+    text-align: center;
+
+    font-size: 19px;
+    font-weight: bold;
+    font-family: monospaceFont;
+    text-overflow: shrink;
+
+    align: center center;
+}
+
+#arrowButton
+{
+    width: 80px;
+    height: 100%;
+
+    background-color: rgb(74, 74, 74);
+}
+
+#arrowIcon
+{
+    width: 42px;
+    height: 42px;
+
+    pre-transform-rotate2d: 90deg;
+    transition-property: width, height, pre-transform-rotate2d;
+    transition-timing-function: ease-in-out;
+    transition-duration: .08s;
+
+    align: center center;
+}
+
+#arrowButton:active Image {
+    width: 38px;
+    height: 38px;
+
+    pre-transform-rotate2d: 87deg;
+}

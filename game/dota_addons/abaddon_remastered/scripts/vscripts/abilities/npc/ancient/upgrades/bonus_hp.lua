@@ -11,6 +11,10 @@ function modifier_ancient_bonus_hp:IsAura()
     return true
 end
 
+function modifier_ancient_bonus_attack_damage:IsHidden()
+    return true
+end
+
 function modifier_ancient_bonus_hp:GetAuraRadius()
     return 99999
 end
@@ -24,7 +28,7 @@ function modifier_ancient_bonus_hp:GetAuraSearchTeam()
 end
 
 function modifier_ancient_bonus_hp:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_BASIC
+    return DOTA_UNIT_TARGET_ALL
 end
 
 function modifier_ancient_bonus_hp:GetAuraEntityReject(hEntity)
@@ -42,5 +46,6 @@ function modifier_ancient_bonus_hp:DeclareFunctions()
 end
 
 function modifier_ancient_bonus_hp:GetModifierHealthBonus()
+    self:GetParent():CalculateStatBonus( true )
     return self:GetAbility():GetSpecialValueFor('bonus_health')
 end

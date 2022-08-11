@@ -573,7 +573,7 @@
 			"Ability1"					"windrunner_powershot"
 			"Ability2"					"windrunner_windrun"
 	        
-	        "vscripts"                  "npc_ai/windrunner"
+	        "vscripts"                  "ai/windrunner"
 	        
 	        "Creature"
 	        {   
@@ -652,7 +652,7 @@
 		"Ability1"					"centaur_khan_war_stomp"
 	        "Ability2"                  "centaur_master_effect"
 	        
-	        "vscripts"                  "npc_ai/centaur_master"
+	        "vscripts"                  "ai/centaur_master"
 	        
 	        "Creature"
 	        {   
@@ -735,7 +735,7 @@
 		"Ability1"					""
 	        "Ability2"					""
 	        
-	        "vscripts"                  "npc_ai/war_beast"
+	        "vscripts"                  "ai/war_beast"
 	        
 	        "Creature"
 	        {   
@@ -751,7 +751,7 @@
 	        }      
 	}
 
-	"Leader_War_Beast"           
+	"npc_dota_leader_war_beast"           
 	{										
 		"BaseClass"					"npc_dota_creature"
 	        "Model"						"models/heroes/lycan/lycan_wolf.vmdl"
@@ -807,7 +807,7 @@
 		"Ability1"					"buff_wolves"
 	        "Ability2"					""
 	        
-	        "vscripts"                  "npc_ai/leader_war_beast"
+	        "vscripts"                  "ai/leader_war_beast"
 	        
 	        "Creature"
 	        {   
@@ -876,7 +876,7 @@
 		"Ability2"					"hanshuanglingyu"
 		"Ability3"					"lich_frost_shield"
 	        
-	        "vscripts"                  "npc_ai/boss_lich"
+	        "vscripts"                  "ai/boss_lich"
 	        
 	        "Creature"
 	        {   
@@ -958,7 +958,7 @@
 		"Ability1"					"dragon_knight_breathe_fire"
 	        "Ability2"					"ghost_frost_attack"
 	        
-	        "vscripts"                  "npc_ai/evil_bat"
+	        "vscripts"                  "ai/evil_bat"
 	        
 	        "Creature"
 	        {   
@@ -1030,7 +1030,7 @@
 	        "Ability2"					""
 	        "Ability3"                  "magical_killer_effect"
 	        
-	        "vscripts"                  "npc_ai/magical_killer"
+	        "vscripts"                  "ai/magical_killer"
 	        
 	        "Creature"
 	        {   
@@ -1103,7 +1103,7 @@
 	        "Ability3"                  "NPC_Attack_NO_MISS"
 				"Ability4"                  "Corrosive_Haze_icon"
 												
-	        "vscripts"                  "npc_ai/blood_slayer"
+	        "vscripts"                  "ai/blood_slayer"
 	        
 	        "Creature"
 	        {   

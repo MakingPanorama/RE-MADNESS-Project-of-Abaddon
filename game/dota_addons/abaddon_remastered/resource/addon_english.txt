@@ -16,13 +16,34 @@
 		
 		"DOTA_Tooltip_ability_New_ManaBreak_damage_per_burnt"		"%<font color=\"#FF4500\">Bonus Damage Coefficient:</font> "
 
+		// Upgrades
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage"	"Bonus attack damage"
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage_description"	"Всё постройки и босс получаю дополнительный урон"
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage_bonus_attack_damage"	"ДОП.УРОН: "
+		"DOTA_Tooltip_Ability_ancient_bonus_attack_damage_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_Ability_ancient_bonus_armor"	"Bonus armor"
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_description"	"Всё постройки и эншент получают физическую и магическую броню"
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_bonus_physical_armor"	"%ДОП.ФИЗ.БРОНЯ: "
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_bonus_magical_armor"	"%ДОП.МАГ.БРОНЯ: "
+		"DOTA_Tooltip_Ability_ancient_bonus_armor_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_Ability_ancient_bonus_hp"	"Bonus HP"
+		"DOTA_Tooltip_Ability_ancient_bonus_hp_description"	"Всё постройки и босс получают дополнительное здоровье"
+		"DOTA_Tooltip_Ability_ancient_bonus_hp_bonus_health"	"ДОП.ЗДОРОВЬЕ: "
+		"DOTA_Tooltip_Ability_ancient_bonus_hp_points_to_learn"	"НУЖНО ОЧКОВ: "
+
+		"DOTA_Tooltip_Ability_ancient_heal_ability"	"Heal Ability"
+		"DOTA_Tooltip_Ability_ancient_heal_ability_description"	"Все в радиусе %radius% исцеляются на %health_heal_percent%%"
+		"DOTA_Tooltip_Ability_ancient_heal_ability_health_heal_percent"	"%ИСЦЕЛЕНИЕ: "
+		"DOTA_Tooltip_Ability_ancient_heal_ability_radius"	"РАДИУС: "
+		"DOTA_Tooltip_Ability_ancient_heal_ability_points_to_learn"	"НУЖНО ОЧКОВ: "
 
 		"DOTA_Tooltip_ability_New_ManaVoid"				            "<font color=\"#E1FFFF\">Void Punishment</font>"
 		"DOTA_Tooltip_ability_New_ManaVoid_Description"			    "Give all the enemies in the huge area with mana void punishment\n\nThe base damage depends on <font color=\"#7CFC00\">some coefficient of Mana Slyer's current Agility</font>\nThe bonus damge depends on <font color=\"#7CFC00\">some coefficient of missing mana of major target</font>\n\n<font color=\"#FF0000\">Damage can affect all magical immune units no matter if it is marjor target</font>\n"
 		"DOTA_Tooltip_ability_New_ManaVoid_mana_void_damage_per_mana"	"<font color=\"#FF4500\">Bonus Damage Coefficient:</font> "
 		"DOTA_Tooltip_ability_New_ManaVoid_base_coefficient"		"<font color=\"#FF4500\">Base Damage Coefficient:</font> "
 		"DOTA_Tooltip_ability_New_ManaVoid_mana_void_aoe_radius"	"<font color=\"#FF4500\">Affected Radius: </font>"
-
 		
 		"DOTA_Tooltip_ability_Mana_Hater"				            "<font color=\"#E1FFFF\">Mana Hate</font>"		
 		"DOTA_Tooltip_ability_Mana_Hater_Description"			    "Mana Slayer passively generates a <font color=\"#7CFC00\">aura</font> gives him and nearby allies extra magic resistance.<br>Additionally, when <font color=\"#7CFC00\">any enemey in a certain area centered at Mana Slayer spells any ability</font> on Mana Slayer, he will gain a hate buff, this buff can give Mana Slayer's <font color=\"#7CFC00\">extra magic resistance, physical damage and attack speed</font>\n<font color=\"#FF0000\">The hate buff can be refreshed when new ability spelt by enemies on him and can be stacked infinitely</font>"
@@ -37,6 +58,7 @@
 		"DOTA_Tooltip_common_Mana_Hater_Aura_Description"	        "Mana Slayer gives some extra magical resistance to his allies and himself with <font color=\"#FF4500\">%dMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%</font>"
 		"DOTA_Tooltip_Mana_Hater_Buffs"				                "<font color=\"#7CFC00\">Mana Hate Unique Buff</font>"
 		"DOTA_Tooltip_Mana_Hater_Buffs_Description"		            "Due to the abilities to Mana Slayer from enemies, he gained unique extra <font color=\"#FF4500\">magical resistance with %fMODIFIER_PROPERTY_MAGICAL_RESISTANCE_BONUS%%%, physical damage with %dMODIFIER_PROPERTY_PREATTACK_BONUS_DAMAGE% and attack speed with %dMODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT%</font>"
+
 	
 
 		"DOTA_Tooltip_ability_Mana_Expeller"				        "<font color=\"#E1FFFF\">Mana Expeller</font>"		

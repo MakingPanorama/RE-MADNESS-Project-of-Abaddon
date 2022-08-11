@@ -7,6 +7,10 @@ end
 
 modifier_ancient_global_bonus_armor = class({})
 
+function modifier_ancient_bonus_attack_damage:IsHidden()
+    return true
+end
+
 function modifier_ancient_global_bonus_armor:IsAura()
     return true
 end

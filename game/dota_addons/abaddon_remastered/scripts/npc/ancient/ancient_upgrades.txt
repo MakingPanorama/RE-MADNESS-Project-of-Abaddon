@@ -31,7 +31,7 @@
         {
             "bonus_physical_armor"			"5 10 15 20 25 30 35"
             "bonus_magical_armor"		"5 10 15 20 25 30 35"
-            "2 2 3 4 4 5 5"
+            "points_to_learn" "2 2 3 4 4 5 5"
         }
     }
 
@@ -47,7 +47,7 @@
 
         "AbilityValues"
         {
-            "bonus_health"			"100 200 300 400 500 600 700 800"
+            "bonus_health"			"100 200 300 400 500 600 700"
             "points_to_learn"       "1 1 2 2 3 3 4"
         }
     }
@@ -62,6 +62,7 @@
         "AbilityName"   "ancient_global_bonus_hp_regen"
         "NeedPoints"    "1 1 2 2 2 3 4"
         "AbilityValues"
+        {
             "bonus_health_regen"			"5 10 15 20 25 30 40"
             "points_to_learn"   "1 1 2 2 2 3 4"
         }

@@ -11,6 +11,10 @@ function modifier_ancient_global_bonus_attackspeed:IsAura()
     return true
 end
 
+function modifier_ancient_bonus_attack_damage:IsHidden()
+    return true
+end
+
 function modifier_ancient_global_bonus_attackspeed:GetAuraRadius()
     return 99999
 end

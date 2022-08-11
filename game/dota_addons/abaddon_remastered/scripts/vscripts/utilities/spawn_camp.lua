@@ -36,11 +36,6 @@ function NeutralCamp:Init()
                 if key == mapList[i] then
                     for _, spawn_point in pairs( value ) do
                         table.insert( UnitsInCamps, spawn_point )
-
-                        if IsInToolsMode() then
-                            DeepPrintTable( SpawnPoints )
-                            DeepPrintTable( UnitsInCamps )
-                        end
                     end
                 end
                 break
@@ -56,12 +51,6 @@ function NeutralCamp:Init()
             currentSpawnPoint = spawn_point
 
             if IsInToolsMode() then
-                print("Spawn Points KV")
-                DeepPrintTable(SpawnPoints)
-
-                print("Units In Camps")
-                DeepPrintTable(UnitsInCamps)
-
                 print( key, spawn_point )
             end
              

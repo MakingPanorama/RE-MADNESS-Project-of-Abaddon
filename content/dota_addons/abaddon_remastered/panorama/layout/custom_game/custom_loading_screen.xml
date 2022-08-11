@@ -1,0 +1,27 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/custom_loading_screen.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_loading_screen.js" />
+    </scripts>
+
+    <Panel class="AddonLoadingRoot" hittest="false">
+        <Panel id="customBG" hittest="false">
+            <Panel id="infoContainer" hittest="false">
+                <Panel id="tipPanel">
+                    <Button id="arrowButton" onactivate="selectRandomTip()">
+                        <Image id="arrowIcon" src="file://{images}/custom_game/loading_screen/arrow.svg" scaling="stretch" tabindex="auto" />
+                    </Button>
+                    <Label id="tipLabel" text="#tip3" html="true" />
+                </Panel>
+
+                <Panel id="contactContainer">
+                    <Button id="discordButton" onactivate="DOTADisplayURL('https://discord.gg/XNjzMyhGSA')">
+                        <Image id="discordIcon" src="file://{images}/custom_game/loading_screen/discord.png" hittest="false" />
+                    </Button>
+                </Panel>
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

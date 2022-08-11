@@ -19,7 +19,12 @@ end
 
 modifier_ancient_heal_ability = class({})
 
+function modifier_ancient_bonus_attack_damage:IsHidden()
+    return true
+end
+
 function modifier_ancient_heal_ability:OnCreated()
+	if not IsServer() then return end
 	self:StartIntervalThink( 0 )
 end
 
