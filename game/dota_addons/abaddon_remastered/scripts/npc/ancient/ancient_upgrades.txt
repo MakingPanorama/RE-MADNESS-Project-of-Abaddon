@@ -9,15 +9,12 @@
         "MaxLevel"		"7"
         "LevelsBetweenUpgrades"		"8"
         "AbilityName"   "ancient_bonus_attack_damage"
-        "NeedPoints"    "2 2 2 3 3 4 4"
+        "NeedPoints"    "2 2 3 3 4 4 5"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_attack_damage"			"10 30 50 70 90 135 202"
-            }
+            "bonus_attack_damage"   "10 30 50 70 90 110 130"
+            "points_to_learn"   "2 2 3 3 4 4 5"
         }
     }
 
@@ -29,19 +26,12 @@
         "MaxLevel"		"7"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_bonus_armor"
-        "NeedPoints"    "1 1 2 2 3 3 4"
-        "AbilitySpecial"
+        "NeedPoints"    "2 2 3 4 4 5 5"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_physical_armor"			"5 10 15 20 25 37 55"
-            }
-            "02"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_magical_armor"		"5 10 15 20 25 37 55"
-            }
+            "bonus_physical_armor"			"5 10 15 20 25 30 35"
+            "bonus_magical_armor"		"5 10 15 20 25 30 35"
+            "2 2 3 4 4 5 5"
         }
     }
 
@@ -55,13 +45,10 @@
         "AbilityName"   "ancient_bonus_hp"
         "NeedPoints"    "1 1 2 2 3 3 4"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_health"			"100 200 300 400 500 750 1125 1687"
-            }
+            "bonus_health"			"100 200 300 400 500 600 700 800"
+            "points_to_learn"       "1 1 2 2 3 3 4"
         }
     }
 
@@ -73,15 +60,10 @@
         "MaxLevel"		"7"
         "LevelsBetweenUpgrades"		"3"
         "AbilityName"   "ancient_global_bonus_hp_regen"
-        "NeedPoints"    "2 2 2 2 2 3 4"
-
-        "AbilitySpecial"
-        {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_health_regen"			"5 10 15 20 25 30 60"
-            }
+        "NeedPoints"    "1 1 2 2 2 3 4"
+        "AbilityValues"
+            "bonus_health_regen"			"5 10 15 20 25 30 40"
+            "points_to_learn"   "1 1 2 2 2 3 4"
         }
     }
 
@@ -93,21 +75,14 @@
         "MaxLevel"		"1"
         "AbilityName"   "ancient_heal_ability"
         "LevelsBetweenUpgrades"		"3"
-        "AbilityCooldown"		"32.0"
+        "AbilityCooldown"		"25.0"
 
         "NeedPoints"    "4"
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "health_heal_percent"			"15" // Max health heal
-            }
-            "02"
-            {
-                "var_type"  "FIELD_INTEGER"
-                "radius"    "650"
-            }
+            "health_heal_percent"			"15" // Max health heal
+            "radius"    "650"
+            "points_to_learn"   "4"
         }
     }
 
@@ -122,13 +97,10 @@
         "AbilityName"   "ancient_global_bonus_attack_speed"
         "NeedPoints"    "3 3 3 4"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_attack_speed"			"50 100 150 225"
-            }
+            "bonus_attack_speed"			"50 100 150 225"
+            "points_to_learn"   "3 3 3 4"
         }
     }
     "ancient_global_bonus_attack_damage"
@@ -143,13 +115,10 @@
 
         "NeedPoints"    "3 3 4 4"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_attack_damage"			"50 100 150 225"
-            }
+            "bonus_attack_damage"			"50 100 150 225"
+            "points_to_learn"   "3 3 4 4"
         }
     }
     "ancient_global_bonus_physical_armor"
@@ -164,13 +133,10 @@
 
         "NeedPoints"    "3 3 3 4"
 
-        "AbilitySpecial"
+        "AbilityValues"
         {
-            "01"
-            {
-                "var_type"			"FIELD_INTEGER"
-                "bonus_physical_armor"			"6 12 18 24"
-            }
+            "bonus_physical_armor"			"6 12 18 24"
+            "points_to_learn"   "3 3 3 4"
         }
     }
 }

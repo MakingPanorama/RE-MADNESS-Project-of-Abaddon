@@ -1,0 +1,28 @@
+<root>
+    <styles>
+        <include src="file://{resources}/styles/custom_game/wave_details/popup_timer.css" />
+    </styles>
+    <scripts>
+        <include src="file://{resources}/scripts/wave_details/popup_timer.js" />
+        <include src="file://{resources}/scripts/wave_details/wave_skip.js" />
+    </scripts>
+    <Panel class="timer" hittest="false">
+        <Panel id="timerBar" hittest="false">
+            <Panel id="timerContainer" hittest="false">
+                <Label id="titleWave" text="Следующая волна через" />
+
+                <Panel id="progressBarContainer" hittest="false">
+                    <Label id="timeLeft" text="0:00" />
+                    <Panel id="progressWaveBar">
+                        <Panel id="progressTime_left">
+                            <Panel id="SceneContainer">
+                                <DOTAScenePanel id="particle" class="SceneLoaded" hittest="false" map="scenes/hud/healthbarburner" camera="camera_1" />
+                            </Panel>
+                        </Panel>
+                    </Panel>
+                </Panel>
+                <TextButton id="skipVote" text="Skip" onactivate="VoteToSkip()" />
+            </Panel>
+        </Panel>
+    </Panel>
+</root>

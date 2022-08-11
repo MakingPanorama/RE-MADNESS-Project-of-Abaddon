@@ -9,17 +9,16 @@ let upgrades = {
     ancient_global_bonus_physical_armor: "ancient_global_bonus_physical_armor",
 };
 
+let pointsShopButton;
+
 function Init() {
     for ( const upgradeName in upgrades ) {
         /* Panel */
-        let panel = $.CreatePanel('Panel', $('#upgrade'), upgradeName);
+        let panel = $.CreatePanel('Button', $('#upgradeContainer'), upgradeName);
         panel.BLoadLayoutSnippet('upgradeSlotSnippet');
         
-        /* Variables */
-        let button = panel.FindChildTraverse( 'buttonSlot' );
-
         /* Adjust Parameter */
-        button.text = $.Localize('#DOTA_Tooltip_ability_' + upgradeName);
+        panel.style.backgroundImage = `url("file://{images}/custom_game/ancient/upgrades/${upgradeName}.png")`
 
         /* Events */
         /* On Mouse Click */
@@ -31,12 +30,12 @@ function Init() {
 
         /* On Mouse Enter */
         panel.SetPanelEvent( 'onmouseover', function() {
-            $.DispatchEvent( 'DOTAShowAbilityTooltip', button, upgradeName );
+            $.DispatchEvent( 'DOTAShowAbilityTooltip', panel, upgradeName );
         })
 
         /* On Mouse Leave */
         panel.SetPanelEvent( 'onmouseout', function() {
-            $.DispatchEvent( 'DOTAHideAbilityTooltip', button );
+            $.DispatchEvent( 'DOTAHideAbilityTooltip', panel );
         })
     }
 }
@@ -44,7 +43,7 @@ function Init() {
 /* Game Info table has changed */
 function OnPointsChanged( table, key, data ) {
     if ( key == "points" ) {
-        // $('#pointNum').text = data.point;
+        $('#titleButton').text = data.point;
     }
 }
 
@@ -57,9 +56,9 @@ function OnUpdatePanel( data ) {
     let needPointsToNext = data.needPointsToNext;
 
     let panel = $(`#${abilityName}`);
-    let upgradeButton = panel.FindChildTraverse('buttonSlot');
-    let points = $("#nameMenu")
-    points.text = "Points: " + data.points;
+    let currentLevel = panel.FindChildTraverse('levelLabel');
+    let points = $("#titleButton")
+    points.text = data.points;
 
     /* Misison Failed. Okay next time */
     if ( data.bFailed ) {
@@ -68,13 +67,40 @@ function OnUpdatePanel( data ) {
     }
 
     /* Adjust text */
-    upgradeButton.text = 'Need Points: ' + needPointsToNext;
-
-    /* Change text to maxed */
+    currentLevel.text = ` ${abilityLevel} / ${abilityMaxLevel} `
+    
     if ( needPointsToNext == null || abilityLevel >= abilityMaxLevel ) {
-        upgradeButton.text = 'Maxed';
+        currentLevel.text = 'Maxed';
         return;
     }
+}
+
+function InitUI() {
+    let dotaHUD = $.GetContextPanel()
+    let CourierControlButton = $.GetContextPanel().GetParent().GetParent().GetParent().GetParent().FindChildTraverse('Hud').FindChildTraverse('HUDElements').FindChildTraverse('lower_hud').FindChildTraverse('shop_launcher_block').FindChildTraverse('quickbuy').FindChildTraverse('ShopCourierControls').FindChildTraverse('courier').FindChildTraverse('CourierControls')
+    CourierControlButton.FindChildTraverse('SelectCourierButton').style.visibility = "collapse";
+    CourierControlButton.FindChildTraverse('DeliverItemsButton').style.visibility = "collapse";
+    let shopPoints = CourierControlButton.FindChildTraverse('pointsShop')
+    if ( shopPoints ) {
+        shopPoints.DeleteAsync( 0 );
+        $.Msg(shopPoints)
+    };
+
+    let button = $.CreatePanel("TextButton", $.GetContextPanel(), "pointsShop")
+    button.BLoadLayoutSnippet( "pointButton" );
+    button.SetParent( CourierControlButton );
+
+    button.SetPanelEvent( 'onactivate', () => {
+        $('#upgradeBar').SetHasClass( 'slideRightClass', !$("#upgradeBar").BHasClass( "slideRightClass" ) )
+        if ( !$("#upgradeBar").BHasClass( "slideRightClass" ) ) {
+            $("#upgradeBar").style.opacity = "0.0";
+        } else {
+            $("#upgradeBar").style.opacity = "1.0";
+        }
+
+    })
+
+    pointsShopButton = button;
 }
 
 (function() {
@@ -83,4 +109,9 @@ function OnUpdatePanel( data ) {
 
     /* Init to create upgrades */
     Init();
+
+    $.Msg(!$("#upgradeBar").BHasClass( "slideRightClass" ))
+    //
+    /* Init UI */
+    InitUI();
 })();

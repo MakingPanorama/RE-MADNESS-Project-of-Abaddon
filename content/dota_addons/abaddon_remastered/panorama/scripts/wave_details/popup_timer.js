@@ -5,6 +5,7 @@ let schedule
 let startTime
 let endTime
 let duration
+let bTimerActive
 
 /* 
     Tick
@@ -14,14 +15,14 @@ function Tick() {
     schedule = $.Schedule(0., Tick);
     let currentTime = Game.GetDOTATime(false, false);
     
-    let progressBarValue = ( ( endTime - currentTime ) /  duration  )
-    $("#FillBar").value = progressBarValue;
+    let progressBarValue = ( ( endTime - currentTime ) / duration * 100 )
+    $("#progressTime_left").style.width = progressBarValue + "%";
 
     let time = endTime - currentTime
 	let minuts = Math.floor( time/60 )
 	let seconds = Math.floor( time - minuts*60 )	
 	let sTime = ( (minuts < 10) && "0" + minuts || minuts ) + ":" + ( (seconds < 10) && "0" + seconds || seconds )
-	$("#description").text = sTime
+	$("#timeLeft").text = sTime
 
 	if (currentTime >= endTime)
 		StopTimer()
@@ -35,8 +36,8 @@ function StartTimer( data ) {
     startTime = data.startTime
     endTime = data.endTime
     duration = endTime - startTime
-    
-    $('#countdown').RemoveClass('FadeIn')
+    bTimerActive = true;
+
     if ( schedule == null ) {
         Tick();
     }
@@ -46,11 +47,12 @@ function StartTimer( data ) {
 function StopTimer() {
     if ( schedule != null ) {
         $.CancelScheduled( schedule );
-    }
-    
-    $('#countdown').AddClass('FadeIn')
+    }  
+
     GameEvents.SendCustomGameEventToServer('timer_stopped', {})
-    $('#description').text = '0:00';
+    $('#timeLeft').text = '0:00';
+    
+    bTimerActive = false;
     schedule = null;
 }
 
@@ -60,7 +62,8 @@ function NewEndTime( data ) {
 
 function OnTimerChanged( table, key, data ) {
     if ( key == "timer" ) {
-        if ( data.startTime != startTime ) {
+        if ( data.startTime != startTime && !bTimerActive ) {
+            $('#skipVote').RemoveClass('Hidden')
             StartTimer( data )
         } else {
             endTime = data.endTime
@@ -72,8 +75,12 @@ function OnTimerChanged( table, key, data ) {
 function CreateDebugTimer( iEndTime ) {
     endTime = Game.GetDOTATime(false, false) + iEndTime
 
-    $('#countdown').RemoveClass('Hidden')
     Tick();
+}
+
+function VoteToSkip() {
+    GameEvents.SendCustomGameEventToServer('VoteClick', {});
+    $("#skipVote").AddClass( "Hidden" );
 }
 
 (function()

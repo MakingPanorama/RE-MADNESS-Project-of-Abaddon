@@ -1,6 +1,7 @@
 #base "heroes/hero_karder/sniper_mod.txt"
 #base "heroes/hero_karder/headshot.txt"
 #base "heroes/hero_bear/bear.txt"
+#base "ancient/ancient_upgrades.txt"
 
 "DOTAAbilities"
 {

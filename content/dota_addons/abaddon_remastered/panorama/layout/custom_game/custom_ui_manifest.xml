@@ -5,7 +5,7 @@
     </script>
 
     <Panel>
-        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/wave_details/popup_timer.xml" />
-        <!--<CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ancient/upgrades.xml" /> -->
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/wave_details/popupTimer.xml" />
+        <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/ancient/upgrades.xml" /> 
     </Panel>
 </root>

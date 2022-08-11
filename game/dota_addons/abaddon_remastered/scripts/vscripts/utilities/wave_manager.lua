@@ -5,7 +5,7 @@ end
 -- Current state
 _G.WaveManager.State = -1
 
--- States
+-- Game states
 _G.MADNESS_WAVE_STATE_DISABLED = -1
 _G.MADNESS_WAVE_STATE_PRE_GAME = 0
 _G.MADNESS_WAVE_STATE_PRE_ROUND_TIME = 1

@@ -1,3 +1,7 @@
+if Abaddon == nil then
+	_G.Abaddon = class({})
+end
+
 -- Internal
 require('events')
 require('hack_init')
@@ -12,10 +16,6 @@ require('utilities/spawn_camp')
 require('utilities/dropsystem')
 require('utilities/string')
 require('utilities/ai')
-
-if Abaddon == nil then
-	_G.Abaddon = class({})
-end
 
 function Precache( context )
 	--[[
@@ -45,12 +45,12 @@ function Abaddon:InitGameMode()
 	GameRules:GetGameModeEntity():SetThink( "OnThink", self, "GlobalThink", 2 )
 	
 	-- Events
-	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(Abaddon, 'OnGameRulesStateChange'), self)
-    ListenToGameEvent('player_chat', Dynamic_Wrap(Abaddon, 'OnPlayerChatMessage'), self)
+	ListenToGameEvent('game_rules_state_change', Dynamic_Wrap(Events, 'OnGameRulesStateChange'), self)
+    ListenToGameEvent('player_chat', Dynamic_Wrap(Events, 'OnPlayerChatMessage'), self)
 
 	-- Custom Game Events
-	CustomGameEventManager:RegisterListener('VoteClick', Dynamic_Wrap(Abaddon, 'OnVoteClick'))
-	CustomGameEventManager:RegisterListener('timer_stopped', Dynamic_Wrap(Abaddon, 'OnTimeEnd'))
+	CustomGameEventManager:RegisterListener('VoteClick', Dynamic_Wrap(Events, 'OnVoteClick'))
+	CustomGameEventManager:RegisterListener('timer_stopped', Dynamic_Wrap(Events, 'OnTimeEnd'))
 
     -- Set table value
     CustomNetTables:SetTableValue('game_info', 'points', { point = 0 })
@@ -188,6 +188,7 @@ function Abaddon:InitGameMode()
         820000,-- 49
         850000 -- 50
     }
+    
     GameMode:SetUseCustomHeroLevels(true)                   -- Must set if use custom max level
     GameMode:SetCustomHeroMaxLevel( 100 )                    -- Custom max level
     GameMode:SetLoseGoldOnDeath(false)                      -- Set if lose gold when die
@@ -211,99 +212,6 @@ function Abaddon:OnThink()
 		return nil
 	end
 	return 1
-end
-
-
---[[
- _______   ___      ___ _______   ________   _________  ________      
-|\  ___ \ |\  \    /  /|\  ___ \ |\   ___  \|\___   ___\\   ____\     
-\ \   __/|\ \  \  /  / | \   __/|\ \  \\ \  \|___ \  \_\ \  \___|_    
- \ \  \_|/_\ \  \/  / / \ \  \_|/_\ \  \\ \  \   \ \  \ \ \_____  \   
-  \ \  \_|\ \ \    / /   \ \  \_|\ \ \  \\ \  \   \ \  \ \|____|\  \  
-   \ \_______\ \__/ /     \ \_______\ \__\\ \__\   \ \__\  ____\_\  \ 
-    \|_______|\|__|/       \|_______|\|__| \|__|    \|__|  |_________|
-                                                                                                                    
-]]
-
-
--- Calls while GameRules State changes
-function Abaddon:OnGameRulesStateChange()
-    if GameRules:State_Get() == DOTA_GAMERULES_STATE_PRE_GAME then
-        local defenseLocation = Entities:FindByName( nil, "defense_loc"):GetAbsOrigin()
-        AddFOWViewer(DOTA_TEAM_BADGUYS, defenseLocation, 30000, 10800, true) 
-        
-        -- Init Upgrade Panel
-        local upgrades = LoadKeyValues('scripts/npc/ancient/ancient_upgrades.txt')
-        local abilities = {}
-
-        CustomGameEventManager:Send_ServerToAllClients('UpdatePanel', {
-            upgrades = abilities
-        })
-        
-
-        --local bossLocation = Entities:FindByName( nil, "boss_loc"):GetAbsOrigin()
-        --AddFOWViewer(DOTA_TEAM_GOODGUYS, nature_1, 1200, 10800, true)
-
-        -- Init the wave's manager
-        WaveManager:Init()
-
-        -- Init the spawn camp system
-        NeutralCamp:Init()
-    end
-end
-
--- Calls when client clicked on skip button
-function Abaddon:OnVoteClick( tData )
-	local timerTable = CustomNetTables:GetTableValue('player_table', 'timer')
-
-	SetTimeLeft( timerTable["endTime"] - ( timerTable["endTime"] / PlayerResource:GetNumConnectedHumanPlayers() + 1 ) )
-	CustomNetTables:SetTableValue('player_tabale', 'timer', { 
-		startTime = GameRules:GetDOTATime(false, false),
-		endTime = timerTable["endTime"] - ( timerTable["endTime"] / PlayerResource:GetNumConnectedHumanPlayers() + 1 )
-	})
-end
-
--- Calls once timer time is out
-function Abaddon:OnTimeEnd( tData )
-	if WaveManager:StateGet() == MADNESS_WAVE_STATE_WAITING_FOR_NEXT_ROUND then
-		WaveManager.State = MADNESS_WAVE_STATE_ROUND_IN_PROGRESS
-		WaveManager:StartNextRound()
-	end
-end
-
--- Calls when player sends message in chat
-function Abaddon:OnPlayerChatMessage( event )
-    local teamonly = event.teamonly
-    local userid = event.userid
-    local player_id = event.playerid
-    local prefix = "-"
-    local text = event.text
-    
-    if GameRules:IsCheatMode() then
-        print('yes')
-        if text:find(prefix) then
-            local cutText = text:sub( 2 )
-
-            if cutText == "disablewaves" then
-                WaveManager:FreezeWaveManager()
-                print('Freeze')
-            elseif cutText == "enablewaves" then
-                WaveManager:UnfreezeWaveManager()
-                print('Unfreeze')
-            elseif cutText == "skipwave" then
-                WaveManager:SkipWave()
-                print('Skip wave')
-            elseif cutText:find("setwave") then
-                local arg = string.split( cutText, " " )
-                if arg[2] then
-                    WaveManager:SetWave( arg[2] ) -- { "setwave", "2" }
-                end
-                print( 'setwave' )
-            end
-
-            print('Prefix')
-        end
-    end
 end
 
 -- Get Cast Range Bonus FIX

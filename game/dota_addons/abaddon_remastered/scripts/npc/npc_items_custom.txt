@@ -6089,7 +6089,6 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"AbilityTextureName"			"item_recipe"
 		"ItemCost"						"450"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_dark_flow"
