@@ -3,6 +3,7 @@
 	custom_net_tables =
 	[
 		"player_table",
-		"game_info"
+		"game_info",
+		"vector_targeting"
 	]
 }

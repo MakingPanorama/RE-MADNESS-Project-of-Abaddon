@@ -231,8 +231,7 @@ end
 
 -- Do think every .3s to check state of wave
 function Abaddon:WaveThink()
-    if roundTimerIsFinished and roundEnded and WaveManager.State ~= MADNESS_WAVE_STATE_FREEZED then
-        
+    if roundTimerIsFinished and roundEnded and WaveManager.State ~= MADNESS_WAVE_STATE_FREEZED then  
         -- Reset some settings
         roundEnded = false
         currentWaveCount = 0
@@ -416,10 +415,11 @@ function WaveManager:OnClickUpgrade( data )
     local points = CustomNetTables:GetTableValue('game_info', 'points')["point"]
     if Boss:HasAbility(abilityName) then
         local ability = Boss:FindAbilityByName(abilityName)
-        if tonumber(needPointsToLearn[ability:GetLevel()]) and points >= tonumber(needPointsToLearn[ability:GetLevel()]) and ability:GetLevel() ~= ability:GetMaxLevel() then
+        if ability and tonumber(needPointsToLearn[ability:GetLevel()]) and points >= tonumber(needPointsToLearn[ability:GetLevel()]) and ability:GetLevel() ~= ability:GetMaxLevel() then
             ability:SetLevel( ability:GetLevel() + 1 )
 
             -- Adjust num of points
+            print( "Before: "..points )
             CustomNetTables:SetTableValue('game_info', 'points', {
                 point = points - tonumber(needPointsToLearn[ability:GetLevel()])
             })
@@ -429,12 +429,12 @@ function WaveManager:OnClickUpgrade( data )
                 abilityName = data.abilityName,
                 abilityLevel = ability:GetLevel(),
                 abilityMaxLevel = ability:GetMaxLevel(),
-
-                needPointsToNext = tonumber(needPointsToLearn[ability:GetLevel() + 1]),
                 points = points,
+                needPointsToNext = needPointsToLearn[ ability:GetLevel() ],
                 bUpgradeFailed = false
             })
-            print('Upgraded')
+
+            print('After: '..CustomNetTables:GetTableValue('game_info', 'points')["point"])
         end
     else
         if points >= tonumber(needPointsToLearn[1]) then
@@ -443,6 +443,7 @@ function WaveManager:OnClickUpgrade( data )
             ability:SetLevel( ability:GetLevel() + 1 )
 
             -- Adjust num of points
+            print( "Before: "..points )
             CustomNetTables:SetTableValue('game_info', 'points', {
                 point = points - tonumber(needPointsToLearn[ability:GetLevel()]),
             })
@@ -452,12 +453,12 @@ function WaveManager:OnClickUpgrade( data )
                 abilityName = data.abilityName,
                 abilityLevel = ability:GetLevel(),
                 abilityMaxLevel = ability:GetMaxLevel(),
-
-                needPointsToNext = tonumber(needPointsToLearn[ability:GetLevel() + 1]),
+                points = points,
+                needPointsToNext = needPointsToLearn[ ability:GetLevel() ],
                 bUpgradeFailed = false,
             })
 
-            print('Learned')
+            print('After: '..CustomNetTables:GetTableValue('game_info', 'points')["point"])        
         end
     end
 end

@@ -3,6 +3,9 @@
         GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_TIMEOFDAY, false );      //Time of day (clock).
         GameUI.SetDefaultUIEnabled( DotaDefaultUIElement_t.DOTA_DEFAULT_UI_TOP_HEROES, false );     //Heroes and team score at the top of the HUD.
     </script>
+    <scripts>
+        <include src="file://{resources}/scripts/custom_game/vector_targeting.js"
+    </scripts>
 
     <Panel>
         <CustomUIElement type="Hud" layoutfile="file://{resources}/layout/custom_game/wave_details/popupTimer.xml" />

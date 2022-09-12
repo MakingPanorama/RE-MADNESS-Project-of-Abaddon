@@ -16,6 +16,7 @@ require('utilities/spawn_camp')
 require('utilities/dropsystem')
 require('utilities/string')
 require('utilities/ai')
+require('utilities/json')
 
 function Precache( context )
 	--[[
@@ -57,7 +58,7 @@ function Abaddon:InitGameMode()
     if IsInToolsMode() then
         CustomNetTables:SetTableValue('game_info', 'points', { point = 9999 })
     end
-
+    
 	-- Custom Game Settings
 	GameRules:SetHeroSelectionTime( 600.0 )             -- How long should we let people select their hero?
     GameRules:SetGoldPerTick(1)                         -- How much gold should players get per tick?

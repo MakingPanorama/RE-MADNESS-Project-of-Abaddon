@@ -256,7 +256,8 @@
         "item_recipe_bloodthorn"                "REMOVE"
         "item_echo_sabre"                       "REMOVE"
         "item_octarine_core"                    "REMOVE"
-		
+		"item_sealed_sword"						"REMOVE"
+		"item_khorn_sword"						"REMOVE"
 		
 		"warlock_golem_flaming_fists"
 	{

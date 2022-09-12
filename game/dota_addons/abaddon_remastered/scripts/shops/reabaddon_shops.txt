@@ -109,9 +109,9 @@
         "item"          "item_arcana_wand"
         "item"          "item_holy_wand"      
         "item"          "item_legendary_sword"
-        "item"          "item_sealed_sword"   
+        //"item"          "item_sealed_sword"   
         "item"          "item_dark_flow"    
-        "item"          "item_khorn_sword"    
+        //"item"          "item_khorn_sword"    
         "item"          "item_dirty_blade"
         "item"          "item_worn_hammer"
     }

@@ -57,7 +57,7 @@ function OnPointsChanged( table, key, data ) {
     $.Msg( data )
 
     if ( key == "points" ) {
-        $.Msg(data)
+        if ( data.point == undefined ) pointsShopButton.FindChildTraverse('titleButton').text = "0";
         pointsShopButton.FindChildTraverse('titleButton').text = formatCash(data.point);
     }
 }
@@ -69,12 +69,15 @@ function OnUpdatePanel( data ) {
     let abilityLevel = data.abilityLevel;
     let abilityMaxLevel = data.abilityMaxLevel;
     let needPointsToNext = data.needPointsToNext;
+    let currentPoints = data.points;
+
+    $.Msg( "Points: " + currentPoints )
 
     let pointShop = pointsShopButton
     let panel = $(`#${abilityName}`)
     let currentLevel = panel.FindChildTraverse('levelLabel');
-    let points = pointShop.FindChildTraverse('titleButton')
-    points.text = data.points;
+    let pointsLabel = pointShop.FindChildTraverse('titleButton')
+    pointsLabel.text = formatCash(data.points);
 
     /* Misison Failed. Okay next time */
     if ( data.bFailed ) {
@@ -127,26 +130,5 @@ function InitUI() {
 
     /* Init UI */
     InitUI();
+    
 })();
-
-// Util functions
-let SI_SYMBOL = ["", "k", "M", "G", "T", "P", "E"];
-
-function abbreviateNumber(number){
-
-    // what tier? (determines SI symbol)
-    let tier = Math.log10(Math.abs(number)) / 3 | 0;
-
-    // if zero, we don't need a suffix
-    if(tier == 0) return number;
-
-    // get suffix and determine scale
-    let suffix = SI_SYMBOL[tier];
-    let scale = Math.pow(10, tier * 3);
-
-    // scale the number
-    let scaled = number / scale;
-
-    // format number and add suffix
-    return scaled.toFixed(1) + suffix;
-}

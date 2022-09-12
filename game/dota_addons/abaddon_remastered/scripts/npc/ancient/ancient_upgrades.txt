@@ -63,7 +63,7 @@
         "NeedPoints"    "1 1 2 2 2 3 4"
         "AbilityValues"
         {
-            "bonus_health_regen"			"5 10 15 20 25 30 40"
+            "bonus_health_regen"			"5 10 15 20 25 50 60"
             "points_to_learn"   "1 1 2 2 2 3 4"
         }
     }
@@ -95,7 +95,7 @@
         "AbilityTextureName"		"upgrades/global_bonus_attack_speed"
         "MaxLevel"		"4"
         "LevelsBetweenUpgrades"		"3"
-        "AbilityName"   "ancient_global_bonus_attack_speed"
+        "AbilityName"   "troll_warlord_battle_trance"
         "NeedPoints"    "3 3 3 4"
 
         "AbilityValues"
@@ -130,7 +130,7 @@
         "AbilityTextureName"		"upgrades/bonus_armor"
         "MaxLevel"		"4"
         "LevelsBetweenUpgrades"		"3"
-        "AbilityName"   "ancient_global_bonus_physical_armor"
+        "AbilityName"   "sven_warcry"
 
         "NeedPoints"    "3 3 3 4"
 

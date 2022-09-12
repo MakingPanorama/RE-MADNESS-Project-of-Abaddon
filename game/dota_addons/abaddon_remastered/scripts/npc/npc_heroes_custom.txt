@@ -8,7 +8,7 @@
 	{
 		"override_hero"				"npc_dota_hero_antimage"
 		"AttackCapabilities"		"DOTA_UNIT_CAP_MELEE_ATTACK"
-		"ArmorPhysical"				"-3"
+		"ArmorPhysical"				"-1"
         "Level"                     "1"
 		"AttackRate"				"1.1"
 		"AttackAnimationPoint"		"0.13000"
@@ -25,9 +25,9 @@
 		"AttributeBaseStrength"			 "19"
 		"AttributeStrengthGain"			 "1.9"
 		"AttributeBaseIntelligence"		 "12"
-		"AttributeIntelligenceGain"		 "2.1"
+		"AttributeIntelligenceGain"		 "1.6"
 		"AttributeBaseAgility"			 "30"
-		"AttributeAgilityGain"			 "2.4"
+		"AttributeAgilityGain"			 "3.2"
 
 		"MovementSpeed"				     "300"
 		"MovementTurnRate"			     "1.2"
@@ -37,10 +37,10 @@
 
 		"MagicalResistance"			     "0"
 
-		"StatusHealth"				"400"
+		"StatusHealth"				"550"
 		"StatusMana"				"150"
 		"ModelScale"				"0.8"
-		"StatusHealthRegen"			"2.0"
+		"StatusHealthRegen"			"1.3"
 		"StatusManaRegen"			"0.8"
 
         "Ability1"                  "magic_seal"

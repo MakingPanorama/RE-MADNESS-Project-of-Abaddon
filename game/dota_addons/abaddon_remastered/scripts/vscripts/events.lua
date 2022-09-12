@@ -89,8 +89,6 @@ function Events:OnPlayerChatMessage( event )
                 end
                 print( 'setwave' )
             end
-
-            print('Prefix')
         end
     end
 end

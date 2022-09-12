@@ -8,7 +8,7 @@
 
 #upgradeBar
 {
-    width: 662px;
+    width: 680px;
     height: 83px;
 
     margin-top: 437px;
@@ -28,6 +28,11 @@
     animation-iteration-count: 1;
     animation-timing-function: ease-in-out;
     animation-duration: .5s;
+}
+
+.Inactive
+{
+    background-color: gradient( linear, 0% 0%, 0% 100%, from( #000000a3 ), to( #242424c3) );
 }
 
 @keyframes 'fadeIn'

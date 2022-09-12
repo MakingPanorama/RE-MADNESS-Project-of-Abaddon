@@ -5,289 +5,33 @@
 
 "DOTAAbilities"
 {
-    "New_ManaBreak"
+    "mana_slayer_manabreak"
     {
-	   // General
-	   "BaseClass"				                     "ability_datadriven"
-	   "AbilityTextureName"			                 "custom/Mana Breaker"
-	   "AbilityBehavior"			                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-       "AbilityUnitTargetTeam"			             "DOTA_UNIT_TARGET_TEAM_ENEMY"
-	   "AbilityUnitTargetType"			             "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
-	   "AbilityUnitTargetFlags"		                 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
-	   "AbilityUnitDamageType"		                 "DAMAGE_TYPE_PURE"
-	   "SpellImmunityType"			                 "SPELL_IMMUNITY_ENEMIES_YES"
-       "MaxLevel"                                    "7"
-       "RequiredLevel"                               "1"
-       "LevelsBetweenUpgrades"                       "3"
-       "SpellDispellableType"		                 "SPELL_DISPELLABLE_NO"
-
-       // Precache
-
-        "precache"
-        {
-		  "particle"	"particles/custom/mana_break.vpcf"
-		  "soundfile"	"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
-        }
-	   // Special
-	   "AbilitySpecial"
-	   {
-          "01"
-          {
-            "var_type"				"FIELD_INTEGER"
-			"base_burnt"			"12 18 24 30 36 42 48"
-          }
-          "02"
-          {
-            "var_type"				"FIELD_INTEGER"
-			"radius"	            "270"
-          }
-	   }
-	   "Modifiers"
-	   {
-		  "modifier_mana_break_orb_datadriven"
-		  {
-            "Passive"	           "1"
-			"IsHidden"	           "1"
-            "IsPurgable"           "0"
-			"OnAttackLanded"
-			{
-				"RunScript"
-				{
-					"ScriptFile"	"lua_abilities/mana_break"
-					"Function"		"ManaBreak"
-                    "particle_name" "particles/custom/mana_break.vpcf"      //attach_hitloc
-                    "sound_name"    "Hero_Antimage.ManaBreak"
-				}
-			 }
-		  }
-	   }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-		    "boosted_reap_midas"
-{
-	//Created by D2AbilityCreator 2.0
-	"BaseClass"		"ability_datadriven"
-	"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE  | DOTA_ABILITY_BEHAVIOR_HIDDEN"
-	"AbilityTextureName"		"alchemist_goblins_greed"
-	       "MaxLevel"                                    "1"
-       "RequiredLevel"                               "1"
-	"AbilitySpecial"
-	{
-		"01"
-		{
-			"var_type"		"FIELD_INTEGER"
-			"attackspeed"		"170"
-		}
-		"02"
-		{
-			"var_type"		"FIELD_INTEGER"
-			"gold"		"1"
-		}
-	}
-	"Modifiers"
-	{
-		"modifier_item_boosted_reap_midas"
-		{
-			"Passive"		"1"
-			"IsBuff"		"0"
-			"IsDebuff"		"0"
-			"IsHidden"		"0"
-			"IsPurgable"		"0"
-			"Properties"
-			{
-				"MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT"		"0"
-			}
-			"OnAttackLanded"
-			{
-				"RunScript"
-				{
-					"ScriptFile"		"npc_abilities/reap_midas.lua"
-					"Function"		"AddGold"
-					"attacker"		"ATTACKER"
-				}
-			}
-		}
-	}
-}
-
-
-	 	"dat"
-    {
-    "BaseClass"             		"ability_datadriven"
-    "AbilityBehavior"               "DOTA_ABILITY_BEHAVIOR_PASSIVE"
-     "FightRecapLevel"               "0"
-    "AbilityTextureName"            "star_up"
-	"MaxLevel"                      "1"
-	"RequiredLevel"                  "0"
-
-        "OnUpgrade"
-        {
-            "RunScript"
-            {
-                "ScriptFile"    "npc_abilities/book_of_hero_poison.lua"
-                "Function"      "PUTAbility"
-            }
-
-            "SpendCharge"
-            {}
-        }
-    }
-
-
-	"berserkers_blood_datadriven"
-{
-	// General
-	//-------------------------------------------------------------------------------------------------------------
-	"BaseClass"						"ability_datadriven"
-	"AbilityBehavior"				"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-	"AbilityTextureName"			"huskar_berserkers_blood"
-
-	// Special
-	//-------------------------------------------------------------------------------------------------------------
-	"AbilitySpecial"
-	{
-		"01"
-		{
-			"var_type"						"FIELD_INTEGER"
-			"incoming_damage_bonus_per_stack"	"1 2 3 4"
-		}
-		"02"
-		{
-			"var_type"						"FIELD_INTEGER"
-			"resistance_per_stack"			"3 4 5 6"
-		}
-		"03"
-		{
-			"var_type"						"FIELD_FLOAT"
-			"model_size_per_stack"			"0.02"
-		}
-		"04"
-		{
-			"var_type"						"FIELD_FLOAT"
-			"hurt_health_ceiling"			"0.87"
-		}
-		"05"
-		{
-			"var_type"						"FIELD_FLOAT"
-			"hurt_health_floor"				"0.03"
-		}
-		"06"
-		{
-			"var_type"						"FIELD_FLOAT"
-			"hurt_health_step"				"0.07"
-		}
-	}
-
-	// Precache
-	//-------------------------------------------------------------------------------------------------------------
-	"precache"
-	{
-		"particle"  "particles/units/heroes/hero_huskar/huskar_berserker_blood_hero_effect.vpcf"
-		"particle"  "particles/units/heroes/hero_huskar/huskar_berserkers_blood_glow.vpcf"
-	}
-
-	//Datadriven
-	//-------------------------------------------------------------------------------------------------------------
-	"OnUpgrade"
-	{
-		//ApplyLuaModifier
-		"RunScript"
-		{
-			"ModifierName"	"modifier_huskar_berserkers_blood_lua"
-			"ScriptFile"	"npc_abilities/berserkers_blood_lua.Lua"
-			"Function"		"ApplyLuaModifier"
-		}
-	}
-}
-
-
-		"imba_tower_chrono"
-	{
 		// General
-		//-------------------------------------------------------------------------------------------------------------
-		"BaseClass"								"ability_datadriven"
-		"AbilityBehavior"						"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"					"faceless_void_chronosphere"
-		"MaxLevel"								"1"
-		"AbilityCastRange"						"650"
-		"AbilityCooldown"						"6"
-
-		// Special
-		//-------------------------------------------------------------------------------------------------------------
-		"AbilitySpecial"
+		"BaseClass"				                     "ability_lua"
+		"ScriptFile"									 "lua_abilities/slayer.lua"
+		"AbilityTextureName"			                 "custom/Mana Breaker"
+		"AbilityBehavior"			                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
+		"AbilityUnitTargetTeam"			             "DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"			             "DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
+		"AbilityUnitTargetFlags"		                 "DOTA_UNIT_TARGET_FLAG_MAGIC_IMMUNE_ENEMIES"
+		"AbilityUnitDamageType"		                 "DAMAGE_TYPE_PURE"
+		"SpellImmunityType"			                 "SPELL_IMMUNITY_ENEMIES_YES"
+		"MaxLevel"                                    "7"
+		"RequiredLevel"                               "1"
+		"LevelsBetweenUpgrades"                       "3"
+		"SpellDispellableType"		                 "SPELL_DISPELLABLE_NO"
+		"precache"
 		{
-			"01"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"stun_radius"					"650"
-			}
-			"02"
-			{
-				"var_type"						"FIELD_FLOAT"
-				"stun_duration"					"0.9"
-			}
-			"03"
-			{
-				"var_type"						"FIELD_INTEGER"
-				"min_creeps"					"10"
-			}
+				"particle"	"particles/custom/mana_break.vpcf"
+				"soundfile"	"soundevents/game_sounds_heroes/game_sounds_antimage.vsndevts"
 		}
-
-		"Modifiers"
+		"AbilityValues"
 		{
-			"modifier_imba_tower_chrono"
-			{
-				"Passive"						"1"
-				"IsHidden"						"1"
-
-				"ThinkInterval"					"0.5"
-
-				"OnIntervalThink"
-				{
-					"RunScript"
-					{
-						"ScriptFile"				"lua_abilities/chrono.lua"
-						"Function"				"Chronotower"
-
-						"sound_stun"			"Hero_FacelessVoid.Chronosphere"
-						"modifier_stun"			"modifier_imba_tower_chrono_stun"
-					}
-				}
-			}
-
-			"modifier_imba_tower_chrono_stun"
-			{
-				"Passive"						"0"
-				"IsHidden"						"1"
-				"IsDebuff"						"1"
-				"IsPurgable"					"1"
-
-				"Duration"						"%stun_duration"
-
-				"StatusEffectName"				"particles/status_fx/status_effect_medusa_stone_gaze.vpcf"
-				"StatusEffectPriority"			"10"
-
-				"States"
-				{
-					"MODIFIER_STATE_FROZEN"		"MODIFIER_STATE_VALUE_ENABLED"
-				}
-			}
+			"manaburn_per_hit"	"40 45 50 55 60 65 70"
+			"agi_damage_percent"	"7 10 13 16 19 22 25"
 		}
-	}
-
-
+	}	
 	"phantom_assassin_stifling_dagger_datadriven"
 {
 	// General
@@ -14026,43 +13770,41 @@
 
     "magic_seal"
     {
+		// General
+		//==============================================================================================
         "BaseClass"				    "ability_lua"
         "ScriptFile"				"lua_abilities/mana_slayer.lua"
-        "AbilityBehavior"		    "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT"
-	    "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+
+		// Behavior
+		//==============================================================================================
+		"AbilityBehavior"		    "DOTA_ABILITY_BEHAVIOR_AOE | DOTA_ABILITY_BEHAVIOR_POINT | DOTA_ABILITY_BEHAVIOR_UNIT_TARGET"
+	    "AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
+		"AbilityUnitTargetType"		"DOTA_UNIT_TARGET_BASE | DOTA_UNIT_TARGET_CREEP | DOTA_UNIT_TARGET_HERO"
+		"AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+		"SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+		"SpellDispellableType"		"SPELL_DISPELLABLE_YES"
+
 	    "AbilityTextureName"		"custom/Mana_Seal"
-        "AbilityType"               "DOTA_ABILITY_TYPE_BASIC"
+
         "MaxLevel"                  "7"
-        "RequiredLevel"				"12 18 24 28 32 36 40"
+        "RequiredLevel"				"4 8 12 16 20 24 28"
+
+
+		// Stats
+		//==============================================================================================
 	    "AbilityCastPoint"			"0.2 0.2 0.2 0.2 0.2 0.2 0.2"
 	    "AbilityCooldown"			"54.0 48.0 42.0 36.0 30.0 24.0 18.0"
 	    "AbilityManaCost"			"220 240 260 280 300 320 380"
 	    "AoERadius"					"%radius"
-        "SpellDispellableType"		"SPELL_DISPELLABLE_YES_STRONG"
 
-	   "AbilitySpecial"
+	   "AbilityValues"
 	   {
-          "01"
-		  {
-			 "var_type"					"FIELD_INTEGER"
-			 "mana_burn"				"50 100 150 200 250 300 350"
-		  }
-		  "03"
-		  {
-		  	"var_type"					"FIELD_INTEGER"
-		  	"health_burn"				"150 200 250 300 350 400 450"	
-		  }
-		  "02"
-		  {
-			 "var_type"					"FIELD_INTEGER"
-			 "radius"					"350 400 450 500 550 600 650"
-		  }
-		  "03"
-		  {
-		  	"var_type"					"FIELD_INTEGER"
-		  	"duration"					"8"
-		  }
+			"bonus_physical_damage"	"20 30 40 50 60 80 100"
+			"bonus_attack_speed"	"-40 -50 -60 -70 -80 -90 -110"
+			"devide_damage"			"30 33 36 39 42 45 48"
+			"radius"				"660"
 	   }
+
 	   "precache"
 	   {
 		  "soundfile" 	"soundevents/game_sounds_heroes/game_sounds_faceless_void.vsndevts"
@@ -18717,7 +18459,7 @@
 	    "AbilityTextureName"		"custom/War_Holdout"
 	    "AbilityCastRange"			"0"
 	    "AbilityCastPoint"			"0.26"
-	    "AbilityCooldown"			"20"
+	    "AbilityCooldown"			"90 85 80 75 70 65 60"
 	    "AbilityDuration"			"%duration"
 	    "AbilityManaCost"			"150 170 190 210 230 250 270"
         "MaxLevel"                  "7"

@@ -8,8 +8,8 @@ function DropSystem:DropItem( victim, dropList, attacker  )
             if RollPercentage( tonumber(chance) ) then
                 local dropItem = CreateItem( itemName, nil, nil )
                 local vicPos = victim:GetAbsOrigin()
-                if item_name == 'item_bag_of_gold' then
-                    dropItem:SetCurrentCharges( RandomInt(75,150) )
+                if itemName == 'item_bag_of_gold' then
+                    dropItem:SetCurrentCharges( RandomInt(45,125) )
                 end
 
                 local landLoc = attacker:GetAbsOrigin() + RandomVector(RandomFloat(-180, 180))

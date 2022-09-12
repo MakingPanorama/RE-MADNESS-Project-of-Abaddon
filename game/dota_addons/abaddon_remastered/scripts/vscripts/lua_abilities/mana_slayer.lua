@@ -1,91 +1,40 @@
 magic_seal = class({})
-LinkLuaModifier("modifier_magic_sphere", "lua_abilities/mana_slayer.lua", LUA_MODIFIER_MOTION_NONE)
-LinkLuaModifier("modifier_magic_sphere_buff", "lua_abilities/mana_slayer.lua", LUA_MODIFIER_MOTION_NONE)
-
+LinkLuaModifier("modifier_magic_seal_debuff", "lua_abilities/mana_slayer.lua", LUA_MODIFIER_MOTION_NONE)
 function magic_seal:OnSpellStart()
 	CreateModifierThinker(self:GetCaster(), self, "modifier_magic_sphere", { duration = self:GetSpecialValueFor("duration") }, self:GetCursorPosition(), self:GetCaster():GetTeamNumber(), false)
 end
 
-modifier_magic_sphere = class({})
+modifier_magic_seal_debuff = class({})
 
-
-function modifier_magic_sphere:OnCreated()
-	local sphere = ParticleManager:CreateParticle("particles/units/heroes/hero_faceless_void/faceless_void_chronosphere.vpcf", PATTACH_ABSORIGIN, self:GetParent())
-	ParticleManager:SetParticleControl(sphere, 1, Vector(self:GetAbility():GetSpecialValueFor("radius"),self:GetAbility():GetSpecialValueFor("radius"),self:GetAbility():GetSpecialValueFor("radius")))
-
-	self:StartIntervalThink( 1 )
-end
-
-function modifier_magic_sphere:OnIntervalThink()
-	local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, self:GetAbility():GetSpecialValueFor("radius"), DOTA_UNIT_TARGET_TEAM_ENEMY, DOTA_UNIT_TARGET_ALL, DOTA_UNIT_TARGET_FLAG_MANA_ONLY, 0, false)
-
-	for _,unit in pairs(units) do
-		if unit:GetMana() > 1 then
-			unit:SpendMana(self:GetAbility():GetSpecialValueFor("mana_burn"), self:GetAbility())
-		else
-			ApplyDamage({
-				victim = unit,
-				attacker = self:GetCaster(),
-				damage = self:GetAbility():GetSpecialValueFor("health_burn"),
-				damage_type = DAMAGE_TYPE_MAGICAL
-			})
-		end
-	end
-end
-function modifier_magic_sphere:IsAura()
-	return true
-end
-function modifier_magic_sphere:IsAuraActiveOnDeath()
-	return false
-end
-function modifier_magic_sphere:GetAuraSearchTeam()
-	return DOTA_UNIT_TARGET_TEAM_BOTH
-end
-function modifier_magic_sphere:GetAuraSearchType()
-	return DOTA_UNIT_TARGET_ALL
-end
-function modifier_magic_sphere:GetAuraRadius()
-	return self:GetAbility():GetSpecialValueFor("radius")
-end
-
-function modifier_magic_sphere:GetModifierAura()
-return "modifier_magic_sphere_buff" end
-
-function modifier_magic_sphere:GetAuraDuration()
-return 0.1 end
-
-
-modifier_magic_sphere_buff = class({})
-
-function modifier_magic_sphere_buff:DeclareFunctions()
+function modifier_magic_seal_debuff:IsHidden() return false end
+function modifier_magic_seal_debuff:DeclareFunctions()
 	return {
-		MODIFIER_PROPERTY_INVISIBILITY_LEVEL
+		MODIFIER_PROPERTY_INCOMING_PHYSICAL_DAMAGE_CONSTANT,
+		MODIFIER_PROPERTY_ATTACKSPEED_BONUS_CONSTANT
 	}
 end
 
-function modifier_magic_sphere_buff:CheckState()
-	local state = {
-		[MODIFIER_STATE_INVISIBLE] = false,
-	}
-
-	if self:GetParent():GetTeamNumber() == self:GetCaster():GetTeamNumber() or self:GetParent():GetUnitName() == "Ancient Guardian" then
-		state = {
-			[MODIFIER_STATE_INVISIBLE] = true,
-		}
-	else
-		state = {
-			[MODIFIER_STATE_STUNNED] = true,
-			[MODIFIER_STATE_FROZEN] = true,
-		}
+function modifier_magic_seal_debuff:GetModifierIncomingPhysicalDamage_Constant( kv )
+	if params.target == self:GetParent() then
+		local units = FindUnitsInRadius(self:GetCaster():GetTeamNumber(), self:GetParent():GetAbsOrigin(), nil, 660, self:GetAbility():GetAbilityTargetTeam(), self:GetAbility():GetAbilityTargetType(), self:GetAbility():GetAbilityTargetFlags(), 0, false)
+		for _, foe in pairs( units ) do
+			if not self:GetParent() then
+				ApplyDamage({
+					victim = foe,
+					attacker = self:GetCaster(),
+					ability = self:GetAbility(),
+					damage = self:GetAbility():GetSpecialValueFor('bonus_physical_damage'),
+					damage_type = DAMAGE_TYPE_MAGICAL,
+					damage_flags = DOTA_DAMAGE_FLAG_BYPASSES_BLOCK
+				})
+			end
+		end
+		return self:GetAbility():GetSpecialValueFor('bonus_physical_damage') + (kv.damage * self:GetAbility():GetSpecialValueFor('divide_damage') / 100 )
 	end
-	return state
 end
 
-function modifier_magic_sphere_buff:GetModifierInvisibilityLevel()
-	if self:GetParent():GetUnitName() == "npc_dota_hero_antimage" or self:GetParent():GetUnitName() == "Ancient Guardian" then
-		return 1
-	end
-	return 0
+function modifier_magic_seal_debuff:GetModifierAttackSpeedBonus_Constant()
+	return self:GetAbiltiy():GetSpecialValueFor('bonus_attack_speed')
 end
 
 mana_expeller = class({})

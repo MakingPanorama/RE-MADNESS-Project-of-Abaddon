@@ -28,11 +28,11 @@ function modifier_ancient_bonus_hp:GetAuraSearchTeam()
 end
 
 function modifier_ancient_bonus_hp:GetAuraSearchType()
-    return DOTA_UNIT_TARGET_ALL
+    return DOTA_UNIT_TARGET_BASIC + DOTA_UNIT_TARGET_CREEP
 end
 
 function modifier_ancient_bonus_hp:GetAuraEntityReject(hEntity)
-    if hEntity:IsRealHero() or hEntity:IsHero() or hEntity:IsIllusion() then
+    if hEntity:IsRealHero() then
         return true
     end
 
@@ -46,6 +46,5 @@ function modifier_ancient_bonus_hp:DeclareFunctions()
 end
 
 function modifier_ancient_bonus_hp:GetModifierHealthBonus()
-    self:GetParent():CalculateStatBonus( true )
     return self:GetAbility():GetSpecialValueFor('bonus_health')
 end

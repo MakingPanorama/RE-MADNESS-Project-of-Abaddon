@@ -2,8 +2,20 @@ LinkLuaModifier("modifier_war_holdout", "lua_abilities/cleaver.lua", LUA_MODIFIE
 LinkLuaModifier("modifier_war_holdout_motion", "lua_abilities/cleaver.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 war_holdout = class({})
 
+function war_holdout:IsDualVectorDirection()
+	return false
+end
+
+function war_holdout:OnVectorCastStart( vStartLocation, vDirection )
+	print('Test!')
+end
+
+function war_holdout:GetBehavior()
+	return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING	
+end
+
 function war_holdout:OnSpellStart()
-	self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_war_holdout", { duration = self:GetSpecialValueFor('duration') })
+	--self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_war_holdout", { duration = self:GetSpecialValueFor('duration') })
 end
 
 modifier_war_holdout = class({})

@@ -1,0 +1,22 @@
+Heroes:
+Mana Slayer physical armor increased to -1
+Mana Slayer health increased to 550
+Mana Slayer health regen decreased to 1.3
+Mana Slayer Agility per level increased to 3.2
+Mana Slayer Magic Seal now gives anti-magic seal. Units effected by this ability make them attack slower and once unit will get attacked everybody under this debuff will get damage.
+Mana Slayer Manabreak now doesn't deal damage to units in radius
+
+
+Items:
+Bag of gold fixed
+Sealed Sword has removed
+Khorn Sword has removed
+Removed some hidden items
+
+Neutral Creeps:
+Mud Seeker physical armor increased to 1
+Mud Seeker magical resistance increased to 15
+Mud Seeker attack damage increased from 5-10 to 10-20
+Mud Seeker XP decreased to 2
+Mud Seeker Health increased to 220
+Mud Seeker movespeed decreased to 305
