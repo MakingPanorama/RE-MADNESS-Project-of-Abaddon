@@ -228,11 +228,11 @@
 	    "IsNeutralUnitType"         "1"
 	    "AutoAttacksByDefault"      "1"
 	       	
-	    "ArmorPhysical"             "1"
-	    "MagicalResistance"			"15"	
+	    "ArmorPhysical"             "0"
+	    "MagicalResistance"			"0"	
 	    "AttackCapabilities"        "DOTA_UNIT_CAP_MELEE_ATTACK"
-	    "AttackDamageMin"			"10"		
-		"AttackDamageMax"			"20"			
+	    "AttackDamageMin"			"1"		
+		"AttackDamageMax"			"10"			
 		"AttackRate"				"1.65"		
 		"AttackAnimationPoint"		"0.25"		
 		"AttackAcquisitionRange"	"0"		
@@ -240,7 +240,7 @@
 		"ProjectileModel"			""			
 		"ProjectileSpeed"			"0"		
 	        
-	    "BountyXP"					"2"		
+	    "BountyXP"					"4"		
 		"BountyGoldMin"				"1"		
 		"BountyGoldMax"				"1"
 	       
@@ -248,10 +248,10 @@
 	    "RingRadius"                "65"
 	        
 	    "MovementCapabilities"		"DOTA_UNIT_CAP_MOVE_GROUND"
-		"MovementSpeed"				"305"		
+		"MovementSpeed"				"360"		
 	    "MovementTurnRate"          "0.3" 
 	        
-	    "StatusHealth"				"180"		
+	    "StatusHealth"				"220"		
 		"StatusHealthRegen"			"0"		
 		"StatusMana"				"100"		
 		"StatusManaRegen"			"0"
@@ -345,7 +345,7 @@
 	            
 	        "HPGain"                    "20"
 	        "DamageGain"                "3"
-	        "ArmorGain"                 "0.35"
+	        "ArmorGain"                 "0.25"
 	        "ManaGain"                  "0"
 	        "MagicResistGain"           "2"
 	        "MoveSpeedGain"             "2"

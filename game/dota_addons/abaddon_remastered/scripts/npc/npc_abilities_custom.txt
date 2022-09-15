@@ -9,7 +9,7 @@
     {
 		// General
 		"BaseClass"				                     "ability_lua"
-		"ScriptFile"									 "lua_abilities/slayer.lua"
+		"ScriptFile"									 "lua_abilities/mana_slayer.lua"
 		"AbilityTextureName"			                 "custom/Mana Breaker"
 		"AbilityBehavior"			                 "DOTA_ABILITY_BEHAVIOR_PASSIVE"
 		"AbilityUnitTargetTeam"			             "DOTA_UNIT_TARGET_TEAM_ENEMY"
@@ -13802,6 +13802,7 @@
 			"bonus_physical_damage"	"20 30 40 50 60 80 100"
 			"bonus_attack_speed"	"-40 -50 -60 -70 -80 -90 -110"
 			"devide_damage"			"30 33 36 39 42 45 48"
+			"duration"				"5 5 5 6 6 6 7"
 			"radius"				"660"
 	   }
 
@@ -17932,12 +17933,12 @@
 		      "01"
 		      {
 			         "var_type"			            "FIELD_INTEGER"
-			         "bonus_damage_percentage"		"150 200 250 300 350 400 400"
+			         "bonus_damage_percentage"		"100 150 200 250 300 350 400"
 		      }
               "02"
 		      {
 			         "var_type"			            "FIELD_FLOAT"
-			         "heal_percentage"		        "3 3.5 4 4.5 5 5.5 6"
+			         "heal_percentage"		        "2 2.5 3 3.5 4 4.5 5"
 		      }
               "02"
 		      {
@@ -17946,65 +17947,6 @@
 		      }
 	    }
 	}
-	//"EffectName"	           "particles/units/heroes/hero_sven/sven_spell_gods_strength.vpcf"
-				//"IsBuff"                        "1"
-                //"IsPurgable"                     "0"
-                //"StatusEffectName"	            "particles/status_fx/status_effect_gods_strength.vpcf"
-			    //"StatusEffectPriority"	        "10"
-                //"EffectName"		            "particles/customgames/capturepoints/cp_fire_captured.vpcf"
-               //"EffectAttachType"	            "follow_overhead"
-
-	"youtube_heal"
-	{
-		"BaseClass"		"ability_datadriven"
-		"AbilityBehavior"		"DOTA_ABILITY_BEHAVIOR_PASSIVE"
-		"AbilityTextureName"		""
-		"AbilityCooldown"		"20"
-		"precache"
-		{
-			"soundfile"		"soundevents/game_sounds_heroes/game_sounds_omniknight.vsndevts"
-			"particle"		"particles/units/heroes/hero_omniknight/omniknight_purification.vpcf"
-		}
-		"AbilitySpecial"
-		{
-			"01"
-			{
-				"var_type"		"FIELD_INTEGER"
-				"heal"		"20"
-			}
-		}
-		"Modifiers"
-		{
-			"modifier_youtube_heal"
-			{
-				"Passive"		"1"
-				"IsBuff"		"0"
-				"IsDebuff"		"0"
-				"IsHidden"		"1"
-				"IsPurgable"		"0"
-				"ThinkInterval"		"5.0"
-				"OnIntervalThink"
-				{
-					"FireSound"
-					{
-						"EffectName"		"Hero_Omniknight.Purification"
-						"Target"		"CASTER"
-					}
-					"FireEffect"
-					{
-						"EffectName"		"particles/items2_fx/urn_of_shadows_heal.vpcf"
-						"EffectAttachType"		"follow_origin"
-					}
-				}
-				"HealPercentage"
-				{
-					"HealAmount"		"%heal"
-					"Target"		"CASTER"
-				}
-			}
-		}
-	}
-
     "Cleaver_For_Demon"
     {
         "BaseClass"				      "ability_datadriven"
@@ -18099,7 +18041,7 @@
         "AbilityUnitTargetTeam"		"DOTA_UNIT_TARGET_TEAM_ENEMY"
 	    "AbilityUnitTargetType"		"DOTA_UNIT_TARGET_HERO | DOTA_UNIT_TARGET_BASIC"
 	    "AbilityUnitTargetFlags"	"DOTA_UNIT_TARGET_FLAG_NOT_ANCIENTS"
-	    "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_YES"
+	    "SpellImmunityType"			"SPELL_IMMUNITY_ENEMIES_NO"
         "AbilityUnitDamageType"		"DAMAGE_TYPE_PURE"
         "AbilityTextureName"		"custom/Cleaver_Shockwave"
 	    "AbilityCastRange"			"%radius"
@@ -18123,7 +18065,7 @@
 		      "01"
               {
                  "var_type"			     "FIELD_INTEGER"
-			     "damage"	             "180 200 220 240 260 280 300"
+			     "damage"	             "60 100 140 180 220 260 300"
               }
               "02"
               {
@@ -18138,7 +18080,7 @@
               "04"
 		      {
 			     "var_type"			    "FIELD_FLOAT"
-			     "interval"		        "1"
+			     "interval"		        "1.1"
 		      }
               "05"
 		      {
@@ -18478,17 +18420,17 @@
 		  "01"
 		  {
 			"var_type"					"FIELD_INTEGER"
-			"bonus_str"		            "100 150 200 250 300 350 400"
+			"bonus_str"		            "30 60 90 120 150 180 210"
 		  }
           "02"
 		  {
 			"var_type"					"FIELD_INTEGER"
-			"bonus_attack_range"		"200"
+			"bonus_attack_range"		"30 30 60 60 90 90 120"
 		  }
           "03"
 		  {
 			"var_type"					"FIELD_INTEGER"
-			"bonus_armor"		        "25 40 55 70 85 100 115"
+			"bonus_armor"		        "10 20 30 40 50 60 70"
 		  }
           "04"
           {
@@ -18499,6 +18441,16 @@
           {
           	"var_type"					"FIELD_INTEGER"
           	"bonus_movespeed"			"-65 -45 -25"
+          }
+          "06"
+          {
+            "var_type"  "FIELD_INTEGER"
+            "strength_damage_percent"   "10 10 10 20 20 20 30"
+          }
+          "07"
+          {
+            "var_type"  "FIELD_FLOAT"
+            "damage_multiplier"   "1.10 1.10 1.10 1.15 1.15 1.15 1.20"
           }
 	    }
 	    //"EffectName"	"Hero_Axe.Berserkers_Call"

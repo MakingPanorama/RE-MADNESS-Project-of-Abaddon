@@ -2,20 +2,8 @@ LinkLuaModifier("modifier_war_holdout", "lua_abilities/cleaver.lua", LUA_MODIFIE
 LinkLuaModifier("modifier_war_holdout_motion", "lua_abilities/cleaver.lua", LUA_MODIFIER_MOTION_HORIZONTAL)
 war_holdout = class({})
 
-function war_holdout:IsDualVectorDirection()
-	return false
-end
-
-function war_holdout:OnVectorCastStart( vStartLocation, vDirection )
-	print('Test!')
-end
-
-function war_holdout:GetBehavior()
-	return DOTA_ABILITY_BEHAVIOR_POINT + DOTA_ABILITY_BEHAVIOR_VECTOR_TARGETING	
-end
-
 function war_holdout:OnSpellStart()
-	--self:GetCaster():AddNewModifier(self:GetCaster(), self, "modifier_war_holdout", { duration = self:GetSpecialValueFor('duration') })
+	self:GetCaster():AddNewModifier(self:GetCaster(), self, 'modifier_war_holdout', { duration = self:GetSpecialValueFor('duration') })
 end
 
 modifier_war_holdout = class({})
@@ -25,12 +13,12 @@ function modifier_war_holdout:OnCreated()
 	self.bonus_attack_range = self:GetAbility():GetSpecialValueFor("bonus_attack_range")
 	self.bonus_armor = self:GetAbility():GetSpecialValueFor("bonus_armor")
 	self.bonus_str = self:GetAbility():GetSpecialValueFor("bonus_str")
-	self.attack_range = self:GetParent():Script_GetAttackRange()
 	self:StartIntervalThink( 1 )
 end
 
 function modifier_war_holdout:OnIntervalThink()
-	-- Getting error, but works... wonderful
+	if not IsServer() then return end
+
 	local units = FindUnitsInRadius(
 		self:GetCaster():GetTeamNumber(),
 		self:GetCaster():GetAbsOrigin(),
@@ -43,14 +31,28 @@ function modifier_war_holdout:OnIntervalThink()
 		false
 	)
 
+	local attack_range = self:GetParent():Script_GetAttackRange()
 	local ring = ParticleManager:CreateParticle("particles/custom/war_holdout.vpcf", PATTACH_ABSORIGIN, self:GetParent())
 	ParticleManager:SetParticleControl(ring, 2, Vector(self.attack_range*1.5,self.attack_range*1.5, 0))
 
-	EmitSoundOn("Hero_Axe.Berserkers_Call", self:GetCaster())
+	local ring_half = ParticleManager:CreateParticle("particles/custom/war_holdout.vpcf", PATTACH_ABSORIGIN, self:GetParent())
+	ParticleManager:SetParticleControl(ring, 2, Vector(self.attack_range/1.5,self.attack_range/1.5, 0))
 
-	for _, unit in pairs(units) do
-		unit:AddNewModifier(self:GetCaster(), self:GetAbility(), "modifier_war_holdout_motion", { duration = 0.3 })
+	local damage_percent = self:GetAbility():GetSpecialValueFor('strength_damage_percent')
+	local damage_multiplier = self:GetAbility():GetSpecialValueFor('damage_multiplier')
+	for _, unit in pairs( units ) do
+		if self:GetCaster():GetRangeToUnit( unit ) < self.attack_range/1.5 then
+			damage_percent = damage_percent * damage_multiplier
+		end
+		
+		ApplyDamage({
+			victim = unit,
+			attacker = self:GetCaster(),
+			damage = self:GetCaster():GetStrength() * damage_percent / 100,
+			damage_type = DAMAGE_TYPE_PHYSICAL
+		})
 	end
+	EmitSoundOn("Hero_Axe.Berserkers_Call", self:GetCaster())
 end
 
 function modifier_war_holdout:DeclareFunctions()

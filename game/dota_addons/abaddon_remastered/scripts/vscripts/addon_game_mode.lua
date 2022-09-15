@@ -17,6 +17,7 @@ require('utilities/dropsystem')
 require('utilities/string')
 require('utilities/ai')
 require('utilities/json')
+require('libraries/vector_targeting')
 
 function Precache( context )
 	--[[
@@ -31,6 +32,7 @@ function Precache( context )
     PrecacheResource( "model", "maps/cavern_assets/models/crystals/crystal05.vmdl", context )
     PrecacheResource( "model", "models/creeps/neutral_creeps/n_creep_golem_b/n_creep_golem_b.vmdl", context )
     PrecacheResource( "model", "models/creeps/neutral_creeps/n_creep_furbolg/n_creep_furbolg_disrupter.vmdl", context )
+    PrecacheResource( "particle_folder", "particles/vector_targeting", context )
 end
 
 -- Create the game mode when we activate

@@ -1,17 +1,40 @@
+Rebalance
 Heroes:
 Mana Slayer physical armor increased to -1
 Mana Slayer health increased to 550
 Mana Slayer health regen decreased to 1.3
 Mana Slayer Agility per level increased to 3.2
-Mana Slayer Magic Seal now gives anti-magic seal. Units effected by this ability make them attack slower and once unit will get attacked everybody under this debuff will get damage.
-Mana Slayer Manabreak now doesn't deal damage to units in radius
-
+Mana Slayer "Magic Seal" now gives anti-magic seal. Units effected by this ability make them attack slower and once unit will get attacked everybody under this debuff will get some part of the damage.
+Mana Slayer "Manabreak" now deal bonus damage that depends how many agility has hero and now works only for single target. 
+-----
+Cleaver Rogue attack damage decreased from 25-35 to 23-30
+Cleaver Rogue health increased to 610
+Cleaver Rogue "War Holdout" cooldown increased to 90/85/80/75/70/65/60
+Cleaver Rogue "Cleaver For Gods" bonus damage changed from 150/200/250/300/350/400/400 to 100/150/200/250/300/350/400
+Cleaver Rogue "Cleaver For Gods" heal percentage reduced by 1
+Cleaver Rogue "Shockwave" damage changed to 60/100/140/180/220/260/300
+Cleaver Rogue "Shockwave" interval increased by .1s
+Cleaver Rogue "Shockwave" now doesn't pierces magic immune
+Cleaver Rogue "Shockwave" duration increased by .5s
+Cleaver Rogue "Array" removed
+Cleaver Rogue "War Holdout" no longer pulls unit to hero
+Cleaver Rogue "War Holdout" bonus strength decreased to 30/60/90/120/150/180/210
+Cleaver Rogue "War Holdout" bonus armor decreased to 10/20/30/40/50/60/70
+Cleaver Rogue "War Holdout" damage tick reduced to 10/10/10/20/20/20/30 (Depends how many strength hero has)
+Cleaver Rogue "Wal Holdout" damage multiplies when distance between unit is less than attack range hero / 1.5 by 1.10/1.10/1.10/1.15/1.15/1.15/1.20/
 
 Items:
 Bag of gold fixed
+----
 Sealed Sword has removed
 Khorn Sword has removed
 Removed some hidden items
+----
+Darkflow fixed damage block
+Darkflow max stacks decreased by 15
+Darkflow strength increased to 50
+Darkflow int increased to 30
+Darkflow recipe cost increased to 1450
 
 Neutral Creeps:
 Mud Seeker physical armor increased to 1
@@ -20,3 +43,4 @@ Mud Seeker attack damage increased from 5-10 to 10-20
 Mud Seeker XP decreased to 2
 Mud Seeker Health increased to 220
 Mud Seeker movespeed decreased to 305
+Mud Seeker HP Gain increased to 30

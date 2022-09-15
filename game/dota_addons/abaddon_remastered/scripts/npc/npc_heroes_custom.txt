@@ -711,8 +711,8 @@
         "Level"                     "1"
 		"AttackRate"				"1.65"
 		"AttackAnimationPoint"		"0.550"
-		"AttackDamageMin"			"25"
-		"AttackDamageMax"			"35"
+		"AttackDamageMin"			"23"
+		"AttackDamageMax"			"30"
 		"AttackAcquisitionRange"	"800"
 		"AttackRange"				"130"
 
@@ -722,7 +722,7 @@
 
 		"AttributePrimary"			     "DOTA_ATTRIBUTE_STRENGTH"
 		"AttributeBaseStrength"			 "26"
-		"AttributeStrengthGain"			 "6.0"
+		"AttributeStrengthGain"			 "3.8"
 		"AttributeBaseIntelligence"		 "23"
 		"AttributeIntelligenceGain"		 "2.75"
 		"AttributeBaseAgility"			 "20"
@@ -736,17 +736,17 @@
 
 		"MagicalResistance"			     "0"
 
-		"StatusHealth"				"520"
+		"StatusHealth"				"610"
 		"StatusMana"				"100"
 		"ModelScale"				"0.75"
 		"StatusHealthRegen"			"2.1"
 		"StatusManaRegen"			"1.5"
 
         "Ability1"                  "Cleaver_Shockwave"
-        "Ability2"                  "Cleaver_Array"
-        "Ability3"                  "Blood_Coercion"
-        "Ability4"                  "cleaver_for_gods"
-        "Ability5"                  "Cleaver_For_Demon"
+        "Ability2"                  "Cleaver_For_Demon"
+        "Ability3"                  "cleaver_for_gods"
+        "Ability4"                  "Blood_Coercion"
+        "Ability5"                  "generic_hidden"
         "Ability6"                  "war_holdout"
         "Ability7"                  ""
         "Ability10"     ""

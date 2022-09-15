@@ -4,7 +4,7 @@
     </styles>
     <scripts>
         <include src="file://{resources}/scripts/wave_details/popup_timer.js" />
-        <include src="file://{resources}/scripts/wave_details/wave_skip.js" />
+        <include src="file://{resources}/scripts/custom_game/vector_targeting.js" />
     </scripts>
     <Panel class="timer" hittest="false">
         <Panel id="timerBar" hittest="false">

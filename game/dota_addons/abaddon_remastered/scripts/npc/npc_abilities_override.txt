@@ -258,7 +258,12 @@
         "item_octarine_core"                    "REMOVE"
 		"item_sealed_sword"						"REMOVE"
 		"item_khorn_sword"						"REMOVE"
-		
+		"item_spirit_vessel"						"REMOVE"
+		"item_swift_blink"	"REMOVE"
+		"item_arcane_blnik"	"REMOVE"
+		"item_aeon_disk"						"REMOVE"
+		"item_orb_of_corrosion"	"REMOVE"
+
 		"warlock_golem_flaming_fists"
 	{
 		// General

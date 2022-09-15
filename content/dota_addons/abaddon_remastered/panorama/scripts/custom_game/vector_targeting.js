@@ -20,6 +20,7 @@ var currentlyActiveVectorTargetAbility;
 const defaultAbilities = ["pangolier_swashbuckle", "clinkz_burning_army", "dark_seer_wall_of_replica", "void_spirit_aether_remnant", "broodmother_sticky_snare"];
 const ignoreAbilites = ["tusk_walrus_kick", "marci_companion_run"]
 
+
 //Mouse Callback to check whever this ability was quick casted or not
 GameUI.SetMouseCallback(function(eventName, arg, arg2, arg3)
 {
@@ -150,6 +151,7 @@ function OnVectorTargetingStart(fStartWidth, fEndWidth, fCastLength, bDual, bIgn
 	Particles.SetParticleControl(vectorTargetParticle, 1, Vector_raiseZ(worldPosition, 100));
 	Particles.SetParticleControl(vectorTargetParticle, 3, [endWidth, startWidth, ignoreArrowWidth]);
 	Particles.SetParticleControl(vectorTargetParticle, 4, [0, 255, 0]);
+	$.Msg( particleName )
 
 	//Calculate initial particle CPs
 	vectorStartPosition = worldPosition;

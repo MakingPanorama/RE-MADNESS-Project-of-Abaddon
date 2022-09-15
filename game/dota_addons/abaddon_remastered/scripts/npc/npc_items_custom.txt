@@ -6010,7 +6010,7 @@
 	{
 		"BaseClass"						"item_datadriven"
 		"Model"							"models/props_gameplay/recipe.mdl"
-		"ItemCost"						"450"
+		"ItemCost"						"1450"
 		"ItemRecipe"					"1"
 		"ItemResult"					"item_dark_flow"
 		"ItemRequirements"
@@ -6047,7 +6047,7 @@
       "02"
       {
         "var_type"         "FIELD_INTEGER"
-        "max_stacks"       "45"
+        "max_stacks"       "30"
       }
       "03"
       {
@@ -6072,12 +6072,12 @@
       "07"
       {
       	"var_type" "FIELD_INTEGER"
-      	"bonus_strength"	"24"
+      	"bonus_strength"	"50"
       }
       "08"
       {
       	"var_type"	"FIELD_INTEGER"
-      	"bonus_intellect"	"13"
+      	"bonus_intellect"	"30"
       }
       "09"
       {

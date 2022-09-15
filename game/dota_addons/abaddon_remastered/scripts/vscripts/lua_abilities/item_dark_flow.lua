@@ -24,12 +24,12 @@ function modifier_item_dark_flow:DeclareFunctions()
     MODIFIER_PROPERTY_STATS_STRENGTH_BONUS,
     MODIFIER_PROPERTY_STATS_INTELLECT_BONUS,
     MODIFIER_PROPERTY_MANA_REGEN_PERCENTAGE,
-    MODIFIER_PROPERTY_TOTAL_CONSTANT_BLOCK
+    MODIFIER_PROPERTY_PHYSICAL_CONSTANT_BLOCK
   }
   return funcs
 end
 
-function modifier_item_dark_flow:GetModifierTotal_ConstantBlock() return self.block_amount end
+function modifier_item_dark_flow:GetModifierPhysical_ConstantBlock() return self.block_amount end
 function modifier_item_dark_flow:GetModifierBonusStats_Strength() return self.bonus_str end
 function modifier_item_dark_flow:GetModifierBonusStats_Intellect() return self.bonus_int end
 function modifier_item_dark_flow:GetModifierPercentageManaRegen() return self.bonus_mana_reg end
